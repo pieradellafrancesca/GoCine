@@ -1,10 +1,21 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState, useEffect } from 'react';
+import reactLogo from './assets/react.svg';
+import viteLogo from '/vite.svg';
+import './App.css';
+
+import { db } from '../firebaseConfig';
+import { onValue, ref } from 'firebase/database';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    const query = ref(db, 'test');
+    return onValue(query, (snapShot) => {
+      const data = snapShot.val();
+      console.log(data);
+    });
+  }, []);
 
   return (
     <div className="App">
@@ -29,7 +40,7 @@ function App() {
         Click on the Vite and React logos to learn more
       </p>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
