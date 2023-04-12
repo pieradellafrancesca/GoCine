@@ -1,0 +1,18 @@
+.section {
+  margin: 0 auto;
+  padding: 80px 0px;
+  width: 75%;
+}
+
+.container {
+  padding: 0px 40px;
+}
+
+.active {
+  color: $secondary-500;
+}
+
+.link {
+  text-transform: capitalize;
+  color: $grey-50;
+}
