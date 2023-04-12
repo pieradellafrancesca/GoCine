@@ -39,4 +39,10 @@
   .clicked {
     color: white;
   }
+
+  .userSelected {
+    span {
+      color: $secondary-400;
+    }
+  }
 }

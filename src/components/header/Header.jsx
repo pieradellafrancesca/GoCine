@@ -3,8 +3,7 @@ import { BiSearch } from "react-icons/bi";
 import { IoNotificationsOutline } from "react-icons/io5";
 import { useState } from "react";
 
-const Header = ({ username }) => {
-  const [userSelected, setUserSelected] = useState(false);
+const Header = ({ username, userSelected, setUserSelected }) => {
   const [iconSelected, setIconSelected] = useState("");
 
   const onHandleUserCLick = () => {
@@ -19,7 +18,12 @@ const Header = ({ username }) => {
     <div className={styles.Header}>
       <div className={styles.userInfo}>
         <p>User</p>
-        <h4 onClick={onHandleUserCLick} className={styles.username}>
+        <h4
+          onClick={onHandleUserCLick}
+          className={`${styles.username} ${
+            userSelected && styles.userSelected
+          }`}
+        >
           {username}
           <span>{userSelected ? "▴" : "▾"}</span>
         </h4>
