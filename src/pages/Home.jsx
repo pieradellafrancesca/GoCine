@@ -1,5 +1,6 @@
-import styles from '../scss/pages/index.module.scss';
-import Navbar from '../components/navbar/Navbar';
+import styles from "../scss/pages/index.module.scss";
+import Navbar from "../components/navbar/Navbar";
+import Footer from "../components/footer";
 
 const Home = () => {
   return (
@@ -8,6 +9,7 @@ const Home = () => {
     >
       <Navbar />
       <h1>Home Page</h1>
+      <Footer />
     </section>
   );
 };
