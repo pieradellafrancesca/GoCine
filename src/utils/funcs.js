@@ -4,6 +4,10 @@ export const numFormat = (num) => {
     : Math.sign(num) * Math.abs(num);
 };
 
+//---------------------------------------------------//
+// Per la Info Page
+//---------------------------------------------------//
+
 export const convertMinsToHrsMins = (mins) => {
   let h = Math.floor(mins / 60);
   let m = mins % 60;
@@ -30,4 +34,20 @@ export const arrayShortener = (arr = []) => {
     movieGenres = [...emptyArr];
     return movieGenres;
   }
+};
+
+export const sortDate = (arr) => {
+  const arrayDate = arr?.split("-");
+  let day = arrayDate[2];
+  const month = arrayDate[1];
+  const years = arrayDate[0];
+
+  day[0] === "0" && (day = day.substring(1));
+
+  const fullMonth = Intl.DateTimeFormat("it", { month: "long" }).format(
+    new Date(month)
+  );
+
+  const sortedDate = `${day} ${fullMonth}, ${years}`;
+  return sortedDate;
 };

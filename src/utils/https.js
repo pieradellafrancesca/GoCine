@@ -1,4 +1,5 @@
 const BASE_URL = "https://api.themoviedb.org/3/";
+const YOUTUBE_BASE_URL = "https://www.youtube.com/watch?v=";
 const API_KEY = import.meta.env.VITE_MOVIE_API_KEY;
 
 export const GET = async (resource) => {
@@ -19,6 +20,18 @@ export const GET_GENRES = async () => {
   const res = await fetch(`${BASE_URL}genre/movie/list?api_key=${API_KEY}`);
   const data = await res.json();
   return data;
+};
+
+export const GET_VIDEOS = async (movieId) => {
+  const res = await fetch(
+    `${BASE_URL}movie/${movieId}/videos?api_key=${API_KEY}`
+  );
+  const data = await res.json();
+  const {
+    results: [{ key }],
+  } = await data;
+  const URL_YOUTUBE = YOUTUBE_BASE_URL + key;
+  return URL_YOUTUBE;
 };
 
 // GET POPULAR
