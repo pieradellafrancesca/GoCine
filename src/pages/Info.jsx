@@ -1,5 +1,5 @@
-import NavButton from '../components/navButton';
-import styles from '../scss/pages/index.module.scss';
+import NavButton from "../components/navButton";
+import styles from "../scss/pages/index.module.scss";
 
 const Info = () => {
   return (
