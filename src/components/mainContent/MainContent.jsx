@@ -1,16 +1,15 @@
-import styles from './index.module.scss';
-import { data, popularData } from '../../utils/mock/mock';
-import CardList from '../cardList';
-import Categories from '../categories';
+import styles from "./index.module.scss";
+import CardList from "../cardList";
+import Categories from "../categories";
 
 export default function MainContent() {
   return (
     <div className={styles.MainContent}>
       <Categories />
-      <CardList data={data}>
+      <CardList endpoint={"now_playing"}>
         <h2 className={styles.catTitle}>now playing</h2>
       </CardList>
-      <CardList data={popularData}>
+      <CardList endpoint={"popular"}>
         <h2 className={styles.catTitle}>popular</h2>
       </CardList>
     </div>
