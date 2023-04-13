@@ -3,6 +3,8 @@ import styles from "../scss/pages/index.module.scss";
 import Navbar from "../components/navbar/Navbar";
 import Header from "../components/header";
 import UserMiniModal from "../components/userMiniModal";
+import MainContent from '../components/mainContent';
+
 
 const Home = () => {
   const [userSelected, setUserSelected] = useState(false);
@@ -19,6 +21,7 @@ const Home = () => {
       <UserMiniModal userSelected={userSelected} />
       <Navbar />
       <h1>Home Page</h1>
+      <MainContent />
     </section>
   );
 };
