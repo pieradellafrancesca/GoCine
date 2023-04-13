@@ -1,0 +1,49 @@
+.Header {
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  height: 80px;
+  width: 96vw;
+  color: $primary-100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .userInfo {
+    p {
+      margin: 0;
+    }
+
+    h4 {
+      font-weight: 600;
+      margin: 0;
+      color: $primary-50;
+      position: relative;
+      cursor: pointer;
+    }
+  }
+
+  .icons {
+    font-size: 2em;
+
+    & > * {
+      margin: 0 10px;
+      cursor: pointer;
+      transition: color 0.4s ease;
+
+      &:hover {
+        color: $secondary-300;
+      }
+    }
+  }
+
+  .clicked {
+    color: white;
+  }
+
+  .userSelected {
+    span {
+      color: $secondary-400;
+    }
+  }
+}
