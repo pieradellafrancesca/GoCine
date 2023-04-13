@@ -1,0 +1,40 @@
+.Info {
+  .upSection {
+    background-color: white;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+
+    .trailerSection {
+      height: 58%;
+      overflow: hidden;
+
+      .posterPath {
+        width: 100%;
+        object-fit: contain;
+        transition: transform 2s ease;
+
+        &:hover {
+          transform: translateY(calc(-100vw + 50px));
+        }
+      }
+    }
+
+    .infoMovie {
+      border: solid blue 1px;
+
+      .title {
+      }
+
+      .otherInfo {
+      }
+
+      .voteInfo {
+      }
+
+      & > * {
+        text-align: center;
+      }
+    }
+  }
+}
