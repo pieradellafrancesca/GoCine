@@ -1,0 +1,39 @@
+@import "../../scss/helpers/resolutions";
+.Hero {
+  height: 550px;
+  width: 100%;
+  margin: 40px 0;
+  ::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+  }
+  .imageContainer {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    height: 100%;
+    overflow: scroll;
+    scroll-snap-points-x: repeat(100vw);
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+
+    .singleImage {
+      min-width: 100%;
+      border-radius: $borderRadius;
+      scroll-snap-align: center;
+      box-shadow: $shadow-4;
+      img {
+        width: 100%;
+        height: 100%;
+        border-radius: $borderRadius;
+        object-fit: cover;
+        filter: saturate(1.25);
+      }
+    }
+  }
+}
+
+// @include mobile {
+//   .Hero {
+//   }
+// }
