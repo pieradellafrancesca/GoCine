@@ -1,0 +1,36 @@
+.Categories {
+  height: 6.5rem;
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  overflow: scroll;
+  scroll-behavior: smooth;
+  scroll-snap-points-x: repeat(100vw);
+  scroll-snap-type: x mandatory;
+
+  .btn {
+    padding: 12.25px 17.25px;
+    font-size: $small-text;
+    letter-spacing: $letterSpacing;
+    border-radius: 1.75rem;
+    background: transparent;
+    color: $secondary-500;
+    border: 0.9px solid $secondary-500;
+    white-space: nowrap;
+    transition: $transition;
+    cursor: pointer;
+    scroll-snap-align: start;
+
+    &:hover {
+      background-color: $secondary-500;
+      color: $grey-50;
+    }
+
+    &:focus {
+      background-color: $secondary-500;
+      color: $grey-50;
+    }
+  }
+}
