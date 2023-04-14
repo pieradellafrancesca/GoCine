@@ -28,15 +28,22 @@ const Info = () => {
   }, [dataMovie]);
 
   const space = " ";
+  console.log(trailerLink);
+  const linkVideo = true; // per il test poi sostituire con il valore relativo
 
   return (
     <section className={`${styles.Info} flex flex-column`}>
       <div className={styles.upSection}>
         <div className={styles.trailerSection}>
-          {dataMovie?.video ? (
+          {linkVideo ? (
             <>
-              <video src={trailerLink} className={styles.trailer}></video>
-              {/* TODO: Vedi https://stackoverflow.com/questions/62124288/how-to-load-and-play-a-youtube-video-in-react */}
+              <iframe
+                className="video"
+                title="Youtube player"
+                sandbox="allow-same-origin allow-forms allow-popups allow-scripts allow-presentation"
+                src={`${trailerLink}?autoplay=1`}
+              ></iframe>
+              {/* Ho utilizzato il frame perchè è ottimizzato con react */}
             </>
           ) : (
             <>

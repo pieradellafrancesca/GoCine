@@ -15,7 +15,7 @@ const Cast = ({ person }) => {
 };
 export default Cast;
 
-// const pippo = {
+// const person = {
 //   adult: false,
 //   gender: 2,
 //   id: 135651,

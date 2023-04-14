@@ -1,5 +1,5 @@
 const BASE_URL = "https://api.themoviedb.org/3/";
-const YOUTUBE_BASE_URL = "https://www.youtube.com/watch?v=";
+const YOUTUBE_BASE_URL = "https://youtube.com/embed/";
 export const IMG_BASE_URL = (path) => {
   const imgUrl = "https://image.tmdb.org/t/p/original" + path;
   return imgUrl;
