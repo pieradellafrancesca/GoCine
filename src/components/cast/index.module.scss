@@ -1,2 +1,17 @@
 .Cast {
+  width: 150px;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 50%;
+  object-position: 0 15%;
+  cursor: pointer;
+  border: solid $secondary-700 2px;
+  box-shadow: 6px 7px 6px #00000087;
+  filter: grayscale(0.2);
+  transition: all 0.35s ease-in-out;
+
+  &:hover {
+    transform: scale(1.2);
+    filter: grayscale(0);
+  }
 }
