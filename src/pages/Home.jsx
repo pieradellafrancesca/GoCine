@@ -8,28 +8,32 @@ import MainContent from "../components/mainContent";
 import Hero from "../components/hero";
 
 
-
 const Home = () => {
   const [userSelected, setUserSelected] = useState(false);
 
   return (
-    <section
-      className={`${styles.Home} section flex flex-column justify-content-center align-items-center`}
-    >
+    <section>
       <Header
         username="Casimimmo"
         userSelected={userSelected}
         setUserSelected={setUserSelected}
       />
       <UserMiniModal userSelected={userSelected} />
-      <Navbar />
-      <h1>Home Page</h1>
-
+      {/* <Navbar /> */}
+      {/* <h1>Home Page</h1> */}
 
       <Hero />
+
+      <div
+        className={`${styles.Home} section flex flex-column justify-content-center align-items-center`}
+      >
+
       <MainContent />
       <Footer />
 
+
+        <Footer />
+      </div>
     </section>
   );
 };

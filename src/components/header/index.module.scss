@@ -1,13 +1,15 @@
 .Header {
   box-sizing: border-box;
-  position: absolute;
-  top: 0;
+  // position: absolute;
+  // top: 0;
   height: 80px;
-  width: 96vw;
+  width: 100vw;
   color: $primary-100;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  text-shadow: 0 0 4px black;
+  box-shadow: 0 0 4px black;
 
   .userInfo {
     p {

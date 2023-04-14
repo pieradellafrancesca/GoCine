@@ -1,8 +1,17 @@
+@import "../../scss/helpers/resolutions";
+
 .MainContent {
   width: 100%;
   padding: 20px;
+  margin-top: 650px;
 
   .catTitle {
     color: $secondary-50;
+  }
+}
+
+@include mobile {
+  .MainContent {
+    margin-top: 0;
   }
 }
