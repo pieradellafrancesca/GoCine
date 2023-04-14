@@ -7,6 +7,7 @@ import UserMiniModal from "../components/userMiniModal";
 import MainContent from "../components/mainContent";
 import Hero from "../components/hero";
 
+
 const Home = () => {
   const [userSelected, setUserSelected] = useState(false);
 
@@ -22,10 +23,14 @@ const Home = () => {
       {/* <h1>Home Page</h1> */}
 
       <Hero />
+
       <div
         className={`${styles.Home} section flex flex-column justify-content-center align-items-center`}
       >
-        <MainContent />
+
+      <MainContent />
+      <Footer />
+
 
         <Footer />
       </div>
