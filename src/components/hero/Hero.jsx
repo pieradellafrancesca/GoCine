@@ -12,8 +12,8 @@ const Hero = () => {
       <div className={styles.imageContainer}>
         {image.map((image, index) => {
           return (
-            <div className={styles.singleImage}>
-              <img key={index} src={image} alt={index} />
+            <div className={styles.singleImage} key={index}>
+              <img src={image} alt={index} />
             </div>
           );
         })}
