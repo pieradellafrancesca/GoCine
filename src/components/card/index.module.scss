@@ -1,3 +1,4 @@
+@import "../../scss/helpers/resolutions";
 :root {
   --star-size: 20px;
 }
@@ -65,7 +66,7 @@
         border-radius: $borderRadius;
 
         &::before {
-          content: '★★★★★';
+          content: "★★★★★";
           letter-spacing: 3px;
           background: linear-gradient(
             90deg,
@@ -81,5 +82,11 @@
       color: $secondary-50;
       letter-spacing: $letterSpacing;
     }
+  }
+}
+
+@include mobile {
+  .Card {
+    min-width: 155px;
   }
 }

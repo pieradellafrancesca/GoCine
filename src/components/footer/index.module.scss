@@ -4,11 +4,11 @@
   display: flex;
   height: 60px;
   width: 100%;
-  position: absolute;
-  bottom: 0;
+  // position: absolute;
+  // bottom: 0;
   align-items: center;
   justify-content: center;
-  background-color: $primary-500;
+  background-color: transparent;
 
   .footerList {
     display: flex;
@@ -18,7 +18,7 @@
     cursor: pointer;
 
     :hover {
-      color: $secondary-300;
+      color: $secondary-400;
       transition: all 0.5s;
     }
     .listItem {
@@ -34,9 +34,9 @@
 
 @include desktop {
   .Footer {
+    position: absolute;
     left: 0;
-    // la barra partirà dall'inizio di content
-    top: calc(0px + 200px);
+    top: 600px;
     height: 600px;
     width: 200px;
     .footerList {

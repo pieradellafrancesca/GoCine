@@ -1,16 +1,20 @@
 @import "../../scss/helpers/resolutions";
 .Hero {
-  height: 550px;
+  height: 700px;
   width: 100%;
-  margin: 40px 0;
+  // margin: 40px 0;
+
+  position: absolute;
+  top: 0;
+  z-index: -1;
   ::-webkit-scrollbar {
     width: 0px;
     background: transparent;
   }
   .imageContainer {
     display: flex;
-    gap: 20px;
-    padding: 20px;
+    // gap: 20px;
+    // padding: 20px;
     height: 100%;
     overflow: scroll;
     scroll-snap-points-x: repeat(100vw);
@@ -33,7 +37,11 @@
   }
 }
 
-// @include mobile {
-//   .Hero {
-//   }
-// }
+@include mobile {
+  .Hero {
+    width: 60%;
+    height: 300px;
+    position: static;
+    margin-left: 20%;
+  }
+}
