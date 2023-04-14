@@ -9,7 +9,7 @@ import {
   sortDate,
 } from "../utils/funcs";
 import BackToHomeBtn from "../components/backToHomeBtn/BackToHomeBtn";
-import CastList from "../components/castList/CastList/";
+import CastList from "../components/castList";
 // In data 14 aprile il componente CastList viene renderizzato correttamente solo quando importato in questo modo
 // import CastList from "../components/castList/CastList/";
 // Probabilmente è legato al fatto che è stato modificato il nome del componente da castList.jsx a Castlist.jsx
@@ -88,7 +88,7 @@ const Info = () => {
         </div>
         <div className={styles.cast}>
           <h5>Cast</h5>
-          <CastList />
+          <CastList info={info} />
         </div>
         <button className={styles.buyTicketBtn}>Book Tickets</button>
       </div>
