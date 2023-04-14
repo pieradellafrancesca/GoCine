@@ -1,0 +1,46 @@
+.FormInput {
+  position: relative;
+  border: 0.9px solid $grey-500;
+  border-radius: $borderRadius;
+  width: 100%;
+  max-width: 300px;
+  height: 2.75rem;
+  margin: 0 auto;
+  margin-bottom: 2.5rem;
+
+  .input {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    background-color: transparent;
+    padding: 0 20px;
+    letter-spacing: $letterSpacing;
+    color: $grey-50;
+
+    &:focus {
+      outline: none;
+    }
+
+    &::placeholder {
+      font-size: 0.75rem;
+      color: $grey-500;
+      text-transform: capitalize;
+    }
+
+    &:focus::placeholder {
+      color: transparent;
+    }
+  }
+
+  .subInput {
+    width: 100%;
+    height: 100%;
+    border-radius: $borderRadius;
+    background-color: $purple;
+    color: $grey-50;
+    font-weight: bold;
+    letter-spacing: $letterSpacing;
+    border: 0;
+    cursor: pointer;
+  }
+}

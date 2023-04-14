@@ -1,0 +1,62 @@
+.SignupForm {
+  position: relative;
+  width: 35rem;
+  height: 50rem;
+  background-color: $primary-900;
+  border-radius: $borderRadius;
+  box-shadow: $shadow-4;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  @include mobile {
+    width: 100%;
+    box-shadow: none;
+  }
+
+  .title {
+    color: $purple;
+  }
+
+  .text {
+    color: $grey-50;
+    letter-spacing: $letterSpacing;
+    font-weight: 100;
+    span {
+      color: $purple;
+      cursor: pointer;
+    }
+
+    .checkbox {
+      cursor: pointer;
+      margin-right: 1.25rem;
+    }
+  }
+
+  .backBtn {
+    position: absolute;
+    top: 1.25rem;
+    left: 1.25rem;
+    padding: 0.45rem;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 0;
+    font-size: 1.75rem;
+  }
+
+  .form {
+    width: 100%;
+    margin-top: 2.5rem;
+
+    .icons {
+      position: absolute;
+      right: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.25rem;
+      font-weight: 100;
+      color: $grey-50;
+    }
+  }
+}

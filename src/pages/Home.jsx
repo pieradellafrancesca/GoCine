@@ -8,6 +8,7 @@ import MainContent from "../components/mainContent";
 import Hero from "../components/hero";
 
 
+
 const Home = () => {
   const [userSelected, setUserSelected] = useState(false);
 
@@ -27,14 +28,7 @@ const Home = () => {
 
       <Hero />
       <MainContent />
-
-     
-
-
-      
-      
- <Footer />
-
+      <Footer />
 
     </section>
   );
