@@ -1,20 +1,18 @@
-
-import { useState } from "react";
-import styles from "../scss/pages/index.module.scss";
-import Navbar from "../components/navbar/Navbar";
-import Footer from "../components/footer";
-import Header from "../components/header";
-import UserMiniModal from "../components/userMiniModal";
+import { useState } from 'react';
+import styles from '../scss/pages/index.module.scss';
+import Navbar from '../components/navbar/Navbar';
+import Footer from '../components/footer';
+import Header from '../components/header';
+import UserMiniModal from '../components/userMiniModal';
 import MainContent from '../components/mainContent';
-import Hero from "../components/hero";
-
+import Hero from '../components/hero';
 
 const Home = () => {
   const [userSelected, setUserSelected] = useState(false);
 
   return (
     <section
-    // className={`${styles.Home} section flex flex-column justify-content-center align-items-center`}
+      className={`${styles.Home} section flex flex-column justify-content-center align-items-center`}
     >
       <Header
         username="Casimimmo"
@@ -25,13 +23,9 @@ const Home = () => {
       <Navbar />
       <h1>Home Page</h1>
 
-     
-
-
-      <Hero/>
+      <Hero />
       <MainContent />
- <Footer />
-
+      <Footer />
     </section>
   );
 };

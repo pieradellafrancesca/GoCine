@@ -12,7 +12,7 @@ const Navbar = () => {
       </NavLink>
 
       <NavLink
-        to="/authentication"
+        to="/auth"
         className={({ isActive }) => (isActive ? 'active' : 'link')}
       >
         Auth
