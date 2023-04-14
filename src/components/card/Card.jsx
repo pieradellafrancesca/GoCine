@@ -1,9 +1,15 @@
-import { numFormat } from '../../utils/funcs';
-import styles from './index.module.scss';
+import { numFormat } from "../../utils/funcs";
+import { useNavigate } from "react-router-dom";
+import styles from "./index.module.scss";
 
 export default function Card({ data }) {
+  const navigate = useNavigate();
+  const onHandleClick = () => {
+    navigate(`/${data.id}`);
+  };
+
   return (
-    <div className={styles.Card}>
+    <div onClick={onHandleClick} className={styles.Card}>
       <div className={styles.imgWrapper}>
         <div className={styles.imgOverlay}></div>
         <img
@@ -17,7 +23,7 @@ export default function Card({ data }) {
           <div
             className={styles.voteAverage}
             style={{
-              '--rating': `${data.vote_average}`,
+              "--rating": `${data.vote_average}`,
             }}
           ></div>
           <span className={styles.voteCount}>{`(${numFormat(

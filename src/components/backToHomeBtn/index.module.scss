@@ -1,0 +1,20 @@
+.BackToHomeBtn {
+  box-sizing: border-box;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  border: none;
+  font-size: 2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $primary-400;
+  background-color: $primary-300-alpha;
+  cursor: pointer;
+  transition: color 0.35s ease;
+
+  &:hover {
+    filter: brightness(1.3);
+    color: $primary-200;
+  }
+}

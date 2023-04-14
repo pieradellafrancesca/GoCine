@@ -1,0 +1,124 @@
+.Info {
+  .upSection {
+    color: $primary-50;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    .trailerSection {
+      height: 58%;
+      overflow: hidden;
+
+      .posterPath {
+        width: 100%;
+        object-fit: contain;
+        transition: transform 2s ease;
+
+        &:hover {
+          transform: translateY(calc(-100vw + 50px));
+        }
+      }
+    }
+
+    .infoMovie {
+      .title {
+        padding-top: 10px;
+      }
+
+      .otherInfo {
+      }
+
+      .voteInfo {
+        .voteAverage {
+          --percent: calc(var(--rating) / 10 * 100%);
+
+          display: inline-block;
+          font-size: var(--star-size);
+          font-family: Times;
+          line-height: 1;
+          border-radius: $borderRadius;
+
+          &::before {
+            content: "★★★★★";
+            letter-spacing: 3px;
+            background: linear-gradient(
+              90deg,
+              $purple var(--percent),
+              $secondary-50 var(--percent)
+            );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+          }
+        }
+
+        .voteCount {
+          color: $secondary-50;
+          letter-spacing: $letterSpacing;
+        }
+      }
+
+      & > * {
+        text-align: center;
+      }
+    }
+  }
+
+  .BackToHomeBtnContainer {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+
+  // -----------------Da qui comincia il codice di Andrea
+
+  .container {
+    position: relative;
+
+    width: 100%;
+    height: 500px;
+    .description {
+      width: 100%;
+      height: 300px;
+      line-height: 20px;
+    }
+    .cast {
+      width: 100%;
+      height: 200px;
+    }
+    .imageCast {
+      margin-left: 10px;
+      width: 40px;
+      height: 40px;
+      border-radius: 100%;
+      object-fit: cover;
+    }
+    .btn {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 12.25px 17.25px;
+      font-size: $small-text;
+      letter-spacing: $letterSpacing;
+      border-radius: 1.75rem;
+      background: transparent;
+      color: $secondary-500;
+      border: 0.9px solid $secondary-500;
+      white-space: nowrap;
+      transition: $transition;
+      cursor: pointer;
+      scroll-snap-align: start;
+
+      &:hover {
+        background-color: $secondary-500;
+        color: $grey-50;
+      }
+
+      &:focus {
+        background-color: $secondary-500;
+        color: $grey-50;
+      }
+    }
+  }
+}
