@@ -4,6 +4,7 @@
     height: 60vh;
     display: flex;
     flex-direction: column;
+    position: relative;
 
     .trailerSection {
       height: 58%;
@@ -22,6 +23,7 @@
 
     .infoMovie {
       .title {
+        padding-top: 10px;
       }
 
       .otherInfo {
@@ -60,5 +62,11 @@
         text-align: center;
       }
     }
+  }
+
+  .BackToHomeBtnContainer {
+    position: absolute;
+    top: 10px;
+    left: 10px;
   }
 }

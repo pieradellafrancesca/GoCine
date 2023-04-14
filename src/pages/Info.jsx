@@ -7,6 +7,8 @@ import {
   arrayShortener,
   sortDate,
 } from "../utils/funcs";
+import BackToHomeBtn from "../components/backToHomeBtn/BackToHomeBtn";
+import { Link } from "react-router-dom";
 
 const Info = () => {
   const [dataMovie, setDataMovie] = useState({});
@@ -15,7 +17,7 @@ const Info = () => {
   const pippo = "15789";
 
   useEffect(() => {
-    GET("19").then((data) => setDataMovie(data));
+    GET(pippo).then((data) => setDataMovie(data));
   }, []);
 
   useEffect(() => {
@@ -70,8 +72,12 @@ const Info = () => {
               dataMovie.vote_count
             )})`}</span>
           </div>
-          {/* TODO: creare button "back-to-home" */}
         </div>
+      </div>
+      <div className={styles.BackToHomeBtnContainer}>
+        <Link to="/">
+          <BackToHomeBtn />
+        </Link>
       </div>
     </section>
   );
