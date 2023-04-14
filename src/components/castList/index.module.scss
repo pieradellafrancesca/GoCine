@@ -1,2 +1,8 @@
 .CastList {
+  height: 200px;
+  display: flex;
+  overflow-y: scroll;
+  gap: 30px;
+  padding: 40px;
+  scroll-behavior: smooth;
 }

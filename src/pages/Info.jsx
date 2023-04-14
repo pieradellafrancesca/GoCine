@@ -1,5 +1,5 @@
 import styles from "../scss/pages/info.module.scss";
-import { GET, GET_VIDEOS } from "../utils/https";
+import { GET, GET_VIDEOS, IMG_BASE_URL } from "../utils/https";
 import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import {
@@ -9,48 +9,23 @@ import {
   sortDate,
 } from "../utils/funcs";
 import BackToHomeBtn from "../components/backToHomeBtn/BackToHomeBtn";
+import CastList from "../components/castList/CastList/";
+// In data 14 aprile il componente CastList viene renderizzato correttamente solo quando importato in questo modo
+// import CastList from "../components/castList/CastList/";
+// Probabilmente è legato al fatto che è stato modificato il nome del componente da castList.jsx a Castlist.jsx
 
 const Info = () => {
   const [dataMovie, setDataMovie] = useState({});
   const [trailerLink, setTrailerLink] = useState("");
-  const [infoDescription, setInfoDescription] = useState({});
-  const [infoCast, setInfoCast] = useState({});
   const { info } = useParams();
-
-  const pippo = "15789";
 
   useEffect(() => {
     GET(info).then((data) => setDataMovie(data));
   }, []);
 
   useEffect(() => {
-    GET_VIDEOS("15789").then((video) => setTrailerLink(video));
+    GET_VIDEOS(info).then((video) => setTrailerLink(video));
   }, [dataMovie]);
-
-  useEffect(() => {
-    GET("15789").then((data) => setInfoDescription(data));
-  }, []);
-
-  // ATTENZIONE!!!
-  // useEffect(() => {
-  //   fetch(
-  //     https://api.themoviedb.org/3/movie/${15789}/credits?api_key=391dd5367d82bf498fbd0e575905a684
-  //   )
-  //     .then((res) => res.json())
-  //     .then((data) => setInfoCast(data));
-  // }, []);
-
-  // console.log(infoCast);
-
-  const IMG_BASE_URL = (poster_path) => {
-    const imgUrl = "https://image.tmdb.org/t/p/original" + poster_path;
-    return imgUrl;
-  };
-
-  // const IMG_CAST_BASE_URL = (poster_path) => {
-  //   const imgUrl = "https://image.tmdb.org/t/p/original" + poster_path;
-  //   return imgUrl;
-  // };
 
   const space = " ";
 
@@ -82,7 +57,6 @@ const Info = () => {
             {convertMinsToHrsMins(dataMovie.runtime)} • {space}
             {arrayShortener(dataMovie.genres).join(", ")} • {space}
             {dataMovie.release_date && sortDate(dataMovie.release_date)}{" "}
-            {/* TODO: chiedere a Giuseppe */}
           </p>
           <div className={styles.voteInfo}>
             <div
@@ -102,26 +76,21 @@ const Info = () => {
           <BackToHomeBtn />
         </Link>
       </div>
-      {/* DOWN_SECTION */}
-      <div className={styles.container}>
-        <div className={styles.description}>
+
+      {/* --------------------------------------------------- */}
+
+      <div className={styles.downSection}>
+        <div
+          className={`${styles.description} flex flex-column align-items-center justify-content-center`}
+        >
           <h5>About the movie</h5>
-          <p>{infoDescription.overview}</p>
+          <p>{dataMovie.overview}</p>
         </div>
         <div className={styles.cast}>
           <h5>Cast</h5>
-          {/* <img
-            className={styles.imageCast}
-            src={IMG_CAST_BASE_URL(infoCast.cast[0].profile_path)}
-            alt={infoCast.name}
-          /> /}
-          {/ <img
-            className={styles.imageCast}
-            src={https://image.tmdb.org/t/p/original/${infoCast.cast[2].profile_path}}
-            alt="title"
-          /> */}
-          <button className={styles.btn}>Book Tickets</button>
+          <CastList />
         </div>
+        <button className={styles.buyTicketBtn}>Book Tickets</button>
       </div>
     </section>
   );

@@ -1,5 +1,10 @@
 const BASE_URL = "https://api.themoviedb.org/3/";
 const YOUTUBE_BASE_URL = "https://www.youtube.com/watch?v=";
+export const IMG_BASE_URL = (path) => {
+  const imgUrl = "https://image.tmdb.org/t/p/original" + path;
+  return imgUrl;
+};
+
 const API_KEY = import.meta.env.VITE_MOVIE_API_KEY;
 
 export const GET = async (resource) => {
@@ -32,6 +37,14 @@ export const GET_VIDEOS = async (movieId) => {
   } = await data;
   const URL_YOUTUBE = YOUTUBE_BASE_URL + key;
   return URL_YOUTUBE;
+};
+
+export const GET_CAST = async (movieId) => {
+  const res = await fetch(
+    `${BASE_URL}movie/${movieId}/credits?api_key=${API_KEY}`
+  );
+  const data = await res.json();
+  return data;
 };
 
 // GET POPULAR
