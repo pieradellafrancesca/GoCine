@@ -1,6 +1,7 @@
 import { numFormat } from "../../utils/funcs";
 import { useNavigate } from "react-router-dom";
 import styles from "./index.module.scss";
+import VoteStars from "../voteStars";
 
 export default function Card({ data }) {
   const navigate = useNavigate();
@@ -20,12 +21,7 @@ export default function Card({ data }) {
       <div className={styles.textInfo}>
         <h5 className={styles.title}>{data.title}</h5>
         <div className={styles.ratingsWrapper}>
-          <div
-            className={styles.voteAverage}
-            style={{
-              "--rating": `${data.vote_average}`,
-            }}
-          ></div>
+          <VoteStars data={data} />
           <span className={styles.voteCount}>{`(${numFormat(
             data.vote_count
           )})`}</span>
