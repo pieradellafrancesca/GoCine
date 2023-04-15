@@ -28,12 +28,12 @@ const Info = () => {
   }, [dataMovie]);
 
   const space = " ";
-  console.log(trailerLink);
+
   const linkVideo = true; // per il test poi sostituire con il valore relativo
 
   return (
     <section className={`${styles.Info} flex flex-column`}>
-      <div className={styles.upSection}>
+      <div className={`${styles.upSection} ${linkVideo && styles.fillScreen}`}>
         <div className={styles.trailerSection}>
           {linkVideo ? (
             <>

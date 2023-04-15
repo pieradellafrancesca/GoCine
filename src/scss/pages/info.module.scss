@@ -1,11 +1,16 @@
 .Info {
   margin-bottom: 100px;
+
   .upSection {
     color: $primary-50;
-    height: 60vh;
     display: flex;
+    height: 60vh;
     flex-direction: column;
     position: relative;
+
+    @include mobile {
+      height: 60vh;
+    }
 
     .trailerSection {
       height: 58%;
@@ -16,6 +21,7 @@
         width: 100%;
         height: 100%;
         overflow: hidden !important;
+        border: none;
       }
 
       .posterPath {
@@ -68,6 +74,15 @@
 
       & > * {
         text-align: center;
+      }
+    }
+  }
+
+  @include desktop {
+    .fillScreen {
+      height: 120vh;
+      .trailerSection {
+        height: 100vh;
       }
     }
   }
