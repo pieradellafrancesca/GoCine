@@ -1,6 +1,6 @@
 import styles from "./index.module.scss";
 import { BiSearch } from "react-icons/bi";
-import { IoNotificationsOutline } from "react-icons/io5";
+// import { IoNotificationsOutline } from "react-icons/io5";
 import { useState } from "react";
 
 const Header = ({ username, userSelected, setUserSelected }) => {
@@ -34,11 +34,11 @@ const Header = ({ username, userSelected, setUserSelected }) => {
           onClick={(e) => onHandleIconCLick(e.target.id)}
           className={iconSelected === "searchIcon" && styles.clicked}
         />
-        <IoNotificationsOutline
+        {/* <IoNotificationsOutline
           id="notIcon"
           onClick={(e) => onHandleIconCLick(e.target.id)}
           className={iconSelected === "notIcon" && styles.clicked}
-        />
+        /> */}
       </div>
     </div>
   );
