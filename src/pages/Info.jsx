@@ -21,7 +21,10 @@ const Info = () => {
   const { info } = useParams();
 
   useEffect(() => {
-    GET(info).then((data) => setDataMovie(data));
+    window.scrollTo(0, 0); // con questo metodo riportiamo la pagina info alla posizione iniziale (scroll)
+    GET(info)
+      .then((data) => setDataMovie(data))
+      .then();
   }, []);
 
   useEffect(() => {
@@ -106,3 +109,5 @@ const Info = () => {
 };
 
 export default Info;
+
+//       console.log(window.pageYOffset);
