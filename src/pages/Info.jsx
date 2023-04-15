@@ -10,6 +10,7 @@ import {
 } from "../utils/funcs";
 import BackToHomeBtn from "../components/backToHomeBtn/BackToHomeBtn";
 import CastList from "../components/castList";
+import VoteStars from "../components/voteStars";
 // In data 14 aprile il componente CastList viene renderizzato correttamente solo quando importato in questo modo
 // import CastList from "../components/castList/CastList/";
 // Probabilmente è legato al fatto che è stato modificato il nome del componente da castList.jsx a Castlist.jsx
@@ -66,12 +67,13 @@ const Info = () => {
             {dataMovie.release_date && sortDate(dataMovie.release_date)}{" "}
           </p>
           <div className={styles.voteInfo}>
-            <div
+            {/* <div
               className={styles.voteAverage}
               style={{
                 "--rating": `${dataMovie.vote_average}`,
               }}
-            ></div>
+            ></div> */}
+            <VoteStars data={dataMovie} />
             <span className={styles.voteCount}>{`(${numFormat(
               dataMovie.vote_count
             )})`}</span>

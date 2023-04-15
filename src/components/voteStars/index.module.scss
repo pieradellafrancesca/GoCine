@@ -1,0 +1,21 @@
+.VoteStars {
+  --percent: calc(var(--rating) / 10 * 100%);
+
+  display: inline-block;
+  font-size: var(--star-size);
+  font-family: Times;
+  line-height: 1;
+  border-radius: $borderRadius;
+
+  &::before {
+    content: "★★★★★";
+    letter-spacing: 3px;
+    background: linear-gradient(
+      90deg,
+      $purple var(--percent),
+      $secondary-50 var(--percent)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
