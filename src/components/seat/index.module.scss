@@ -1,0 +1,20 @@
+.Seat {
+  background-color: $grey-50;
+  border: 2px solid $white;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.reserved {
+  background-color: $purple;
+  box-shadow: 0 0 8px 8px $primary-500 inset;
+}
+
+.selected {
+  background-color: $light-blue;
+}
