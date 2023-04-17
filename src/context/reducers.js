@@ -1,6 +1,6 @@
 export const mainReducer = (state, action) => {
   switch (action.type) {
-    case 'SET_USERNAME':
+    case "SET_USERNAME":
       return {
         ...state,
         tempForm: {
@@ -9,7 +9,7 @@ export const mainReducer = (state, action) => {
         },
       };
 
-    case 'SET_EMAIL':
+    case "SET_EMAIL":
       return {
         ...state,
         tempForm: {
@@ -18,7 +18,7 @@ export const mainReducer = (state, action) => {
         },
       };
 
-    case 'SET_PASSWORD':
+    case "SET_PASSWORD":
       return {
         ...state,
         tempForm: {
@@ -27,7 +27,7 @@ export const mainReducer = (state, action) => {
         },
       };
 
-    case 'SET_PASSWORD_COPY':
+    case "SET_PASSWORD_COPY":
       return {
         ...state,
         tempForm: {
@@ -36,7 +36,7 @@ export const mainReducer = (state, action) => {
         },
       };
 
-    case 'SET_FORM_SWITCH':
+    case "SET_FORM_SWITCH":
       return {
         ...state,
         formSwitch: action.payload,
