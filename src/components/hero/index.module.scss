@@ -2,7 +2,7 @@
 .Hero {
   height: 700px;
   width: 100%;
-  margin-top: 20px;
+  // margin-top: 20px;
   z-index: -2;
   ::-webkit-scrollbar {
     width: 0px;
@@ -40,6 +40,7 @@
     width: 60%;
     height: 300px;
     margin-left: 20%;
+    margin-top: 80px;
     .singleImage {
       img {
         border-radius: $borderRadius;
