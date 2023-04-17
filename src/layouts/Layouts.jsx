@@ -11,6 +11,9 @@ const Layouts = () => {
 
   return (
     <div className={styles.Layouts}>
+
+      {/* <Navbar /> */}
+
       <Header
         username="Casimimmo"
         userSelected={userSelected}

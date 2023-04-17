@@ -31,7 +31,9 @@ const Header = ({ username, userSelected, setUserSelected }) => {
         </h4>
       </div>
 
-      <Navbar />
+      <div className={styles.logo}>
+        <h3>LOGO</h3>
+      </div>
 
       <div className={styles.icons}>
         <BiSearch
