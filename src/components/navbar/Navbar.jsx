@@ -1,22 +1,20 @@
-import { NavLink } from 'react-router-dom';
-import scss from './index.module.scss';
+import { Link } from "react-router-dom";
+import styles from "./index.module.scss";
 
 const Navbar = () => {
   return (
-    <nav className={`${scss.Navbar} flex justify-content-center`}>
-      <NavLink
-        to="/"
-        className={({ isActive }) => (isActive ? 'active' : 'link')}
-      >
+    <nav className={`${styles.Navbar} flex justify-content-center`}>
+      <Link to="/" className={styles.navLink}>
         Home
-      </NavLink>
+      </Link>
 
-      <NavLink
-        to="/auth"
-        className={({ isActive }) => (isActive ? 'active' : 'link')}
-      >
-        Auth
-      </NavLink>
+      <Link to="/" className={styles.navLink}>
+        Search
+      </Link>
+
+      <Link to="/auth" className={styles.navLink}>
+        Login
+      </Link>
     </nav>
   );
 };

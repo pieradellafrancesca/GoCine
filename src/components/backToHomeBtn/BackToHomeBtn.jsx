@@ -1,11 +1,12 @@
+import { Link } from "react-router-dom";
 import styles from "./index.module.scss";
 import { IoIosArrowBack } from "react-icons/io";
 
-const BackToHomeBtn = () => {
+const BackToHomeBtn = ({ endpoint, className }) => {
   return (
-    <button className={styles.BackToHomeBtn}>
+    <Link to={endpoint} className={className}>
       <IoIosArrowBack />
-    </button>
+    </Link>
   );
 };
 
