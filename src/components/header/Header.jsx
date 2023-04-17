@@ -1,3 +1,5 @@
+import Navbar from "../navbar";
+
 import styles from "./index.module.scss";
 import { BiSearch } from "react-icons/bi";
 // import { IoNotificationsOutline } from "react-icons/io5";
@@ -28,6 +30,9 @@ const Header = ({ username, userSelected, setUserSelected }) => {
           <span>{userSelected ? "▴" : "▾"}</span>
         </h4>
       </div>
+
+      <Navbar />
+
       <div className={styles.icons}>
         <BiSearch
           id="searchIcon"

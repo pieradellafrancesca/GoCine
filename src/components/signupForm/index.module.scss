@@ -2,7 +2,7 @@
   position: relative;
   width: 35rem;
   height: 50rem;
-  background-color: $primary-900;
+  background-color: $primary-800;
   border-radius: $borderRadius;
   box-shadow: $shadow-4;
   display: flex;
@@ -36,13 +36,17 @@
 
   .backBtn {
     position: absolute;
+    display: flex;
     top: 1.25rem;
     left: 1.25rem;
     padding: 0.45rem;
+    padding-right: 0.6rem;
     border-radius: 50%;
     background-color: transparent;
     border: 0;
     font-size: 1.75rem;
+
+    color: $purple;
   }
 
   .form {

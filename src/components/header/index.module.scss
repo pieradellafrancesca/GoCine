@@ -4,12 +4,15 @@
   top: 0;
   height: 80px;
   width: 100vw;
+  background-color: $primary-800;
   color: $primary-100;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   text-shadow: 0 0 4px black;
   box-shadow: 0 0 4px black;
+  padding: 20px;
+  z-index: 9;
 
   .userInfo {
     p {
