@@ -12,6 +12,7 @@
   transition: all 0.4s ease;
   transform: translateY(-120px) translateX(70px) skewY(80deg) scale(0.1);
   opacity: 0;
+  z-index: 10;
 
   p {
     margin: 0;

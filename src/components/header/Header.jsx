@@ -28,6 +28,9 @@ const Header = ({ username, userSelected, setUserSelected }) => {
           <span>{userSelected ? "▴" : "▾"}</span>
         </h4>
       </div>
+      <div className={styles.logo}>
+        <h3>LOGO</h3>
+      </div>
       <div className={styles.icons}>
         <BiSearch
           id="searchIcon"

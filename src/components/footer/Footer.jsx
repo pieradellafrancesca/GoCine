@@ -1,5 +1,5 @@
-// import { AiOutlineHome } from "react-icons/ai";
-// import { BsTicketPerforated, BsPerson } from "react-icons/bs";
+import { AiOutlineCopyrightCircle } from "react-icons/ai";
+import { BsInstagram, BsFacebook, BsTiktok } from "react-icons/bs";
 // import { Link } from "react-router-dom";
 import styles from "./index.module.scss";
 
@@ -37,18 +37,54 @@ const Footer = () => {
         <h4>Contenuto da decidere</h4>
       </div>
       <div className={styles.infoCenter}>
-        <h4>Contenuto da decidere</h4>
+        <h4>Copyright</h4>
+        <p>
+          <AiOutlineCopyrightCircle />
+          2023
+        </p>
       </div>
       <div className={styles.infoSocial}>
         <h4>Social</h4>
+        <ul className={styles.socialList}>
+          <li className={styles.social}>
+            <BsInstagram />
+            <span>Instagram</span>
+          </li>
+          <li className={styles.social}>
+            <BsFacebook />
+            <span>Facebook</span>
+          </li>
+          <li className={styles.social}>
+            <BsTiktok />
+            <span>Tiktok</span>
+          </li>
+        </ul>
       </div>
       <ul className={styles.nameSviluppatori}>
-        <li>Andrea</li>
-        <li>Claudio</li>
-        <li>Ettore</li>
-        <li>Filippo</li>
-        <li>Francesca</li>
-        <li>Zakaria</li>
+        <li>
+          <img src="https://robohash.org/Andrea" alt="foto" />
+          <p>Andrea</p>
+        </li>
+        <li>
+          <img src="https://robohash.org/Claudio" alt="foto" />
+          <p>Claudio</p>
+        </li>
+        <li>
+          <img src="https://robohash.org/Ettore" alt="foto" />
+          <p>Ettore</p>
+        </li>
+        <li>
+          <img src="https://robohash.org/Filippo" alt="foto" />
+          <p>Filippo</p>
+        </li>
+        <li>
+          <img src="https://robohash.org/Francesca" alt="foto" />
+          <p>Francesca</p>
+        </li>
+        <li>
+          <img src="https://robohash.org/Zakaria" alt="foto" />
+          <p>Zakaria</p>
+        </li>
       </ul>
     </div>
   );
