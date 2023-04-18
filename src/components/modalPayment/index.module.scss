@@ -1,0 +1,66 @@
+.ModalPayment {
+  position: relative;
+  .overlay {
+  }
+  .btnClose {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    border-radius: 100%;
+    margin-top: 4px;
+    padding: 5px;
+    background: transparent;
+    color: $secondary-500;
+    border: 0.9px solid $secondary-500;
+    transition: $transition;
+    cursor: pointer;
+    &:hover {
+      background-color: $secondary-500;
+      color: $grey-50;
+    }
+  }
+  h5 {
+    text-align: center;
+  }
+  .modal {
+    position: fixed;
+    top: 84px;
+    right: 10px;
+    border: 2px solid whitesmoke;
+    width: 350px;
+    height: 450px;
+    border-radius: $borderRadius;
+    background-color: $primary-600;
+  }
+  p {
+    padding-left: 10px;
+  }
+
+  img {
+    width: 28px;
+    height: 16px;
+  }
+  .btn {
+    margin-top: 20px;
+    position: absolute;
+    left: 30%;
+    padding: 6.25px 17.25px;
+    letter-spacing: $letterSpacing;
+    border-radius: 15px;
+    background: transparent;
+    color: $secondary-500;
+    border: 0.9px solid $secondary-500;
+    transition: $transition;
+    cursor: pointer;
+    &:hover {
+      background-color: $secondary-500;
+      color: $grey-50;
+    }
+  }
+  .inputCart {
+    position: relative;
+    left: 10px;
+    margin-right: 14px;
+    padding-left: 10px;
+  }
+}
