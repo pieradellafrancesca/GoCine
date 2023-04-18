@@ -1,6 +1,4 @@
-@import "../../scss/helpers/resolutions";
 .CardList {
-  width: 100%;
   width: 100%;
   height: 400px;
   padding: 20px;
@@ -16,6 +14,12 @@
 ::-webkit-scrollbar {
   width: 0px;
   background: transparent;
+}
+
+.loaderCard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @include mobile {

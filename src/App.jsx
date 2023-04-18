@@ -3,16 +3,15 @@ import { Context } from "./context";
 import { initialState } from "./context/state";
 import { mainReducer } from "./context/reducers";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { UserAuthContextProvider } from "./context/UserAuthContext";
 
 import Error from "./pages/Error";
+import ProtectedRoute from "./pages/ProtectedRoute";
 import Home from "./pages/Home";
 import Info from "./pages/Info";
 import Auth from "./pages/Auth";
 import Preorder from "./pages/Preorder";
-import Tickets from "./pages/Tickets";
 import Layouts from "./layouts";
-
-import "./App.css";
 
 import { db } from "../firebaseConfig";
 import { onValue, ref } from "firebase/database";
@@ -30,21 +29,31 @@ function App() {
 
   return (
     <div className="App">
-      <BrowserRouter>
-        <Context.Provider value={{ state, dispatch }}>
-          <Routes>
-            <Route element={<Layouts />}>
-              <Route path="/" element={<Home />} />
-              <Route path="/:info" element={<Info />} />
-              <Route path="auth" element={<Auth />} />
-              <Route path="/:id/preorder" element={<Preorder />} />
-              <Route path="tickets" element={<Tickets />} />
 
+      <UserAuthContextProvider>
+        <BrowserRouter>
+          <Context.Provider value={{ state, dispatch }}>
+            <Routes>
+              <Route element={<Layouts />}>
+                <Route path="/" element={<Home />} />
+                <Route path="movie/:info" element={<Info />} />
+                <Route
+                  path="/:id/preorder"
+                  element={
+                    <ProtectedRoute>
+                      <Preorder />
+                    </ProtectedRoute>
+                  }
+                />
+              </Route>
+
+
+              <Route path="auth" element={<Auth />} />
               <Route path="*" element={<Error />} />
-            </Route>
-          </Routes>
-        </Context.Provider>
-      </BrowserRouter>
+            </Routes>
+          </Context.Provider>
+        </BrowserRouter>
+      </UserAuthContextProvider>
     </div>
   );
 }

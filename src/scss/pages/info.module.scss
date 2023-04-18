@@ -1,8 +1,8 @@
 .Info {
   margin-bottom: 100px;
+  color: $primary-50;
 
   .upSection {
-    color: $primary-50;
     display: flex;
     height: 60vh;
     flex-direction: column;
@@ -94,7 +94,16 @@
   }
 
   // -----------------Da qui comincia il codice di Andrea
-
+  .loader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 200px;
+    // position: fixed;
+    // top: 200px;
+    // left: 45%;
+  }
   .downSection {
     position: relative;
     width: 100%;
@@ -110,13 +119,18 @@
     .cast {
       text-align: center;
       height: 350px;
+
+      .list {
+        width: 100vw;
+        overflow-y: scroll;
+      }
     }
 
     .buyTicketBtn {
       position: absolute;
-      left: calc(50% - 45vw);
+      left: calc(50% - 15vw);
       bottom: -100px;
-      width: 90vw;
+      width: 30vw;
       padding: 12.25px 17.25px;
       letter-spacing: $letterSpacing;
       border-radius: 15px;

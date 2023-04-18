@@ -11,6 +11,7 @@ import {
 import BackToHomeBtn from "../components/backToHomeBtn/BackToHomeBtn";
 import CastList from "../components/castList";
 import VoteStars from "../components/voteStars";
+import Loader from "../components/loader";
 // In data 14 aprile il componente CastList viene renderizzato correttamente solo quando importato in questo modo
 // import CastList from "../components/castList/CastList/";
 // Probabilmente è legato al fatto che è stato modificato il nome del componente da castList.jsx a Castlist.jsx
@@ -19,6 +20,8 @@ const Info = () => {
   const [dataMovie, setDataMovie] = useState({});
   const [trailerLink, setTrailerLink] = useState("");
   const { info } = useParams();
+  const [loaders, setLoaders] = useState(false);
+
 
   useEffect(() => {
     window.scrollTo(0, 0); // con questo metodo riportiamo la pagina info alla posizione iniziale (scroll)
@@ -28,7 +31,11 @@ const Info = () => {
   }, []);
 
   useEffect(() => {
-    GET_VIDEOS(info).then((video) => setTrailerLink(video));
+    setLoaders(true);
+    GET_VIDEOS(info).then((video) => {
+      setLoaders(false);
+      setTrailerLink(video);
+    });
   }, [dataMovie]);
 
   const navigate = useNavigate();
@@ -44,15 +51,25 @@ const Info = () => {
     <section className={`${styles.Info} flex flex-column`}>
       <div className={`${styles.upSection} ${linkVideo && styles.fillScreen}`}>
         <div className={styles.trailerSection}>
+          {loaders && (
+            <div className={styles.loader}>
+              <Loader />
+            </div>
+          )}
+
           {linkVideo ? (
             <>
               <iframe
                 className="video"
+                height="100%"
+                width="100%"
                 title="Youtube player"
                 sandbox="allow-same-origin allow-forms allow-popups allow-scripts allow-presentation"
-                src={`${trailerLink}?autoplay=1`}
+                src={`${trailerLink}?autoplay=1&enablejsapi=1&mute=1`}
+                autoPlay="1"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
               ></iframe>
-              {/* Ho utilizzato il frame perchè è ottimizzato con react */}
             </>
           ) : (
             <>
@@ -75,12 +92,6 @@ const Info = () => {
             {dataMovie.release_date && sortDate(dataMovie.release_date)}{" "}
           </p>
           <div className={styles.voteInfo}>
-            {/* <div
-              className={styles.voteAverage}
-              style={{
-                "--rating": `${dataMovie.vote_average}`,
-              }}
-            ></div> */}
             <VoteStars data={dataMovie} />
             <span className={styles.voteCount}>{`(${numFormat(
               dataMovie.vote_count
@@ -105,7 +116,9 @@ const Info = () => {
         </div>
         <div className={styles.cast}>
           <h5>Cast</h5>
-          <CastList info={info} />
+          <div className={styles.list}>
+            <CastList info={info} />
+          </div>
         </div>
         <button className={styles.buyTicketBtn} onClick={onHandleClick}>
           Book Tickets

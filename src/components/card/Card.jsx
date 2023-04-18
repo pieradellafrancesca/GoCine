@@ -6,7 +6,7 @@ import VoteStars from "../voteStars";
 export default function Card({ data }) {
   const navigate = useNavigate();
   const onHandleClick = () => {
-    navigate(`/${data.id}`);
+    navigate(`movie/${data.id}`);
   };
 
   return (
