@@ -12,9 +12,9 @@
 
   .imageContainer {
     display: flex;
-    height: 100%;
+
     overflow: overlay;
-    scroll-snap-points-x: repeat(100vw);
+
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
 
@@ -25,9 +25,7 @@
 
       img {
         width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: top;
+
         filter: saturate(1.25);
       }
     }
@@ -49,6 +47,5 @@
         border-radius: $borderRadius;
       }
     }
-
   }
 }
