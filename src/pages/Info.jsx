@@ -11,6 +11,7 @@ import {
 import BackToHomeBtn from "../components/backToHomeBtn/BackToHomeBtn";
 import CastList from "../components/castList";
 import VoteStars from "../components/voteStars";
+import Loader from "../components/loader";
 // In data 14 aprile il componente CastList viene renderizzato correttamente solo quando importato in questo modo
 // import CastList from "../components/castList/CastList/";
 // Probabilmente è legato al fatto che è stato modificato il nome del componente da castList.jsx a Castlist.jsx
@@ -19,6 +20,7 @@ const Info = () => {
   const [dataMovie, setDataMovie] = useState({});
   const [trailerLink, setTrailerLink] = useState("");
   const { info } = useParams();
+  const [loaders, setLoaders] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0); // con questo metodo riportiamo la pagina info alla posizione iniziale (scroll)
@@ -28,7 +30,11 @@ const Info = () => {
   }, []);
 
   useEffect(() => {
-    GET_VIDEOS(info).then((video) => setTrailerLink(video));
+    setLoaders(true);
+    GET_VIDEOS(info).then((video) => {
+      setLoaders(false);
+      setTrailerLink(video);
+    });
   }, [dataMovie]);
 
   const space = " ";
@@ -39,6 +45,7 @@ const Info = () => {
     <section className={`${styles.Info} flex flex-column`}>
       <div className={`${styles.upSection} ${linkVideo && styles.fillScreen}`}>
         <div className={styles.trailerSection}>
+          <div className={styles.loader}>{loaders && <Loader />}</div>
           {linkVideo ? (
             <>
               <iframe

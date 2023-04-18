@@ -94,7 +94,11 @@
   }
 
   // -----------------Da qui comincia il codice di Andrea
-
+  .loader {
+    position: fixed;
+    top: 200px;
+    left: 45%;
+  }
   .downSection {
     position: relative;
     width: 100%;
