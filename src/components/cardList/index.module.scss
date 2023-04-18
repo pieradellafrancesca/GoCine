@@ -1,4 +1,3 @@
-@import "../../scss/helpers/resolutions";
 .CardList {
   width: 100%;
   height: 400px;
@@ -16,6 +15,7 @@
   width: 0px;
   background: transparent;
 }
+
 .loaderCard {
   display: flex;
   justify-content: center;
