@@ -95,9 +95,14 @@
 
   // -----------------Da qui comincia il codice di Andrea
   .loader {
-    position: fixed;
-    top: 200px;
-    left: 45%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 200px;
+    // position: fixed;
+    // top: 200px;
+    // left: 45%;
   }
   .downSection {
     position: relative;

@@ -45,7 +45,12 @@ const Info = () => {
     <section className={`${styles.Info} flex flex-column`}>
       <div className={`${styles.upSection} ${linkVideo && styles.fillScreen}`}>
         <div className={styles.trailerSection}>
-          <div className={styles.loader}>{loaders && <Loader />}</div>
+          {loaders && (
+            <div className={styles.loader}>
+              <Loader />
+            </div>
+          )}
+
           {linkVideo ? (
             <>
               <iframe
