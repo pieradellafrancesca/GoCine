@@ -29,6 +29,7 @@ function App() {
 
   return (
     <div className="App">
+
       <UserAuthContextProvider>
         <BrowserRouter>
           <Context.Provider value={{ state, dispatch }}>
@@ -37,7 +38,7 @@ function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="movie/:info" element={<Info />} />
                 <Route
-                  path="preorder"
+                  path="/:id/preorder"
                   element={
                     <ProtectedRoute>
                       <Preorder />
@@ -45,6 +46,7 @@ function App() {
                   }
                 />
               </Route>
+
 
               <Route path="auth" element={<Auth />} />
               <Route path="*" element={<Error />} />

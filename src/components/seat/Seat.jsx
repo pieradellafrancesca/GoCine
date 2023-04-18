@@ -1,15 +1,22 @@
 import { useState } from "react";
 import styles from "./index.module.scss";
 
-const Seat = ({ seatData, setCount }) => {
+const Seat = ({ seatData, setCount, setTicketList, seatNumber }) => {
   const [selectedSeat, setSelectedSeat] = useState(false);
 
-  const onHandleClick = (event) => {
-    if (!event.target.className.includes("reserved")) {
-      if (event.target.className.includes("selected")) {
+  const onHandleClick = (seatNumber) => {
+    if (!seatData) {
+      if (selectedSeat) {
         setCount((prev) => prev - 1);
-      } else if (!event.target.className.includes("selected")) {
+        setTicketList((prev) => {
+          const newArr = [...prev];
+          newArr.splice(newArr.indexOf(seatNumber), 1);
+          return newArr;
+        });
+      }
+      if (!selectedSeat) {
         setCount((prev) => prev + 1);
+        setTicketList((prev) => [...prev, seatNumber]);
       }
       setSelectedSeat((prev) => !prev);
     }
@@ -20,7 +27,7 @@ const Seat = ({ seatData, setCount }) => {
       className={`${styles.Seat} ${seatData && styles.reserved} ${
         selectedSeat && styles.selected
       }`}
-      onClick={onHandleClick}
+      onClick={() => onHandleClick(seatNumber)}
     ></div>
   );
 };
