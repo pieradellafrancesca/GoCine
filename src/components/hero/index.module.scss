@@ -26,6 +26,9 @@
       img {
         width: 100%;
 
+        object-fit: cover;
+        object-position: top;
+
         filter: saturate(1.25);
       }
     }
