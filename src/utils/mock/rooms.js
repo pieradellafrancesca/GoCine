@@ -4,7 +4,7 @@ export const rooms = [
     movie_id: 502356,
     shows: [
       {
-        time: new Date(new Date().setHours(18, 0)),
+        time: Date.parse(new Date(new Date().setHours(18, 0))),
         seats: [
           false,
           true,
@@ -21,7 +21,7 @@ export const rooms = [
         ],
       },
       {
-        time: new Date(new Date().setHours(20, 30)),
+        time: Date.parse(new Date(new Date().setHours(20, 30))),
         seats: [
           false,
           false,
@@ -44,7 +44,7 @@ export const rooms = [
     movie_id: 677179,
     shows: [
       {
-        time: new Date(new Date().setHours(18, 0)),
+        time: Date.parse(new Date(new Date().setHours(18, 0))),
         seats: [
           true,
           false,
@@ -61,7 +61,7 @@ export const rooms = [
         ],
       },
       {
-        time: new Date(new Date().setHours(20, 30)),
+        time: Date.parse(new Date(new Date().setHours(20, 30))),
         seats: [
           false,
           false,
@@ -75,7 +75,6 @@ export const rooms = [
           false,
           false,
           false,
-          ,
         ],
       },
     ],
@@ -85,7 +84,7 @@ export const rooms = [
     movie_id: 594767,
     shows: [
       {
-        time: new Date(new Date().setHours(18, 0)),
+        time: Date.parse(new Date(new Date().setHours(18, 0))),
         seats: [
           false,
           false,
@@ -102,7 +101,7 @@ export const rooms = [
         ],
       },
       {
-        time: new Date(new Date().setHours(20, 30)),
+        time: Date.parse(new Date(new Date().setHours(20, 30))),
         seats: [
           false,
           true,

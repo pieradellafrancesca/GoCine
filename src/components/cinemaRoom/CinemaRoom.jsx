@@ -1,32 +1,76 @@
 import { useEffect, useState } from "react";
-import { rooms } from "../../utils/mock/rooms";
 import { GET } from "../../utils/https";
 import SeatList from "../seatList/SeatList";
 import styles from "./index.module.scss";
 
-const CinemaRoom = () => {
-  const [todaysMovieInfo, setTodaysMovieInfo] = useState({});
-  const [selectedRoom, setSelectedRoom] = useState(1);
-  const [selectedHour, setSelectedHour] = useState(1);
-  const [seatList, setSeatList] = useState(rooms[0].shows[0].seats);
+import { db } from "../../../firebaseConfig";
+import { onValue, ref } from "firebase/database";
+
+const CinemaRoom = ({ setTicketList, id }) => {
+  const [movieInfo, setMovieInfo] = useState({});
+  const [selectedHour, setSelectedHour] = useState(
+    Date.parse(new Date(new Date().setHours(18, 0, 0)))
+  );
   const [count, setCount] = useState(0);
+  const [room, setRoom] = useState({});
+  const [allSeats, setAllSeats] = useState([
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+  ]);
 
   useEffect(() => {
-    GET(rooms[selectedRoom - 1].movie_id).then((data) =>
-      setTodaysMovieInfo(data)
-    );
-  }, [selectedRoom]);
+    GET(id).then((data) => setMovieInfo(data));
+  }, []);
 
-  const onRoomChange = (e) => {
-    setSelectedRoom(e.target.value);
-    setSeatList(rooms[e.target.value - 1].shows[selectedHour - 1].seats);
-    setCount(0);
-  };
+  useEffect(() => {
+    const query = ref(db, "rooms");
+    return onValue(query, (snapShot) => {
+      const data = snapShot.val();
+      console.log(data);
+      setRoom(data);
+      if (room[id]) {
+        console.log("trovato!");
+        if (room[id][selectedHour]) {
+          console.log("Ci sono posti prenotati");
+          setAllSeats(room[id][selectedHour]);
+        } else {
+          console.log("Sala vuota");
+          setAllSeats([
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+          ]);
+        }
+      } else {
+        console.log("NON trovato!");
+      }
+    });
+  }, [selectedHour]);
 
-  const onHourChange = (e) => {
+  const onHourClick = (e) => {
     setSelectedHour(e.target.value);
-    setSeatList(rooms[selectedRoom - 1].shows[e.target.value - 1].seats);
     setCount(0);
+    setTicketList([]);
+    console.log(Date.parse(new Date(new Date().setHours(20, 30, 0))), e);
   };
 
   return (
@@ -41,62 +85,51 @@ const CinemaRoom = () => {
               day: "numeric",
             })}
           </p>
-          <section className={styles.selection}>
-            {/* <label htmlFor="room">Pick the room:</label> */}
-            <select
-              name="room"
-              id="room"
-              className={styles.room}
-              value={selectedRoom}
-              onChange={onRoomChange}
+          <section className={`${styles.hour} flex`}>
+            <button
+              className={styles.btn}
+              onClick={onHourClick}
+              value={Date.parse(new Date(new Date().setHours(18, 0, 0)))}
             >
-              {rooms.map((room) => (
-                <option value={room.room_id} key={room.room_id}>
-                  Room {room.room_id}
-                </option>
-              ))}
-            </select>
-
-            {/* <label htmlFor="hour">Pick the hour:</label> */}
-            <select
-              name="hour"
-              id="hour"
-              className={styles.hour}
-              value={selectedHour}
-              onChange={onHourChange}
+              {new Date(new Date().setHours(18, 0, 0)).toLocaleTimeString(
+                "en-EN",
+                {
+                  hour: "2-digit",
+                  minute: "2-digit",
+                }
+              )}
+            </button>
+            <button
+              className={styles.btn}
+              onClick={onHourClick}
+              value={Date.parse(new Date(new Date().setHours(20, 30, 0)))}
             >
-              <option value="1">
-                {new Date(new Date().setHours(18, 0)).toLocaleTimeString(
-                  "en-EN",
-                  {
-                    hour: "2-digit",
-                    minute: "2-digit",
-                  }
-                )}
-              </option>
-              <option value="2">
-                {new Date(new Date().setHours(20, 30)).toLocaleTimeString(
-                  "en-EN",
-                  { hour: "2-digit", minute: "2-digit" }
-                )}
-              </option>
-            </select>
+              {new Date(new Date().setHours(20, 30, 0)).toLocaleTimeString(
+                "en-EN",
+                { hour: "2-digit", minute: "2-digit" }
+              )}
+            </button>
           </section>
         </div>
         <div className={styles.upperRightInfo}>
-          <p className={styles.todaysMovie}>{todaysMovieInfo.title}</p>
+          <p className={styles.todaysMovie}>{movieInfo.title}</p>
           <div className={styles.imgOverlay}></div>
           <img
-            src={`https://image.tmdb.org/t/p/w500/${todaysMovieInfo.backdrop_path}`}
-            alt={todaysMovieInfo.title}
+            src={`https://image.tmdb.org/t/p/w500/${movieInfo.backdrop_path}`}
+            alt={movieInfo.title}
           />
         </div>
       </div>
       <p className={styles.text}>
         You have selected <span className={styles.bookInfo}>{count}</span> seats
-        for <span className={styles.bookInfo}>{todaysMovieInfo.title}</span>
+        for <span className={styles.bookInfo}>{movieInfo.title}</span>
       </p>
-      <SeatList seatList={seatList} setCount={setCount} />
+
+      <SeatList
+        setCount={setCount}
+        setTicketList={setTicketList}
+        allSeats={allSeats}
+      />
       <div className={styles.lowerInfo}>
         <ul className={styles.showcase}>
           <li>

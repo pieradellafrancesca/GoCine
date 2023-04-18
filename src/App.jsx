@@ -37,7 +37,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/:info" element={<Info />} />
               <Route path="auth" element={<Auth />} />
-              <Route path="preorder" element={<Preorder />} />
+              <Route path="/:id/preorder" element={<Preorder />} />
               <Route path="tickets" element={<Tickets />} />
 
               <Route path="*" element={<Error />} />

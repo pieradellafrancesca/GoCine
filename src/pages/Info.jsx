@@ -1,7 +1,7 @@
 import styles from "../scss/pages/info.module.scss";
 import { GET, GET_VIDEOS, IMG_BASE_URL } from "../utils/https";
 import { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import {
   numFormat,
   convertMinsToHrsMins,
@@ -30,6 +30,11 @@ const Info = () => {
   useEffect(() => {
     GET_VIDEOS(info).then((video) => setTrailerLink(video));
   }, [dataMovie]);
+
+  const navigate = useNavigate();
+  const onHandleClick = () => {
+    navigate("preorder");
+  };
 
   const space = " ";
 
@@ -102,7 +107,9 @@ const Info = () => {
           <h5>Cast</h5>
           <CastList info={info} />
         </div>
-        <button className={styles.buyTicketBtn}>Book Tickets</button>
+        <button className={styles.buyTicketBtn} onClick={onHandleClick}>
+          Book Tickets
+        </button>
       </div>
     </section>
   );
