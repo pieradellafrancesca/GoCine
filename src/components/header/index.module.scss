@@ -5,7 +5,7 @@
   top: 0;
   height: 80px;
   width: 100vw;
-  background-color: $primary-800;
+  // background-color: $primary-800;
   color: $primary-100;
   display: flex;
   justify-content: space-around;
@@ -16,7 +16,6 @@
   z-index: 9;
   padding: 0 20px;
   backdrop-filter: blur(10px);
-
 
   .userInfo {
     p {
