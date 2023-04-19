@@ -13,13 +13,27 @@
   text-shadow: 0 0 4px black;
   box-shadow: 0 0 4px black;
 
-
   z-index: 9;
   padding: 0 20px;
   backdrop-filter: blur(10px);
 
+  .logo {
+    color: $secondary-500;
+    width: 30%;
+    text-align: center;
+
+    @include tablet {
+      display: none;
+    }
+
+    @include mobile {
+      display: none;
+    }
+  }
 
   .userInfo {
+    width: 30%;
+    text-align: center;
     p {
       margin: 0;
     }
@@ -56,6 +70,83 @@
       color: $secondary-400;
     }
   }
+
+  // Nav - Mobile nav -- Filippo
+  .navHeader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 30%;
+    @include mobile {
+      display: none;
+    }
+  }
+
+  .navLink {
+    color: $grey-50;
+    letter-spacing: $letterSpacing;
+    font-weight: bold;
+  }
+
+  .mobileNav {
+    position: fixed;
+    top: 80px;
+    right: -300px;
+    background-color: $primary-800;
+    height: calc(100vh - 80px);
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    padding: 5rem;
+    transition: $transition;
+
+    .navLink {
+      font-size: 1.45rem;
+      font-weight: normal;
+    }
+  }
+
+  .preorderBtn {
+    background-color: $secondary-500;
+    color: $grey-50;
+    text-align: center;
+    padding: 5px 10px;
+    margin: 20px 0px;
+    min-width: 9rem;
+    text-transform: capitalize;
+    border-radius: $borderRadius;
+    transition: $transition;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+  .showNav {
+    right: 0;
+  }
+
+  .burger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+    width: 30%;
+    height: 50px;
+    cursor: pointer;
+
+    @include mobile {
+      display: flex;
+    }
+
+    .line {
+      background-color: $grey-50;
+      width: 35px;
+      height: 2px;
+    }
+  }
+  // N       
 }
 
 @include mobile {

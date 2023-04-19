@@ -4,7 +4,7 @@ import Card from "../card";
 import styles from "./index.module.scss";
 import Loader from "../loader";
 
-export default function CardList({ children, endpoint }) {
+export default function CardList({ endpoint, catName }) {
   const [movieList, setMovieList] = useState([]);
   const [loaders, setLoaders] = useState(false);
 
@@ -18,7 +18,7 @@ export default function CardList({ children, endpoint }) {
 
   return (
     <>
-      {children}
+      <h3 className={styles.catTitle}>{catName}</h3>
       <div className={`${styles.CardList}`}>
         <div className={styles.loaderCard}>{loaders && <Loader />}</div>
         {movieList.map((card) => (

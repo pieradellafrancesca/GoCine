@@ -1,10 +1,6 @@
+const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
 export const initialState = {
   formSwitch: false,
-  tempForm: {
-    id: null,
-    username: "",
-    email: "",
-    password: "",
-    password_copy: "",
-  },
+  currentUserData: currentUser ? currentUser : null,
 };
