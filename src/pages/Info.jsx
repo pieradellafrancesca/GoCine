@@ -22,7 +22,6 @@ const Info = () => {
   const { info } = useParams();
   const [loaders, setLoaders] = useState(false);
 
-
   useEffect(() => {
     window.scrollTo(0, 0); // con questo metodo riportiamo la pagina info alla posizione iniziale (scroll)
     GET(info)
@@ -84,7 +83,6 @@ const Info = () => {
         <div
           className={`${styles.infoMovie} flex flex-column align-items-center justify-content-center`}
         >
-          {/* TODO: Sistemare stile */}
           <h2 className={styles.title}>{dataMovie.title}</h2>
           <p className={styles.otherInfo}>
             {convertMinsToHrsMins(dataMovie.runtime)} • {space}
@@ -104,9 +102,6 @@ const Info = () => {
           <BackToHomeBtn />
         </Link>
       </div>
-
-      {/* --------------------------------------------------- */}
-
       <div className={styles.downSection}>
         <div
           className={`${styles.description} flex flex-column align-items-center justify-content-center`}
