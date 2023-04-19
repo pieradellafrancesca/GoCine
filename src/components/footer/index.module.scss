@@ -6,7 +6,7 @@
 
   .infoFooter,
   .infoCenter {
-    border-right: 2px solid $purple;
+    // border-right: 2px solid $purple;
     width: 333px;
     height: 200px;
     margin: 0 10px;
@@ -65,6 +65,7 @@
     .infoFooter,
     .infoCenter {
       border-right: none;
+      // height: 350px;
     }
   }
 }
