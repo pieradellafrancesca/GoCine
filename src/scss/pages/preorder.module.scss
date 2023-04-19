@@ -1,0 +1,16 @@
+.btnModal {
+  margin-top: 20px;
+  max-width: 40vw;
+  padding: 8.25px 17.25px;
+  letter-spacing: $letterSpacing;
+  border-radius: 15px;
+  background: transparent;
+  color: $secondary-500;
+  border: 0.9px solid $secondary-500;
+  transition: $transition;
+  cursor: pointer;
+  &:hover {
+    background-color: $secondary-500;
+    color: $grey-50;
+  }
+}

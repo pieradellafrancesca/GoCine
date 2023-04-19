@@ -1,5 +1,5 @@
 .Seat {
-  background-color: $grey-50;
+  background-color: $grey-200;
   border: 2px solid $white;
   width: 70px;
   height: 70px;
@@ -13,6 +13,7 @@
 .reserved {
   background-color: $purple;
   box-shadow: 0 0 8px 8px $primary-500 inset;
+  cursor: default;
 }
 
 .selected {
