@@ -2,18 +2,14 @@
   height: 700px;
   width: 100%;
 
-  // margin-top: 20px;
-  z-index: -2;
-
-  ::-webkit-scrollbar {
-    width: 0px;
-    background: transparent;
-  }
+  margin-top: 80px;
 
   .imageContainer {
     display: flex;
     height: 100%;
-    overflow: overlay;
+    width: 100%;
+    overflow-y: hidden;
+    overflow-x: overlay;
     scroll-snap-points-x: repeat(100vw);
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
@@ -28,27 +24,16 @@
         height: 100%;
         object-fit: cover;
         object-position: top;
-        filter: saturate(1.25);
+        filter: saturate(1.25) grayscale(0.7);
       }
     }
   }
 
   @include tablet {
-    width: 100%;
     height: 350px;
   }
 
   @include mobile {
-    width: 100%;
     height: 300px;
-
-    margin-left: 20%;
-    margin-top: 80px;
-    .singleImage {
-      img {
-        border-radius: $borderRadius;
-      }
-    }
-
   }
 }

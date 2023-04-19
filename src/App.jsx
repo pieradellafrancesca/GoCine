@@ -2,56 +2,54 @@ import { useEffect, useReducer } from "react";
 import { Context } from "./context";
 import { initialState } from "./context/state";
 import { mainReducer } from "./context/reducers";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { UserAuthContextProvider } from "./context/UserAuthContext";
+import { Routes, Route } from "react-router-dom";
 
 import Error from "./pages/Error";
 import ProtectedRoute from "./pages/ProtectedRoute";
 import Home from "./pages/Home";
 import Info from "./pages/Info";
-import Auth from "./pages/Auth";
+import Login from "./pages/Login";
+import Search from "./pages/Search";
 import Preorder from "./pages/Preorder";
 import Layouts from "./layouts";
 
-import { db } from "../firebaseConfig";
-import { onValue, ref } from "firebase/database";
+// ===== // ===== //
+// Permission to the protected route - Filippo
+// gets the value of the data 'isLogged' from localStorage,
+// it's a check so the user can be redirected directly to the protected route without passing the control
+const currentValue = JSON.parse(localStorage.getItem("isLogged"));
+
+// ===== // ===== //
 
 function App() {
   const [state, dispatch] = useReducer(mainReducer, initialState);
 
-  useEffect(() => {
-    const query = ref(db, "test");
-    return onValue(query, (snapShot) => {
-      const data = snapShot.val();
-      console.log(data);
-    });
-  }, []);
-
   return (
     <div className="App">
-      <UserAuthContextProvider>
-        <BrowserRouter>
-          <Context.Provider value={{ state, dispatch }}>
-            <Routes>
-              <Route element={<Layouts />}>
-                <Route path="/" element={<Home />} />
-                <Route path="movie/:info" element={<Info />} />
-                <Route
-                  path="preorder"
-                  element={
-                    <ProtectedRoute>
-                      <Preorder />
-                    </ProtectedRoute>
-                  }
-                />
-              </Route>
+      <Context.Provider value={{ state, dispatch }}>
+        <Routes>
+          <Route element={<Layouts />}>
+            <Route path="/" element={<Home />} />
+            <Route path="movie/:info" element={<Info />} />
+            <Route
+              path="preorder"
+              element={
+                currentValue ? (
+                  <Preorder />
+                ) : (
+                  <ProtectedRoute>
+                    <Preorder />
+                  </ProtectedRoute>
+                )
+              }
+            />
+            <Route path="search" element={<Search />} />
+          </Route>
 
-              <Route path="auth" element={<Auth />} />
-              <Route path="*" element={<Error />} />
-            </Routes>
-          </Context.Provider>
-        </BrowserRouter>
-      </UserAuthContextProvider>
+          <Route path="login" element={<Login />} />
+          <Route path="*" element={<Error />} />
+        </Routes>
+      </Context.Provider>
     </div>
   );
 }
