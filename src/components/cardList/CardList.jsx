@@ -22,9 +22,7 @@ export default function CardList({ endpoint, catName }) {
     <>
       <h3 className={styles.catTitle}>{catName}</h3>
 
-      <div className={`${styles.CardList}`}>
-
-<div ref={refScroll} className={`${styles.CardList}`}>
+      <div ref={refScroll} className={`${styles.CardList}`}>
         {movieList.map((card) => (
           <Card data={card} key={card.id} />
         ))}
