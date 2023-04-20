@@ -61,11 +61,11 @@ const Home = () => {
   return (
     <>
       <Hero />
-      <div
+      <section
         className={`${styles.Home} section flex flex-column justify-content-center align-items-center`}
       >
         <MainContent />
-      </div>
+      </section>
     </>
   );
 };

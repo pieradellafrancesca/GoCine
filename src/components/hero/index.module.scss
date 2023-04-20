@@ -1,7 +1,5 @@
 .Hero {
-  height: 700px;
   width: 100%;
-
   margin-top: 80px;
 
   .imageContainer {
@@ -43,6 +41,7 @@
 
       img {
         width: 100%;
+        max-height: calc(100vh - 80px);
         object-fit: cover;
         object-position: top;
         filter: saturate(1.25) brightness(1.2);
