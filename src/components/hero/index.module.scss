@@ -48,12 +48,4 @@
       }
     }
   }
-
-  @include tablet {
-    height: 350px;
-  }
-
-  @include mobile {
-    height: 300px;
-  }
 }
