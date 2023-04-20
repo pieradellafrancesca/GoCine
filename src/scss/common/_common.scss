@@ -16,3 +16,18 @@
   color: $secondary-500;
   letter-spacing: $letterSpacing;
 }
+
+.errorMsg {
+  color: red;
+}
+
+.inputOpt {
+  font-size: 0.65rem;
+  text-transform: capitalize;
+  margin-left: 1.25rem;
+}
+
+.subtitle {
+  letter-spacing: $letterSpacing;
+  color: $grey-50;
+}
