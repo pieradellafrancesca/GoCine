@@ -1,12 +1,27 @@
 import styles from "../scss/pages/tickets.module.scss";
 import TicketToPrint from "../components/ticketToPrint";
 import UserTicket from "../components/userTicket/UserTicket";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { Context } from "../context";
 
 const Tickets = () => {
-  const [showModalTicket, setShowModalTicket] = useState(false);
-
   //Creare componente modale per ticket ({children})
+  const [modalTicketContext, setModalTicketContext] = useState({
+    peyload: {},
+    isVisible: false,
+  });
+
+  const { state, dispatch } = useContext(Context);
+  const { tickets: userTickets } = state.currentUserData;
+  const { username } = state.currentUserData;
+  let ticketDate;
+  userTickets.map((ticket) => {
+    ticketDate = new Date(+ticket.date).toLocaleDateString();
+    /* toLocaleString("en-En", {
+      day: "2-digit",
+      month: "short",
+    }); */
+  });
 
   return (
     <div className={styles.Tickets}>
@@ -20,24 +35,23 @@ const Tickets = () => {
         <hr />
         <div className={styles.mainTable}>
           <div className={styles.ticketListTable}>
-            <UserTicket
-              tickets={tickets}
-              setShowModalTicket={setShowModalTicket}
-            />
-            <UserTicket
-              tickets={tickets}
-              setShowModalTicket={setShowModalTicket}
-            />
-            <UserTicket
-              tickets={tickets}
-              setShowModalTicket={setShowModalTicket}
-            />
+            {userTickets.map((ticket, i) => (
+              <UserTicket
+                ticket={ticket}
+                setModalTicketContext={setModalTicketContext}
+                key={i}
+              />
+            ))}
           </div>
         </div>
       </div>
-      {showModalTicket && (
+      {modalTicketContext.isVisible && (
         <div>
-          <TicketToPrint tickets={tickets} />
+          <TicketToPrint
+            modalTicketContext={modalTicketContext}
+            username={username}
+          />{" "}
+          {/* Utilizzare il context */}
         </div>
       )}
     </div>
@@ -45,11 +59,3 @@ const Tickets = () => {
 };
 
 export default Tickets;
-
-const tickets = {
-  id: 121,
-  room: 2,
-  seat: "4-b",
-  time: "18:00",
-  title: "Il viaggio di Pippo",
-};
