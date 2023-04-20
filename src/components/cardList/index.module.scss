@@ -1,14 +1,21 @@
 .CardList {
   width: 100%;
-  height: 400px;
+  height: 425px;
   padding: 20px;
-  overflow-x: scroll;
+  overflow-x: overlay;
   scroll-behavior: smooth;
-  scroll-snap-points-x: repeat(100vw);
-  scroll-snap-type: x mandatory;
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 30px;
+
+  @include mobile {
+    height: 400px;
+    scroll-snap-points-x: repeat(100vw);
+    scroll-snap-type: x mandatory;
+  }
+}
+.catTitle {
+  color: $grey-50;
 }
 
 ::-webkit-scrollbar {
@@ -22,8 +29,46 @@
   align-items: center;
 }
 
-@include mobile {
-  .CardList {
-    height: 320px;
+.invisibleBar {
+  z-index: 0;
+  display: flex;
+  justify-content: space-between;
+  width: 125%;
+  transform: translate(-9vw, -300px);
+
+  & > * {
+    &:hover {
+      animation: wiggle 2s linear infinite;
+    }
+  }
+
+  @include mobile {
+    display: none;
+  }
+}
+
+@keyframes wiggle {
+  0%,
+  7% {
+    transform: rotateZ(0);
+  }
+  15% {
+    transform: rotateZ(-15deg);
+  }
+  20% {
+    transform: rotateZ(10deg);
+  }
+  25% {
+    transform: rotateZ(-10deg);
+  }
+  30% {
+    transform: rotateZ(6deg);
+  }
+  35% {
+    transform: rotateZ(-4deg);
+  }
+  40%,
+  100% {
+    transform: rotateZ(0);
   }
 }

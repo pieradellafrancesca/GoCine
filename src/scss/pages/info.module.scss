@@ -1,6 +1,7 @@
 .Info {
   margin-bottom: 100px;
   color: $primary-50;
+  margin-top: 80px;
 
   .upSection {
     display: flex;
@@ -121,15 +122,35 @@
       height: 350px;
 
       .list {
-        width: 100vw;
-        overflow-y: scroll;
+        width: 70vw;
+        margin: 0 calc(50% - 35vw);
+      }
+
+      .shadow {
+        position: relative;
+
+        &::after {
+          content: "";
+          height: 140px;
+          width: 80px;
+          background: linear-gradient(
+            -90deg,
+            black 3%,
+            rgba(0, 0, 0, 0.648) 27%,
+            transparent 60%
+          );
+          position: absolute;
+          top: calc(25% - 38px);
+          right: calc(50% - 35vw);
+          z-index: 5;
+        }
       }
     }
 
     .buyTicketBtn {
       position: absolute;
       left: calc(50% - 15vw);
-      bottom: -100px;
+      // bottom: -100px;
       width: 30vw;
       padding: 12.25px 17.25px;
       letter-spacing: $letterSpacing;

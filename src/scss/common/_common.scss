@@ -2,8 +2,32 @@
   margin: 0 auto;
   padding: 80px 0px;
   width: 75%;
+  @include mobile {
+    width: 100%;
+    padding: 20px;
+  }
 }
 
 .container {
   padding: 0px 40px;
+}
+
+.upperName {
+  color: $secondary-500;
+  letter-spacing: $letterSpacing;
+}
+
+.errorMsg {
+  color: red;
+}
+
+.inputOpt {
+  font-size: 0.65rem;
+  text-transform: capitalize;
+  margin-left: 1.25rem;
+}
+
+.subtitle {
+  letter-spacing: $letterSpacing;
+  color: $grey-50;
 }

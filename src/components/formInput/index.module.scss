@@ -1,7 +1,5 @@
 .FormInput {
   position: relative;
-  border: 0.9px solid $grey-500;
-  border-radius: $borderRadius;
   width: 100%;
   max-width: 300px;
   height: 2.75rem;
@@ -11,10 +9,11 @@
   .input {
     width: 100%;
     height: 100%;
-    border: 0;
-    background-color: transparent;
     padding: 0 20px;
+    border: 0.9px solid $grey-500;
+    border-radius: $borderRadius;
     letter-spacing: $letterSpacing;
+    background-color: transparent;
     color: $grey-50;
 
     &:focus {
@@ -35,12 +34,13 @@
   .subInput {
     width: 100%;
     height: 100%;
-    border-radius: $borderRadius;
-    background-color: $purple;
-    color: $grey-50;
-    font-weight: bold;
-    letter-spacing: $letterSpacing;
+    margin-top: 0.25rem;
     border: 0;
+    border-radius: $borderRadius;
+    letter-spacing: $letterSpacing;
+    font-weight: bold;
+    background-color: $secondary-500;
+    color: $grey-50;
     cursor: pointer;
   }
 }

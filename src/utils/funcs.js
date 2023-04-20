@@ -21,7 +21,7 @@ export const convertMinsToHrsMins = (mins) => {
   }
 };
 
-export const arrayShortener = (arr = []) => {
+export const genreShortener = (arr = []) => {
   let movieGenres = arr;
   const emptyArr = [];
   if (arr.length > 2) {
@@ -50,6 +50,13 @@ export const sortDate = (arr) => {
 
   const sortedDate = `${day} ${fullMonth}, ${years}`;
   return sortedDate;
+};
+
+
+export const arrShortener = (arr, value, toValue) => {
+  const arrWithValue = arr.filter((key) => key[value] != null);
+  const fromItemToItem = arrWithValue.slice(0, toValue);
+  return fromItemToItem;
 };
 
 //---------------------------------------------------//

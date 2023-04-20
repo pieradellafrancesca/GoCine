@@ -2,21 +2,23 @@
   position: relative;
   width: 35rem;
   height: 50rem;
-  background-color: $primary-800;
+  background-color: $primary-900;
   border-radius: $borderRadius;
   box-shadow: $shadow-4;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 20px;
 
   @include mobile {
-    width: 100%;
+    width: 80%;
     box-shadow: none;
+    background-color: transparent;
   }
 
   .title {
-    color: $purple;
+    color: $secondary-500;
   }
 
   .text {
@@ -24,7 +26,7 @@
     letter-spacing: $letterSpacing;
     font-weight: 100;
     span {
-      color: $purple;
+      color: $secondary-500;
       cursor: pointer;
     }
 
@@ -45,8 +47,12 @@
     background-color: transparent;
     border: 0;
     font-size: 1.75rem;
+    color: $secondary-500;
 
-    color: $purple;
+    @include mobile {
+      position: static;
+      margin: 20px;
+    }
   }
 
   .form {

@@ -1,4 +1,4 @@
-.Auth {
+.Login {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,13 +10,13 @@
   }
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('https://www.themoviedb.org/t/p/original/zENT3sNfL2HONYS99sFEYlE6R28.jpg');
+    background-image: url("https://www.themoviedb.org/t/p/original/zENT3sNfL2HONYS99sFEYlE6R28.jpg");
     background-repeat: no-repeat;
     background-position: 70% 5%;
     filter: blur(6px) saturate(1.25);

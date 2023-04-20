@@ -1,8 +1,8 @@
 .UserMiniModal {
   box-sizing: border-box;
   position: absolute;
-  top: 80px;
-  left: 20px;
+  top: 40px;
+  left: 40%;
   height: 200px;
   width: 150px;
   border-radius: 15px;
@@ -14,9 +14,20 @@
   opacity: 0;
   z-index: 10;
 
+  .ticketsLink {
+    color: $grey-50;
+  }
+
+  @include tablet {
+    left: 12%;
+  }
+  @include mobile {
+    left: 7.5%;
+  }
+
   p {
     margin: 0;
-    color: $primary-100;
+    color: $primary-50;
     cursor: pointer;
     transition: all 0.35s ease;
 

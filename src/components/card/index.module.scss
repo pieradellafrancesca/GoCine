@@ -1,16 +1,62 @@
-@import "../../scss/helpers/resolutions";
 :root {
   --star-size: 20px;
 }
 
 .Card {
   position: relative;
-  min-width: 225px;
+  min-width: 250px;
   height: 100%;
   border-radius: $borderRadius;
   box-shadow: $shadow-1;
   cursor: pointer;
-  scroll-snap-align: center;
+  transition: all 0.45s ease-in-out 0.35s;
+
+  &:hover {
+    min-width: 450px;
+
+    .overview {
+      opacity: 1;
+    }
+
+    .ratingsWrapper {
+      opacity: 0;
+    }
+
+    @include mobile {
+      min-width: 225px;
+
+      .overview {
+        opacity: 0;
+      }
+      .ratingsWrapper {
+        opacity: 1;
+      }
+
+      .textInfo {
+        display: block;
+      }
+    }
+  }
+
+  @include mobile {
+    min-width: 225px;
+    scroll-snap-align: center;
+  }
+
+  .overview {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    text-align: center;
+    opacity: 0;
+    color: $grey-50;
+    letter-spacing: $letterSpacing;
+    padding: 20px;
+    transition: all 0.45s ease-in-out 0.35s;
+    z-index: 9;
+  }
+
   .imgOverlay {
     position: absolute;
     top: 0;
@@ -25,14 +71,19 @@
     border-radius: $borderRadius;
     z-index: 2;
   }
-
-  img {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: saturate(1.25);
+  .imgWrapper {
     border-radius: $borderRadius;
+    box-shadow: 0px 0px 8px $secondary-500;
+
+    height: 100%;
+    img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(1.25) brightness(0.89);
+      border-radius: $borderRadius;
+    }
   }
 
   .textInfo {
@@ -42,6 +93,7 @@
     width: 100%;
     padding: 10px;
     z-index: 3;
+    transition: all 0.45s ease-in-out 0.35s;
 
     .title {
       color: $white;
@@ -82,11 +134,5 @@
       color: $secondary-50;
       letter-spacing: $letterSpacing;
     }
-  }
-}
-
-@include mobile {
-  .Card {
-    min-width: 175px;
   }
 }

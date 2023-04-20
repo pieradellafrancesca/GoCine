@@ -33,15 +33,36 @@ const Footer = () => {
           </li>
         ))}
       </ul> */}
-      <div className={styles.infoFooter}>
-        <h4>Contenuto da decidere</h4>
-      </div>
+      {/* <div className={styles.infoFooter}>
+        <h4>Developers</h4>
+        <ul>
+          <li>
+            <p>Andrea</p>
+          </li>
+          <li>
+            <p>Claudio</p>
+          </li>
+          <li>
+            <p>Ettore</p>
+          </li>
+          <li>
+            <p>Filippo</p>
+          </li>
+          <li>
+            <p>Francesca</p>
+          </li>
+          <li>
+            <p>Zakaria</p>
+          </li>
+        </ul>
+      </div> */}
       <div className={styles.infoCenter}>
         <h4>Copyright</h4>
         <p>
           <AiOutlineCopyrightCircle />
           2023
         </p>
+        <img className={styles.logo} src="/Logo.png" alt="logo" />
       </div>
       <div className={styles.infoSocial}>
         <h4>Social</h4>
@@ -60,7 +81,7 @@ const Footer = () => {
           </li>
         </ul>
       </div>
-      <ul className={styles.nameSviluppatori}>
+      {/* <ul className={styles.nameSviluppatori}>
         <li>
           <img src="https://robohash.org/Andrea" alt="foto" />
           <p>Andrea</p>
@@ -85,7 +106,7 @@ const Footer = () => {
           <img src="https://robohash.org/Zakaria" alt="foto" />
           <p>Zakaria</p>
         </li>
-      </ul>
+      </ul> */}
     </div>
   );
 };
