@@ -127,6 +127,9 @@
   }
   .showNav {
     right: 0;
+    @include desktop {
+      display: none;
+    }
   }
 
   .burger {

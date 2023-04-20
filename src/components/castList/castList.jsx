@@ -18,7 +18,6 @@ const CastList = ({ info, setShowShadow }) => {
     setShowShadow(false);
   }
 
-
   return (
     <div className={styles.CastList}>
       {shortCast.map((person, id) => (
