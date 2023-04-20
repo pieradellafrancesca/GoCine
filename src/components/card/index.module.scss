@@ -25,6 +25,13 @@
     @include mobile {
       min-width: 225px;
 
+      .overview {
+        opacity: 0;
+      }
+      .ratingsWrapper {
+        opacity: 1;
+      }
+
       .textInfo {
         display: block;
       }
