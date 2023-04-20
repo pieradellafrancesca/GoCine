@@ -24,21 +24,21 @@
       justify-content: center;
       align-items: center;
 
-      .date {
-        color: $primary-100;
-      }
-
       .hour {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         gap: 20px;
+        flex-wrap: wrap;
 
         .btn {
+          width: 180px;
           padding: 12px 18px;
           font-size: $small-text;
           letter-spacing: $letterSpacing;
           border-radius: 24px;
           background: $primary-400;
           color: $white;
-          font-weight: 600;
           border: none;
           transition: $transition;
           cursor: pointer;

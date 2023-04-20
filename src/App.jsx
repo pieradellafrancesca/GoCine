@@ -29,31 +29,29 @@ function App() {
 
   return (
     <div className="App">
+      {/* <UserAuthContextProvider> */}
+      <BrowserRouter>
+        <Context.Provider value={{ state, dispatch }}>
+          <Routes>
+            <Route element={<Layouts />}>
+              <Route path="/" element={<Home />} />
+              <Route path="movie/:info" element={<Info />} />
+              <Route
+                path="movie/:id/preorder"
+                element={
+                  // <ProtectedRoute>
+                  <Preorder />
+                  // </ProtectedRoute>
+                }
+              />
+            </Route>
 
-      <UserAuthContextProvider>
-        <BrowserRouter>
-          <Context.Provider value={{ state, dispatch }}>
-            <Routes>
-              <Route element={<Layouts />}>
-                <Route path="/" element={<Home />} />
-                <Route path="movie/:info" element={<Info />} />
-                <Route
-                  path="/:id/preorder"
-                  element={
-                    <ProtectedRoute>
-                      <Preorder />
-                    </ProtectedRoute>
-                  }
-                />
-              </Route>
-
-
-              <Route path="auth" element={<Auth />} />
-              <Route path="*" element={<Error />} />
-            </Routes>
-          </Context.Provider>
-        </BrowserRouter>
-      </UserAuthContextProvider>
+            <Route path="auth" element={<Auth />} />
+            <Route path="*" element={<Error />} />
+          </Routes>
+        </Context.Provider>
+      </BrowserRouter>
+      {/* </UserAuthContextProvider> */}
     </div>
   );
 }

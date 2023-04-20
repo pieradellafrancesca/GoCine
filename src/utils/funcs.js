@@ -51,3 +51,17 @@ export const sortDate = (arr) => {
   const sortedDate = `${day} ${fullMonth}, ${years}`;
   return sortedDate;
 };
+
+//---------------------------------------------------//
+// Per Preorder Page
+//---------------------------------------------------//
+
+export const todaysShows = (h, min, s) =>
+  new Date(new Date().setHours(h, min, s));
+
+export const nextDaysShows = (h, min, s, additionalDays) =>
+  new Date(
+    new Date(new Date(new Date().setHours(h, min, s))).setDate(
+      new Date().getDate() + additionalDays
+    )
+  );

@@ -10,7 +10,7 @@ const CastList = ({ info }) => {
     GET_CAST(info).then(({ cast } = data) => setDataCast(cast));
   }, []);
 
-  console.log(dataCast);
+  // console.log(dataCast);
 
   return (
     <div className={styles.CastList}>

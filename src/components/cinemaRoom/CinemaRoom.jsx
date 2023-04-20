@@ -1,15 +1,24 @@
 import { useEffect, useState } from "react";
 import { GET } from "../../utils/https";
+import { todaysShows, nextDaysShows } from "../../utils/funcs";
 import SeatList from "../seatList/SeatList";
 import styles from "./index.module.scss";
 
 import { db } from "../../../firebaseConfig";
 import { onValue, ref } from "firebase/database";
+import { dbMaker } from "../../utils/firebase";
 
-const CinemaRoom = ({ setTicketList, id }) => {
+const CinemaRoom = ({
+  setTicketList,
+  id,
+  setTicketInfo,
+  ticketInfo,
+  ticketList,
+  reload,
+}) => {
   const [movieInfo, setMovieInfo] = useState({});
   const [selectedHour, setSelectedHour] = useState(
-    Date.parse(new Date(new Date().setHours(18, 0, 0)))
+    Date.parse(todaysShows(18, 0, 0))
   );
   const [count, setCount] = useState(0);
   const [room, setRoom] = useState({});
@@ -29,14 +38,16 @@ const CinemaRoom = ({ setTicketList, id }) => {
   ]);
 
   useEffect(() => {
-    GET(id).then((data) => setMovieInfo(data));
+    GET(id).then((data) => {
+      setMovieInfo(data);
+      setTicketInfo((prev) => ({ ...prev, movie_title: data.title }));
+    });
   }, []);
 
   useEffect(() => {
     const query = ref(db, "rooms");
     return onValue(query, (snapShot) => {
       const data = snapShot.val();
-      console.log(data);
       setRoom(data);
       if (room[id]) {
         console.log("trovato!");
@@ -45,69 +56,80 @@ const CinemaRoom = ({ setTicketList, id }) => {
           setAllSeats(room[id][selectedHour]);
         } else {
           console.log("Sala vuota");
-          setAllSeats([
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-          ]);
         }
       } else {
         console.log("NON trovato!");
       }
     });
-  }, [selectedHour]);
+  }, [selectedHour, reload]);
 
   const onHourClick = (e) => {
     setSelectedHour(e.target.value);
     setCount(0);
     setTicketList([]);
-    console.log(Date.parse(new Date(new Date().setHours(20, 30, 0))), e);
+    setTicketInfo((prev) => ({ ...prev, date: e.target.value }));
+    console.log(typeof e.target.value, parseInt(e.target.value));
+  };
+
+  const test = () => {
+    //FIXME: se voglio inserire più posti?
+    dbMaker(room, { seatNum: 10 }, 594767, 1682006400000);
   };
 
   return (
     <div className={styles.CinemaRoom}>
+      <button onClick={test}>CLICCA</button>
       <div className={styles.upperInfo}>
         <div className={styles.upperLeftInfo}>
-          <p className={styles.date}>
-            {new Date().toLocaleString("en-EN", {
-              weekday: "long",
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-            })}
-          </p>
           <section className={`${styles.hour} flex`}>
             <button
               className={styles.btn}
               onClick={onHourClick}
-              value={Date.parse(new Date(new Date().setHours(18, 0, 0)))}
+              value={Date.parse(todaysShows(18, 0, 0))}
             >
-              {new Date(new Date().setHours(18, 0, 0)).toLocaleTimeString(
-                "en-EN",
-                {
-                  hour: "2-digit",
-                  minute: "2-digit",
-                }
-              )}
+              {todaysShows(18, 0, 0).toLocaleTimeString("en-EN", {
+                month: "short",
+                day: "numeric",
+                hour: "2-digit",
+                minute: "2-digit",
+              })}
             </button>
             <button
               className={styles.btn}
               onClick={onHourClick}
-              value={Date.parse(new Date(new Date().setHours(20, 30, 0)))}
+              value={Date.parse(todaysShows(21, 30, 0))}
             >
-              {new Date(new Date().setHours(20, 30, 0)).toLocaleTimeString(
-                "en-EN",
-                { hour: "2-digit", minute: "2-digit" }
-              )}
+              {todaysShows(21, 30, 0).toLocaleTimeString("en-EN", {
+                month: "short",
+                // weekday: "short",
+                day: "numeric",
+                hour: "2-digit",
+                minute: "2-digit",
+              })}
+            </button>
+            <button
+              className={styles.btn}
+              onClick={onHourClick}
+              value={Date.parse(nextDaysShows(18, 0, 0, 1))}
+            >
+              {nextDaysShows(18, 0, 0, 1).toLocaleString("en-EN", {
+                month: "short",
+                day: "numeric",
+                hour: "2-digit",
+                minute: "2-digit",
+              })}
+            </button>
+            <button
+              className={styles.btn}
+              onClick={onHourClick}
+              value={Date.parse(nextDaysShows(21, 30, 0, 1))}
+            >
+              {nextDaysShows(21, 30, 0, 1).toLocaleString("en-EN", {
+                month: "short",
+                day: "numeric",
+                hour: "2-digit",
+                minute: "2-digit",
+              })}
             </button>
           </section>
         </div>
@@ -129,6 +151,9 @@ const CinemaRoom = ({ setTicketList, id }) => {
         setCount={setCount}
         setTicketList={setTicketList}
         allSeats={allSeats}
+        ticketInfo={ticketInfo}
+        setTicketInfo={setTicketInfo}
+        ticketList={ticketList}
       />
       <div className={styles.lowerInfo}>
         <ul className={styles.showcase}>
