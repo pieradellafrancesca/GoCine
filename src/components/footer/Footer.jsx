@@ -60,7 +60,7 @@ const Footer = () => {
         <h4>Copyright</h4>
         <p>
           <AiOutlineCopyrightCircle />
-          2023
+          2023.All rights reserved.
         </p>
         <img className={styles.logo} src="/Logo.png" alt="logo" />
       </div>

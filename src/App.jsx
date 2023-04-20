@@ -12,6 +12,7 @@ import Login from "./pages/Login";
 import Search from "./pages/Search";
 import Preorder from "./pages/Preorder";
 import Tickets from "./pages/Tickets";
+import Developers from "./pages/Developers";
 import Layouts from "./layouts";
 
 // ===== // ===== //
@@ -46,6 +47,7 @@ function App() {
             />
             <Route path="search" element={<Search />} />
             <Route path="tickets" element={<Tickets />} />
+            <Route path="developers" element={<Developers />} />
           </Route>
 
           <Route path="login" element={<Login />} />

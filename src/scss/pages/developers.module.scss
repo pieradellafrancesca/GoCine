@@ -1,0 +1,36 @@
+.Developers {
+  margin-top: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  .devsInfo {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    img {
+      width: 200px;
+      height: 200px;
+      border-radius: 100%;
+      margin-top: 10px;
+      border: 2px solid $secondary-500;
+    }
+    .links {
+      padding: 30px;
+      a {
+        text-decoration: none;
+        font-size: 2rem;
+        color: $secondary-500;
+        padding: 10px;
+        :hover {
+          color: $secondary-200;
+          transition: all 0.4s;
+        }
+      }
+    }
+  }
+}
