@@ -11,6 +11,7 @@ import Info from "./pages/Info";
 import Login from "./pages/Login";
 import Search from "./pages/Search";
 import Preorder from "./pages/Preorder";
+import Tickets from "./pages/Tickets";
 import Layouts from "./layouts";
 
 // ===== // ===== //
@@ -26,14 +27,13 @@ function App() {
 
   return (
     <div className="App">
-
       <Context.Provider value={{ state, dispatch }}>
         <Routes>
           <Route element={<Layouts />}>
             <Route path="/" element={<Home />} />
             <Route path="movie/:info" element={<Info />} />
             <Route
-              path="preorder"
+              path="movie/:info/preorder"
               element={
                 currentValue ? (
                   <Preorder />
@@ -45,13 +45,13 @@ function App() {
               }
             />
             <Route path="search" element={<Search />} />
+            <Route path="tickets" element={<Tickets />} />
           </Route>
 
           <Route path="login" element={<Login />} />
           <Route path="*" element={<Error />} />
         </Routes>
       </Context.Provider>
-
     </div>
   );
 }
