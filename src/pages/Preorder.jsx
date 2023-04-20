@@ -1,6 +1,9 @@
+
 import { useState, useContext, useEffect } from "react";
+
+import { useState } from "react";
+
 import { useParams } from "react-router-dom";
-import { Context } from "../context";
 
 import NavButton from "../components/navButton";
 import CinemaRoom from "../components/cinemaRoom/CinemaRoom";
@@ -9,11 +12,8 @@ import ModalPayment from "../components/modalPayment";
 import TicketBox from "../components/ticketBox";
 import styles from "../scss/pages/index.module.scss";
 
-import { useUserAuth } from "../context/UserAuthContext";
-import { db } from "../../firebaseConfig";
-import { onValue, ref } from "firebase/database";
-
 const Preorder = () => {
+
   // =============== // ============== //
   // Current User Data - Filippo
 
@@ -47,6 +47,8 @@ const Preorder = () => {
   }, []);
 
   // ================ // ============== //
+
+
 
   const [ticketList, setTicketList] = useState([]);
   const { id } = useParams();

@@ -5,7 +5,7 @@ import { Link, useParams, useNavigate } from "react-router-dom";
 import {
   numFormat,
   convertMinsToHrsMins,
-  arrayShortener,
+  genreShortener,
   sortDate,
 } from "../utils/funcs";
 import BackToHomeBtn from "../components/backToHomeBtn/BackToHomeBtn";
@@ -21,7 +21,7 @@ const Info = () => {
   const [trailerLink, setTrailerLink] = useState("");
   const { info } = useParams();
   const [loaders, setLoaders] = useState(false);
-
+  const [showShadow, setShowShadow] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0); // con questo metodo riportiamo la pagina info alla posizione iniziale (scroll)
@@ -84,11 +84,10 @@ const Info = () => {
         <div
           className={`${styles.infoMovie} flex flex-column align-items-center justify-content-center`}
         >
-          {/* TODO: Sistemare stile */}
           <h2 className={styles.title}>{dataMovie.title}</h2>
           <p className={styles.otherInfo}>
             {convertMinsToHrsMins(dataMovie.runtime)} • {space}
-            {arrayShortener(dataMovie.genres).join(", ")} • {space}
+            {genreShortener(dataMovie.genres).join(", ")} • {space}
             {dataMovie.release_date && sortDate(dataMovie.release_date)}{" "}
           </p>
           <div className={styles.voteInfo}>
@@ -104,9 +103,6 @@ const Info = () => {
           <BackToHomeBtn />
         </Link>
       </div>
-
-      {/* --------------------------------------------------- */}
-
       <div className={styles.downSection}>
         <div
           className={`${styles.description} flex flex-column align-items-center justify-content-center`}
@@ -116,8 +112,8 @@ const Info = () => {
         </div>
         <div className={styles.cast}>
           <h5>Cast</h5>
-          <div className={styles.list}>
-            <CastList info={info} />
+          <div className={`${styles.list} ${showShadow && styles.shadow}`}>
+            <CastList setShowShadow={setShowShadow} info={info} />
           </div>
         </div>
         <button className={styles.buyTicketBtn} onClick={onHandleClick}>

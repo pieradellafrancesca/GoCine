@@ -4,13 +4,21 @@
   align-items: center;
   flex-wrap: wrap;
 
-  .infoFooter,
+  .infoFooter {
+    width: 333px;
+    height: 200px;
+    margin: 0 10px;
+    cursor: pointer;
+  }
   .infoCenter {
     // border-right: 2px solid $purple;
     width: 333px;
     height: 200px;
     margin: 0 10px;
     cursor: pointer;
+    .logo {
+      display: none;
+    }
   }
 
   .infoSocial {
@@ -62,10 +70,12 @@
 
 @include mobile {
   .Footer {
-    .infoFooter,
     .infoCenter {
-      border-right: none;
-      // height: 350px;
+      .logo {
+        display: block;
+        width: 110px;
+        height: 80px;
+      }
     }
   }
 }
