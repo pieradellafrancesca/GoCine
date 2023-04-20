@@ -1,13 +1,11 @@
-
-
-import {useState , useContext, useEffect } from "react";
+import { useState, useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Context } from "../context";
 
 import NavButton from "../components/navButton";
 import CinemaRoom from "../components/cinemaRoom/CinemaRoom";
 import ModalPayment from "../components/modalPayment";
-import Loader from "../components/loader";
+// import Loader from "../components/loader";
 import TicketBox from "../components/ticketBox";
 import styles from "../scss/pages/index.module.scss";
 
@@ -16,7 +14,6 @@ import { db } from "../../firebaseConfig";
 import { onValue, ref } from "firebase/database";
 
 const Preorder = () => {
-
   // =============== // ============== //
   // Current User Data - Filippo
 
@@ -50,12 +47,12 @@ const Preorder = () => {
   }, []);
 
   // ================ // ============== //
-  
-   const [ticketList, setTicketList] = useState([]);
+
+  const [ticketList, setTicketList] = useState([]);
   const { id } = useParams();
   const [modalVisible, setModalVisible] = useState(false);
-  
-    const modalClose = () => {
+
+  const modalClose = () => {
     setModalVisible((prev) => !prev);
   };
 
@@ -64,7 +61,7 @@ const Preorder = () => {
       className={`${styles.Preorder} section flex flex-column justify-content-center align-items-center`}
     >
       <h2>Preorder Page</h2>
-      <Loader />
+      {/* <Loader /> */}
       <NavButton />
       <CinemaRoom setTicketList={setTicketList} id={id} />
       <TicketBox ticketList={ticketList} />
@@ -72,7 +69,6 @@ const Preorder = () => {
       <button className={styles.btnModal} onClick={modalClose}>
         buy now
       </button>
-
     </section>
   );
 };
