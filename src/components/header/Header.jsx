@@ -81,8 +81,8 @@ const Header = ({}) => {
         )}
 
         {user && (
-          <Link className={styles.preorderBtn} to="/preorder">
-            preorder
+          <Link className={styles.navLink} to="/tickets">
+            Tickets
           </Link>
         )}
       </ul>
@@ -114,12 +114,8 @@ const Header = ({}) => {
         )}
 
         {user && (
-          <Link
-            onClick={handleBurger}
-            className={styles.preorderBtn}
-            to="/preorder"
-          >
-            preorder
+          <Link onClick={handleBurger} className={styles.navLink} to="/tickets">
+            Tickets
           </Link>
         )}
       </ul>

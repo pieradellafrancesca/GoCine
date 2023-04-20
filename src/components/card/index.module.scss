@@ -14,8 +14,12 @@
   &:hover {
     min-width: 450px;
 
-    .textInfo {
-      opacity: 0%;
+    .overview {
+      opacity: 1;
+    }
+
+    .ratingsWrapper {
+      opacity: 0;
     }
 
     @include mobile {
@@ -30,6 +34,20 @@
   @include mobile {
     min-width: 225px;
     scroll-snap-align: center;
+  }
+
+  .overview {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    text-align: center;
+    opacity: 0;
+    color: $grey-50;
+    letter-spacing: $letterSpacing;
+    padding: 20px;
+    transition: all 0.45s ease-in-out 0.35s;
+    z-index: 9;
   }
 
   .imgOverlay {

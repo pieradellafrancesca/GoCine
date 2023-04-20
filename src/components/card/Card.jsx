@@ -4,6 +4,7 @@ import styles from "./index.module.scss";
 import VoteStars from "../voteStars";
 
 export default function Card({ data }) {
+  const { title, overview, vote_count } = data;
   const navigate = useNavigate();
   const onHandleClick = () => {
     navigate(`movie/${data.id}`);
@@ -18,12 +19,15 @@ export default function Card({ data }) {
           alt={data.title}
         />
       </div>
+      <div className={styles.overview}>
+        {`${overview.split(" ").splice(0, 25).join(" ")}...`}
+      </div>
       <div className={styles.textInfo}>
-        <h5 className={styles.title}>{data.title}</h5>
+        <h5 className={styles.title}>{title}</h5>
         <div className={styles.ratingsWrapper}>
           <VoteStars data={data} />
           <span className={styles.voteCount}>{`(${numFormat(
-            data.vote_count
+            vote_count
           )})`}</span>
         </div>
       </div>
