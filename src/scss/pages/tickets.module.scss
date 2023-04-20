@@ -1,4 +1,49 @@
 .Tickets {
-  margin-top: 80px;
-  height: calc(100vh - 80px);
+  margin: 200px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .table {
+    min-height: 200px;
+    width: 80vw;
+    border-radius: 10px;
+    background-color: white;
+    padding-bottom: 30px;
+
+    .headerTable {
+      width: 100%;
+      height: 70px;
+      padding-right: 10%;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+
+      @include mobile {
+        h3 {
+          font-size: 1.3em;
+        }
+      }
+    }
+
+    .mainTable {
+      .ticketListTable {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+    }
+
+    hr {
+      width: 80%;
+      margin: 5px auto 20px auto;
+    }
+  }
+
+  button {
+    height: 50px;
+    width: 50px;
+    margin: 200px 50%;
+  }
 }

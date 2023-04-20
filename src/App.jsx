@@ -7,6 +7,7 @@ import { Routes, Route } from "react-router-dom";
 import Error from "./pages/Error";
 import ProtectedRoute from "./pages/ProtectedRoute";
 import Home from "./pages/Home";
+import Tickets from "./pages/Tickets";
 import Info from "./pages/Info";
 import Login from "./pages/Login";
 import Search from "./pages/Search";
@@ -28,11 +29,11 @@ function App() {
 
   return (
     <div className="App">
-
       <Context.Provider value={{ state, dispatch }}>
         <Routes>
           <Route element={<Layouts />}>
             <Route path="/" element={<Home />} />
+            <Route path="tickets" element={<Tickets />} />
             <Route path="movie/:info" element={<Info />} />
             <Route
               path="movie/:info/preorder"
@@ -55,7 +56,6 @@ function App() {
           <Route path="*" element={<Error />} />
         </Routes>
       </Context.Provider>
-
     </div>
   );
 }
