@@ -29,7 +29,7 @@ export default function LoginForm() {
     try {
       // #1 Firebase login function
       await login(email, password);
-      navigate("/preorder");
+      navigate("/");
 
       // #2 Set in the localstorage the current user is logged state
       window.localStorage.setItem("isLogged", JSON.stringify(true));

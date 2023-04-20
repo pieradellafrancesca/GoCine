@@ -35,8 +35,8 @@ const UserMiniModal = ({ userSelected }) => {
         userSelected && styles.showMiniModal
       }`}
     >
-      <Link className={styles.ticketsLink} to="/tickets">
-        Tickets
+      <Link className={styles.ticketsLink} to="/account">
+        account
       </Link>
       <p onClick={handleLogout}>Logout</p>
     </div>
