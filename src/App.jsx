@@ -27,6 +27,7 @@ function App() {
 
   return (
     <div className="App">
+
       <Context.Provider value={{ state, dispatch }}>
         <Routes>
           <Route element={<Layouts />}>
@@ -52,6 +53,7 @@ function App() {
           <Route path="*" element={<Error />} />
         </Routes>
       </Context.Provider>
+
     </div>
   );
 }

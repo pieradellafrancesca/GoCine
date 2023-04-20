@@ -52,8 +52,23 @@ export const sortDate = (arr) => {
   return sortedDate;
 };
 
+
 export const arrShortener = (arr, value, toValue) => {
   const arrWithValue = arr.filter((key) => key[value] != null);
   const fromItemToItem = arrWithValue.slice(0, toValue);
   return fromItemToItem;
 };
+
+//---------------------------------------------------//
+// Per Preorder Page
+//---------------------------------------------------//
+
+export const todaysShows = (h, min, s) =>
+  new Date(new Date().setHours(h, min, s));
+
+export const nextDaysShows = (h, min, s, additionalDays) =>
+  new Date(
+    new Date(new Date(new Date().setHours(h, min, s))).setDate(
+      new Date().getDate() + additionalDays
+    )
+  );

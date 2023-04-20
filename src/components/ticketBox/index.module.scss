@@ -1,15 +1,8 @@
 .TicketBox {
-  border: 2px solid $white;
+  border: 0.9px solid $white;
+  border-radius: 18px;
   color: $white;
   gap: 10px;
-
-  .ticket {
-    border: 1px solid $white;
-    border-radius: 12px;
-    width: 70%;
-    height: 50px;
-    gap: 10px;
-  }
 
   .buyTicket {
     margin-top: 30px;
@@ -30,4 +23,16 @@
       color: $primary-500;
     }
   }
+
+  .pickSeat {
+    margin-top: 40px;
+    font-style: italic;
+    font-size: 1.2rem;
+    color: $primary-100;
+    letter-spacing: $letterSpacing;
+  }
+}
+
+.void {
+  border: none;
 }
