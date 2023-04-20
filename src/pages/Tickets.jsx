@@ -7,7 +7,7 @@ import { Context } from "../context";
 const Tickets = () => {
   //Creare componente modale per ticket ({children})
   const [modalTicketContext, setModalTicketContext] = useState({
-    peyload: {},
+    payload: {},
     isVisible: false,
   });
 
@@ -45,15 +45,16 @@ const Tickets = () => {
           </div>
         </div>
       </div>
-      {modalTicketContext.isVisible && (
-        <div>
-          <TicketToPrint
-            modalTicketContext={modalTicketContext}
-            username={username}
-          />{" "}
-          {/* Utilizzare il context */}
-        </div>
-      )}
+      <div
+        className={`${styles.ticketToPrintContainer} ${
+          modalTicketContext.isVisible && styles.showModal
+        }`}
+      >
+        <TicketToPrint
+          modalTicketContext={modalTicketContext}
+          username={username}
+        />
+      </div>
     </div>
   );
 };
