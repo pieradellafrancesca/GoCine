@@ -1,0 +1,60 @@
+.Ticket {
+  margin: 0 30px;
+  display: flex;
+  gap: 150px;
+
+  border-bottom: 1px solid $white;
+  margin-bottom: 30px;
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+
+    .infoUp,
+    .infoDown {
+      margin: 0;
+      color: $secondary-500;
+    }
+
+    .infoUp {
+      letter-spacing: $letterSpacing;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .date {
+      text-transform: capitalize;
+    }
+
+    .infoDown {
+      font-size: $small-text;
+      color: $primary-100;
+    }
+  }
+}
+
+@include tablet {
+  .Ticket {
+    gap: 20px;
+    flex-wrap: wrap;
+
+    .wrapper {
+      .infoUp {
+        letter-spacing: normal;
+      }
+    }
+  }
+}
+
+@include mobile {
+  .Ticket {
+    gap: 20px;
+    flex-wrap: wrap;
+
+    .wrapper {
+      .infoUp {
+        letter-spacing: normal;
+      }
+    }
+  }
+}

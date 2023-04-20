@@ -1,13 +1,9 @@
 .Hero {
-  height: 700px;
   width: 100%;
-
   margin-top: 80px;
-
 
   .imageContainer {
     display: flex;
-    height: 100%;
     width: 100%;
     overflow-y: hidden;
     overflow-x: overlay;
@@ -17,26 +13,39 @@
     scroll-behavior: smooth;
 
     .singleImage {
+      position: relative;
       min-width: 100%;
       scroll-snap-align: center;
       box-shadow: $shadow-4;
+      .dots {
+        position: absolute;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        bottom: 20px;
+        z-index: 10;
+        button {
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          border: 1px solid white;
+          background-color: rgba(255, 255, 255, 0.565);
+          cursor: pointer;
+          &.active {
+            background-color: white;
+          }
+        }
+      }
 
       img {
         width: 100%;
+        max-height: calc(100vh - 80px);
         object-fit: cover;
         object-position: top;
-        filter: saturate(1.25) grayscale(0.7);
-
+        filter: saturate(1.25) brightness(1.2);
       }
     }
-  }
-
-  @include tablet {
-    height: 350px;
-  }
-
-  @include mobile {
-    height: 300px;
-
   }
 }

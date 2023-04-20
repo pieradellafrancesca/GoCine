@@ -3,6 +3,7 @@ import styles from "./index.module.scss";
 export default function FormInput({
   children,
   type,
+  option,
   placeholder,
   value,
   onChange,
@@ -20,6 +21,7 @@ export default function FormInput({
           onChange={onChange}
         />
       )}
+      <span className="inputOpt">{option && `${option} field`}</span>
     </div>
   );
 }

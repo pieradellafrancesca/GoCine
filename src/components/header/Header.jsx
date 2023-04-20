@@ -55,14 +55,14 @@ const Header = ({}) => {
         </h4>
         {!user && (
           <div className={styles.logo}>
-            <h2>LOGO</h2>
+            <img src="/Logo.png" alt="logo" />
           </div>
         )}
       </div>
 
       {user && (
         <div className={styles.logo}>
-          <h2>LOGO</h2>
+          <img src="/Logo.png" alt="logo" />
         </div>
       )}
 
@@ -81,8 +81,8 @@ const Header = ({}) => {
         )}
 
         {user && (
-          <Link className={styles.preorderBtn} to="/preorder">
-            preorder
+          <Link className={styles.navLink} to="/tickets">
+            Tickets
           </Link>
         )}
       </ul>
@@ -114,12 +114,8 @@ const Header = ({}) => {
         )}
 
         {user && (
-          <Link
-            onClick={handleBurger}
-            className={styles.preorderBtn}
-            to="/preorder"
-          >
-            preorder
+          <Link onClick={handleBurger} className={styles.navLink} to="/tickets">
+            Tickets
           </Link>
         )}
       </ul>

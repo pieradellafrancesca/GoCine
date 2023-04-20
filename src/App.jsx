@@ -12,6 +12,8 @@ import Info from "./pages/Info";
 import Login from "./pages/Login";
 import Search from "./pages/Search";
 import Preorder from "./pages/Preorder";
+import Tickets from "./pages/Tickets";
+import Developers from "./pages/Developers";
 import Layouts from "./layouts";
 
 // ===== // ===== //
@@ -34,7 +36,7 @@ function App() {
             <Route path="tickets" element={<Tickets />} />
             <Route path="movie/:info" element={<Info />} />
             <Route
-              path="preorder"
+              path="movie/:info/preorder"
               element={
                 currentValue ? (
                   <Preorder />
@@ -46,6 +48,8 @@ function App() {
               }
             />
             <Route path="search" element={<Search />} />
+            <Route path="tickets" element={<Tickets />} />
+            <Route path="developers" element={<Developers />} />
           </Route>
 
           <Route path="login" element={<Login />} />

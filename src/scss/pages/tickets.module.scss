@@ -10,6 +10,7 @@
     width: 80vw;
     border-radius: 10px;
     background-color: white;
+    padding-bottom: 30px;
 
     .headerTable {
       width: 100%;
@@ -28,77 +29,9 @@
 
     .mainTable {
       .ticketListTable {
-        .ticketItemTable {
-          // border-bottom: solid 1px black;
-
-          .upSection {
-            display: flex;
-            align-items: center;
-            justify-content: space-around;
-            width: 95%;
-            margin: 0 auto;
-
-            // & > * {
-            //   border: solid red 1px;
-            // }
-
-            .ticketId {
-              // flex-grow: 1;
-              // width: 20%;
-            }
-
-            .ticketTime {
-              // width: 20%;
-              // flex-grow: 2;
-            }
-
-            .ticketFilm {
-              // flex-grow: 3;
-            }
-
-            .ticketSeat {
-              // width: 30%;
-              // flex-grow: 1;
-            }
-
-            @include mobile {
-              h4 {
-                font-size: 1em;
-              }
-              h5 {
-                font-size: 0.9em;
-              }
-              p {
-                font-size: 0.8em;
-              }
-            }
-
-            .expandIcon {
-              cursor: pointer;
-              transition: transform 0.35s ease;
-            }
-            .expanded {
-              transform: rotate(180deg);
-            }
-          }
-          .downSection {
-            height: 0;
-            overflow: hidden;
-            text-align: center;
-            transition: height 0.35s ease;
-            background-color: $primary-50;
-
-            &__expanded {
-              height: 30px;
-            }
-
-            p {
-              margin: 0 auto;
-              color: $primary-400;
-              cursor: pointer;
-            }
-          }
-        }
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
       }
     }
 

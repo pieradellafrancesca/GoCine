@@ -29,7 +29,7 @@ export default function LoginForm() {
     try {
       // #1 Firebase login function
       await login(email, password);
-      navigate("/preorder");
+      navigate("/");
 
       // #2 Set in the localstorage the current user is logged state
       window.localStorage.setItem("isLogged", JSON.stringify(true));
@@ -49,7 +49,8 @@ export default function LoginForm() {
     <div className={styles.LoginForm}>
       <BacktoHomeBtn endpoint="/" className={styles.backBtn} />
       <h3 className={styles.title}>user account </h3>
-
+      <p className="subtitle">Checkout your tickets</p>
+      <p className="errorMsg">{error}</p>
       <form onSubmit={handleSubmit} className={`${styles.form} form`}>
         <FormInput
           type="email"

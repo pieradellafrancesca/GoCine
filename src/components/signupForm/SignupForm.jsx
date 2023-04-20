@@ -72,19 +72,37 @@ export default function SignupForm() {
 
   return (
     <div className={styles.SignupForm}>
-      <BacktoHomeBtn endpoint="/" className={styles.backBtn} />
-      <h3 className={styles.title}>create account</h3>
-
+      <div onClick={handleClick} className={styles.btnWrapper}>
+        <BacktoHomeBtn endpoint="/" className={styles.backBtn} />
+      </div>
+      <h2 className={styles.title}>create account</h2>
+      <p className="subtitle">Have your tickets in matter of seconds!</p>
+      <p className="errorMsg">{error}</p>
       <form onSubmit={handleSubmit} className={`${styles.form} form`}>
-        <FormInput type="text" placeholder="username" onChange={handleUser}>
+        <FormInput
+          type="text"
+          placeholder="username"
+          onChange={handleUser}
+          option="optional"
+        >
           <AiOutlineUser className={styles.icons} />
         </FormInput>
 
-        <FormInput type="text" placeholder="image URL" onChange={handleImg}>
+        <FormInput
+          type="text"
+          placeholder="image URL"
+          onChange={handleImg}
+          option="optional"
+        >
           <AiOutlineFileImage className={styles.icons} />
         </FormInput>
 
-        <FormInput type="email" placeholder="e-mail" onChange={handleEmail}>
+        <FormInput
+          type="email"
+          placeholder="e-mail"
+          onChange={handleEmail}
+          option="required"
+        >
           <AiOutlineMail className={styles.icons} />
         </FormInput>
 
@@ -92,6 +110,7 @@ export default function SignupForm() {
           type="password"
           placeholder="password"
           onChange={handlePassword}
+          option="required"
         >
           <AiFillLock className={styles.icons} />
         </FormInput>
