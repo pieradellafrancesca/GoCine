@@ -7,7 +7,6 @@ import { Routes, Route } from "react-router-dom";
 import Error from "./pages/Error";
 import ProtectedRoute from "./pages/ProtectedRoute";
 import Home from "./pages/Home";
-import Tickets from "./pages/Tickets";
 import Info from "./pages/Info";
 import Login from "./pages/Login";
 import Search from "./pages/Search";
