@@ -1,6 +1,6 @@
 import styles from "./index.module.scss";
 
-const TicketToPrint = () => {
+const TicketToPrint = ({ tickets }) => {
   return (
     <div className={styles.TicketToPrint}>
       <div className={`${styles.cardLeft} ${styles.card}`}>
@@ -39,11 +39,3 @@ const TicketToPrint = () => {
 };
 
 export default TicketToPrint;
-
-const tickets = {
-  id: 121,
-  room: 2,
-  seat: "4-b",
-  time: "18:00",
-  title: "movie title",
-};

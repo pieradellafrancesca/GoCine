@@ -1,41 +1,66 @@
 import styles from "../scss/pages/tickets.module.scss";
+import TicketToPrint from "../components/ticketToPrint";
+import { useState } from "react";
+import { AiOutlineCaretDown } from "react-icons/ai";
 
 const Tickets = () => {
+  const [showModalTicket, setShowModalTicket] = useState(false);
+  const [expandTicket, setExpandTicket] = useState(true);
+
+  const showDetailsTicket = () => {
+    setExpandTicket((prev) => !prev);
+    setShowModalTicket(false);
+  };
+
+  //Creare componente modale per ticket ({children})
+
   return (
     <div className={styles.Tickets}>
-      <div className={styles.cardWrap}>
-        <div className={`${styles.cardLeft} ${styles.card}`}>
-          {/* card */}
-          <h1>
-            MovieGo <span>Cinema</span>
-          </h1>
-          <div className={styles.title}>
-            <h2>{tickets.title}</h2>
-            <span>movie</span>
-          </div>
-          <div className={styles.name}>
-            <h2>Pippo</h2>
-            <span>name</span>
-          </div>
-          <div className={styles.seat}>
-            <h2>{tickets.seat}</h2>
-            <span>seat</span>
-          </div>
-          <div className={styles.time}>
-            <h2>{tickets.time}</h2>
-            <span>time</span>
-          </div>
+      <div className={styles.table}>
+        <div className={styles.headerTable}>
+          <h3>Data</h3>
+          <h3>Ore</h3>
+          <h3>Film</h3>
+          <h3>Poltrona</h3>
         </div>
-        <div className={`${styles.cardRight} ${styles.card}`}>
-          {/* card */}
-          <div className={styles.eye}></div>
-          <div className={styles.number}>
-            <h3>{tickets.seat}</h3>
-            <span>seat</span>
+        <hr />
+        <div className={styles.mainTable}>
+          <div className={styles.ticketListTable}>
+            {/* Da qui l'item */}
+            <div className={styles.ticketItemTable}>
+              <div className={styles.upSection}>
+                <h4 className={styles.ticketId}>{id}</h4>
+                <h4 className={styles.ticketTime}>{time}</h4>
+                <h5 className={styles.ticketFilm}> {title} </h5>
+                <h4 className={styles.ticketSeat}>{seat}</h4>
+                <span
+                  onClick={showDetailsTicket}
+                  className={`${styles.expandIcon} ${
+                    expandTicket && styles.expanded
+                  }`}
+                >
+                  <AiOutlineCaretDown />
+                </span>
+              </div>
+              <div
+                className={`${styles.downSection} ${
+                  expandTicket && styles.downSection__expanded
+                }`}
+              >
+                <p onClick={() => setShowModalTicket((prev) => !prev)}>
+                  Vedi la modale che piace tanto a Casimiro
+                </p>
+              </div>
+            </div>
           </div>
-          <div className={styles.barcode}></div>
+          {/* Fino a qui l'item */}
         </div>
       </div>
+      {showModalTicket && (
+        <div>
+          <TicketToPrint tickets={tickets} />
+        </div>
+      )}
     </div>
   );
 };
@@ -65,10 +90,13 @@ export default Tickets;
 //       }
 //     });
 //   }, []);
+
 const tickets = {
   id: 121,
   room: 2,
   seat: "4-b",
   time: "18:00",
-  title: "movie title",
+  title: "Il viaggio di Pippo",
 };
+
+const { id, room, seat, time, title } = tickets;
