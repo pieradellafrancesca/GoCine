@@ -49,7 +49,8 @@ export default function LoginForm() {
     <div className={styles.LoginForm}>
       <BacktoHomeBtn endpoint="/" className={styles.backBtn} />
       <h3 className={styles.title}>user account </h3>
-
+      <p className="subtitle">Checkout your tickets</p>
+      <p className="errorMsg">{error}</p>
       <form onSubmit={handleSubmit} className={`${styles.form} form`}>
         <FormInput
           type="email"
