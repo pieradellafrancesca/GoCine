@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { todaysShows } from "../utils/funcs";
 import NavButton from "../components/navButton";
@@ -7,13 +7,13 @@ import TicketBox from "../components/ticketBox";
 import styles from "../scss/pages/index.module.scss";
 
 const Preorder = () => {
-  const { id } = useParams();
+  const { info } = useParams();
   const [ticketList, setTicketList] = useState([]);
   const [ticketInfo, setTicketInfo] = useState({
     date: Date.parse(todaysShows(18, 0, 0)),
     seatNum: "",
     movie_title: "",
-    movie_id: id,
+    movie_id: info,
   });
   const [reload, setReload] = useState(false);
 
@@ -25,7 +25,7 @@ const Preorder = () => {
       <NavButton />
       <CinemaRoom
         setTicketList={setTicketList}
-        id={id}
+        id={info}
         setTicketInfo={setTicketInfo}
         ticketInfo={ticketInfo}
         ticketList={ticketList}

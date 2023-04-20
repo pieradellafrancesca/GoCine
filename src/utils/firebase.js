@@ -71,3 +71,26 @@ export const dbMaker = (oldValue, ticketList, idMovie, orario) => {
 
   set(ref(db, "/rooms"), { ...newData });
 };
+
+export const userTicket = (oldValue, userId, ticketList) => {
+  let newData;
+  if (oldValue[userId].tickets) {
+    newData = {
+      ...oldValue,
+      [userId]: {
+        ...oldValue[userId],
+        tickets: [...oldValue[userId].tickets, ...ticketList],
+      },
+    };
+  } else {
+    newData = {
+      ...oldValue,
+      [userId]: {
+        ...oldValue[userId],
+        tickets: [...ticketList],
+      },
+    };
+  }
+
+  set(ref(db, "/users"), { ...newData });
+};

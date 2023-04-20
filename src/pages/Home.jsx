@@ -26,14 +26,6 @@ const Home = () => {
   // #2 Gettin the data from the authentication (uid) so later we can filter it with the data coming from the real time database.
   const { user } = useUserAuth();
 
-  // <Hero />
-  // <div className={styles.LoadersHome}>{loading && <Loader />}</div>
-  // <div
-  //   className={`${styles.Home} section flex flex-column justify-content-center align-items-center`}
-  // >
-  //   <MainContent onLoadContent={handleLoadContent} />
-  //   {/* <Footer /> */}
-
   useEffect(() => {
     // #3 reffering our real time database.
     const usersRef = ref(db, "users");

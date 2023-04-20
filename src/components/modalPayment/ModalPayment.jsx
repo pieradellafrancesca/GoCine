@@ -1,7 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { Context } from "../../context";
 import { db } from "../../../firebaseConfig";
 import { onValue, ref } from "firebase/database";
-import { dbMaker } from "../../utils/firebase";
+import { dbMaker, userTicket } from "../../utils/firebase";
 import styles from "./index.module.scss";
 
 const ModalPayment = ({
@@ -11,6 +12,8 @@ const ModalPayment = ({
   setReload,
 }) => {
   const [room, setRoom] = useState({});
+  const [users, setUsers] = useState({});
+  const { state, dispatch } = useContext(Context);
   const closeModal = () => {
     setModalVisibility(false);
   };
@@ -23,8 +26,18 @@ const ModalPayment = ({
     });
   }, []);
 
+  useEffect(() => {
+    const query = ref(db, "users");
+    return onValue(query, (snapShot) => {
+      const data = snapShot.val();
+      setUsers(data);
+      console.log(data[state.currentUserData.id]);
+    });
+  }, []);
+
   const onHandlePayment = () => {
     dbMaker(room, ticketList, ticketList[0].movie_id, ticketList[0].date);
+    userTicket(users, state.currentUserData.id, ticketList);
     setTicketList([]);
     setReload((prev) => !prev);
     setModalVisibility(false);
