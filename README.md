@@ -1,4 +1,4 @@
-# MovieGo  <img src="https://cinema.icrewplay.com/wp-content/uploads/2018/11/cc453a17250f293c47f3da4ca988e43f.jpg" whidth="80" height="80"/>
+ <img src="https://media.discordapp.net/attachments/1096026441637957692/1098919431364690030/favicon.png?width=581&height=427" whidth="150" height="150"/>
 
 
 <hr></hr>
