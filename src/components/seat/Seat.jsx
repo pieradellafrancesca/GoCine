@@ -9,24 +9,27 @@ const Seat = ({
   isSelected,
 }) => {
   const onHandleClick = (seatNumber) => {
-    if (isSelected) {
-      setCount((prev) => prev - 1);
-    } else {
-      setCount((prev) => prev + 1);
-    }
-    setTicketList((prev) => {
-      if (prev.filter((ticket) => ticket.seatNum === seatNumber).length > 0) {
-        return prev.filter((ticket) => ticket.seatNum !== seatNumber);
+    if (!seatData) {
+      if (isSelected) {
+        setCount((prev) => prev - 1);
       } else {
-        return [
-          ...prev,
-          {
-            ...ticketInfo,
-            seatNum: seatNumber,
-          },
-        ];
+        setCount((prev) => prev + 1);
       }
-    });
+      setTicketList((prev) => {
+        if (prev.filter((ticket) => ticket.seatNum === seatNumber).length > 0) {
+          return prev.filter((ticket) => ticket.seatNum !== seatNumber);
+        } else {
+          return [
+            ...prev,
+            {
+              ...ticketInfo,
+              seatNum: seatNumber,
+            },
+          ];
+        }
+      });
+    }
+
     // if (!seatData) {
     //   if (selectedSeat) {
     //     setCount((prev) => prev - 1);

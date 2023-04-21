@@ -3,6 +3,7 @@ import { Context } from "../../context";
 import { db } from "../../../firebaseConfig";
 import { onValue, ref } from "firebase/database";
 import { dbMaker, userTicket } from "../../utils/firebase";
+import { commafy } from "../../utils/funcs";
 import styles from "./index.module.scss";
 
 const ModalPayment = ({
@@ -10,12 +11,18 @@ const ModalPayment = ({
   ticketList,
   setTicketList,
   setReload,
+  ticketInfo,
+  setCount,
 }) => {
   const [room, setRoom] = useState({});
   const [users, setUsers] = useState({});
+
   const { state, dispatch } = useContext(Context);
+
   const closeModal = () => {
     setModalVisibility(false);
+
+    console.log(ticketList.map((ticket) => ticket.seatNum + 1));
   };
 
   useEffect(() => {
@@ -31,7 +38,7 @@ const ModalPayment = ({
     return onValue(query, (snapShot) => {
       const data = snapShot.val();
       setUsers(data);
-      console.log(data[state.currentUserData.id]);
+      // console.log(data[state.currentUserData.id]);
     });
   }, []);
 
@@ -41,36 +48,63 @@ const ModalPayment = ({
     setTicketList([]);
     setReload((prev) => !prev);
     setModalVisibility(false);
+    setCount(0);
   };
+
   return (
     <div className={styles.ModalPayment}>
-      <div className={styles.modal}>
-        <div className={styles.container}>
-          <h5>Titolo film selezionato</h5>
-          <button className={styles.btnClose} onClick={closeModal}>
-            x
-          </button>
-          <p>Posto selezionato</p>
-          <p>Giorno/ora</p>
-          <p>Quantità biglietti</p>
-          <p>Modalita di pagamento</p>
-          <input
-            className={styles.inputCart}
-            type="text"
-            name="numero"
-            placeholder="numero carta"
-          />
-          <img
-            className={styles.imageVisa}
-            src="https://pluspng.com/img-png/mastercard-hd-png-mastercard-png-picture-1456.png"
-            alt="non trovato"
-          />
-          <img
-            src="https://lofrev.net/wp-content/photos/2016/07/visa_logo_7.jpg"
-            alt="non trovato"
-          />
+      <div className={styles.overlay} onClick={closeModal}></div>
+      <div
+        className={`${styles.modal} flex flex-column justify-content-center align-items-center`}
+      >
+        <button className={styles.btnClose} onClick={closeModal}>
+          x
+        </button>
+        <div
+          className={`${styles.container} flex flex-column justify-content-start`}
+        >
+          <h5>{ticketInfo.movie_title}</h5>
+          <p>
+            <span>Seats:</span>{" "}
+            {commafy(ticketList.map((ticket) => ticket.seatNum + 1))}
+          </p>
+          <p>
+            <span>Date/hour:</span>{" "}
+            {new Date(parseInt(ticketInfo.date)).toLocaleString("en-En", {
+              day: "2-digit",
+              month: "short",
+              hour: "2-digit",
+              minute: "2-digit",
+            })}
+          </p>
+          {/* <p>N. tickets: {ticketList.length}</p> */}
+
+          <div className={styles.paymentTerms}>
+            <p>
+              <span>Terms of payment:</span>
+            </p>
+            <div className={styles.paymentBar}>
+              <input
+                className={styles.inputCart}
+                type="password"
+                value="1234 5678 9012 3456"
+                placeholder="Card Number"
+                disabled
+              />
+              <img
+                className={styles.imageMsc}
+                src="https://pluspng.com/img-png/mastercard-hd-png-mastercard-png-picture-1456.png"
+                alt="non trovato"
+              />
+              <img
+                className={styles.imageVisa}
+                src="https://lofrev.net/wp-content/photos/2016/07/visa_logo_7.jpg"
+                alt="non trovato"
+              />
+            </div>
+          </div>
         </div>
-        <button className={styles.btn} onClick={onHandlePayment}>
+        <button className={styles.confirmationBtn} onClick={onHandlePayment}>
           confirm payment
         </button>
       </div>

@@ -1,8 +1,17 @@
 .Seat {
-  background-color: $grey-200;
-  border: 2px solid $white;
-  width: 70px;
-  height: 70px;
+  background: linear-gradient(
+    to top,
+    #761818,
+    #761818,
+    #761818,
+    #761818,
+    #761818,
+    #b54041,
+    #f3686a
+  );
+  border: 2px solid #6e0c0e;
+  width: 50px;
+  height: 35px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,11 +20,28 @@
 }
 
 .reserved {
-  background-color: $purple;
-  box-shadow: 0 0 8px 8px $primary-500 inset;
+  background: linear-gradient(
+    to top,
+    #1e0303,
+    #1e0303,
+    #1e0303,
+    #1e0303,
+    #1e0303,
+    #550809,
+    #6e0c0e
+  );
+  // box-shadow: 0 0 8px 8px $primary-500 inset;
   cursor: default;
 }
 
 .selected {
-  background-color: $light-blue;
+  background: linear-gradient(
+    to top,
+    $grey-300,
+    $grey-300,
+    $grey-300,
+    $grey-300,
+    $grey-50,
+    $grey-50
+  );
 }

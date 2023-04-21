@@ -10,21 +10,48 @@ const SeatList = ({
 }) => {
   return (
     <div className={styles.SeatList}>
-      {allSeats.map((element, i) => (
-        <Seat
-          seatData={element}
-          seatNumber={i}
-          key={i}
-          setCount={setCount}
-          setTicketList={setTicketList}
-          ticketInfo={ticketInfo}
-          isSelected={
-            ticketList.filter((ticket) => ticket.seatNum === i).length > 0
-              ? true
-              : false
+      <div className={styles.left}>
+        {allSeats.map((element, i) => {
+          if (i < 20) {
+            return (
+              <Seat
+                seatData={element}
+                seatNumber={i}
+                key={i}
+                setCount={setCount}
+                setTicketList={setTicketList}
+                ticketInfo={ticketInfo}
+                isSelected={
+                  ticketList.filter((ticket) => ticket.seatNum === i).length > 0
+                    ? true
+                    : false
+                }
+              />
+            );
           }
-        />
-      ))}
+        })}
+      </div>
+      <div className={styles.right}>
+        {allSeats.map((element, i) => {
+          if (i > 19) {
+            return (
+              <Seat
+                seatData={element}
+                seatNumber={i}
+                key={i}
+                setCount={setCount}
+                setTicketList={setTicketList}
+                ticketInfo={ticketInfo}
+                isSelected={
+                  ticketList.filter((ticket) => ticket.seatNum === i).length > 0
+                    ? true
+                    : false
+                }
+              />
+            );
+          }
+        })}
+      </div>
     </div>
   );
 };

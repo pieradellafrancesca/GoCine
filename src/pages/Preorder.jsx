@@ -17,13 +17,12 @@ const Preorder = () => {
   });
   const [modalVisibility, setModalVisibility] = useState(false);
   const [reload, setReload] = useState(false);
+  const [count, setCount] = useState(0);
 
   return (
     <section
       className={`${styles.Preorder} section flex flex-column justify-content-center align-items-center`}
     >
-      <h2>Preorder Page</h2>
-
       <CinemaRoom
         setTicketList={setTicketList}
         id={info}
@@ -31,6 +30,8 @@ const Preorder = () => {
         ticketInfo={ticketInfo}
         ticketList={ticketList}
         reload={reload}
+        count={count}
+        setCount={setCount}
       />
       <TicketBox
         ticketList={ticketList}
@@ -44,6 +45,8 @@ const Preorder = () => {
           ticketList={ticketList}
           setTicketList={setTicketList}
           setReload={setReload}
+          ticketInfo={ticketInfo}
+          setCount={setCount}
         />
       )}
     </section>
