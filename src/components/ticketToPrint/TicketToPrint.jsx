@@ -1,6 +1,8 @@
 import styles from "./index.module.scss";
 
-const TicketToPrint = ({ tickets }) => {
+const TicketToPrint = ({ modalTicketContext, username }) => {
+  const { parsedDate, time, seatNum, movie_title } = modalTicketContext.payload;
+  console.log(modalTicketContext);
   return (
     <div className={styles.TicketToPrint}>
       <div className={`${styles.cardLeft} ${styles.card}`}>
@@ -9,28 +11,28 @@ const TicketToPrint = ({ tickets }) => {
           MovieGo <span>Cinema</span>
         </h1>
         <div className={styles.title}>
-          <h2>{tickets.title}</h2>
-          <span>movie</span>
+          <h2>{movie_title}</h2>
+          <span>film</span>
         </div>
         <div className={styles.name}>
-          <h2>Pippo</h2>
-          <span>name</span>
+          <h2>{username}</h2>
+          <span>nome</span>
         </div>
         <div className={styles.seat}>
-          <h2>{tickets.seat}</h2>
-          <span>seat</span>
+          <h2>{seatNum}</h2>
+          <span>poltrona</span>
         </div>
         <div className={styles.time}>
-          <h2>{tickets.time}</h2>
-          <span>time</span>
+          <h2>{time}</h2>
+          <span>ore</span>
         </div>
       </div>
       <div className={`${styles.cardRight} ${styles.card}`}>
         {/* card */}
         <div className={styles.eye}></div>
         <div className={styles.number}>
-          <h3>{tickets.seat}</h3>
-          <span>seat</span>
+          <h3>{seatNum}</h3>
+          <span>poltrona</span>
         </div>
         <div className={styles.barcode}></div>
       </div>
