@@ -7,24 +7,26 @@
   padding: 20px;
   scroll-behavior: smooth;
 
-  &::-webkit-scrollbar {
-    -webkit-appearance: none;
-    width: 10px;
-    height: 10px;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    border-radius: 7px;
-    background-color: $secondary-200;
-    box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
-    height: 10px;
-
-    &:hover {
-      background-color: $secondary-300;
+  @include desktop {
+    &::-webkit-scrollbar {
+      -webkit-appearance: none;
+      width: 10px;
+      height: 10px;
     }
 
-    &:active {
-      background-color: $secondary-400;
+    &::-webkit-scrollbar-thumb {
+      border-radius: 7px;
+      background-color: $secondary-200;
+      box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
+      height: 10px;
+
+      &:hover {
+        background-color: $secondary-300;
+      }
+
+      &:active {
+        background-color: $secondary-400;
+      }
     }
   }
 }
