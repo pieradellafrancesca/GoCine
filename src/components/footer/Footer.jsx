@@ -1,6 +1,6 @@
 import { AiOutlineCopyrightCircle } from "react-icons/ai";
 import { BsInstagram, BsFacebook, BsTiktok } from "react-icons/bs";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styles from "./index.module.scss";
 
 // const menuItems = [
@@ -62,7 +62,9 @@ const Footer = () => {
           <AiOutlineCopyrightCircle />
           2023.All rights reserved.
         </p>
-        <img className={styles.logo} src="/Logo.png" alt="logo" />
+        <Link to="/">
+          <img className={styles.logo} src="/logo.svg_3.svg" alt="logo" />
+        </Link>
       </div>
       <div className={styles.infoSocial}>
         <h4>Social</h4>
