@@ -33,7 +33,13 @@ export default function Search() {
     e.preventDefault();
     // #1
     const filteredData = currentData.filter((item) => {
-      return item.title.includes(search);
+      if (item.title.toLowerCase().includes(search)) {
+        return item;
+      } else if (item.title.toUpperCase().includes(search)) {
+        return item;
+      } else if (item.title.includes(search)) {
+        return item;
+      }
     });
     setData((prev) => ({ ...prev, filteredData: [...filteredData] }));
     // #2
