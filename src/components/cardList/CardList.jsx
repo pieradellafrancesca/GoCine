@@ -21,7 +21,6 @@ export default function CardList({ endpoint, catName }) {
   return (
     <>
       <h3 className={styles.catTitle}>{catName}</h3>
-
       <div ref={refScroll} className={`${styles.CardList}`}>
         {movieList.map((card) => (
           <Card data={card} key={card.id} />

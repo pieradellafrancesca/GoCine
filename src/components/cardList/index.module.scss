@@ -10,6 +10,7 @@
 
   @include mobile {
     height: 400px;
+    overflow-y: hidden;
     scroll-snap-points-x: repeat(100vw);
     scroll-snap-type: x mandatory;
   }

@@ -11,50 +11,39 @@
   cursor: pointer;
   transition: all 0.45s ease-in-out 0.35s;
 
-  &:hover {
-    min-width: 450px;
-
-    .overview {
-      opacity: 1;
-    }
-
-    .ratingsWrapper {
-      opacity: 0;
-    }
-
-    @include mobile {
-      min-width: 225px;
-
-      .overview {
-        opacity: 0;
-      }
-      .ratingsWrapper {
-        opacity: 1;
-      }
-
-      .textInfo {
-        display: block;
-      }
-    }
-  }
-
   @include mobile {
     min-width: 225px;
     scroll-snap-align: center;
   }
 
-  .overview {
+  .bookMobile {
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
-    left: 0;
-    text-align: center;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
     opacity: 0;
-    color: $grey-50;
-    letter-spacing: $letterSpacing;
+    transition: $transition;
+  }
+
+  .overview {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
     padding: 20px;
-    transition: all 0.45s ease-in-out 0.35s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: center;
+    letter-spacing: $letterSpacing;
+    color: $grey-50;
+    opacity: 0;
     z-index: 9;
+    transition: all 0.45s ease-in-out 0.35s;
+
+    .bookText {
+      color: $secondary-500;
+    }
   }
 
   .imgOverlay {
@@ -63,26 +52,29 @@
     left: 0;
     width: 100%;
     height: 100%;
+    border-radius: $borderRadius;
     background: linear-gradient(
       to bottom,
       rgba(255, 255, 255, 0) 0%,
       rgba(0, 0, 0, 0.95) 90%
     );
-    border-radius: $borderRadius;
     z-index: 2;
   }
+
   .imgWrapper {
     border-radius: $borderRadius;
     box-shadow: 0px 0px 8px $secondary-500;
 
     height: 100%;
+
     img {
       position: absolute;
       width: 100%;
       height: 100%;
       object-fit: cover;
-      filter: saturate(1.25) brightness(0.89);
+      filter: saturate(1.25) brightness(0.9);
       border-radius: $borderRadius;
+      transition: all 1s ease-in-out;
     }
   }
 
@@ -133,6 +125,38 @@
     .voteCount {
       color: $secondary-50;
       letter-spacing: $letterSpacing;
+    }
+  }
+
+  // Card Hover
+
+  &:hover {
+    min-width: 450px;
+
+    .overview {
+      opacity: 1;
+    }
+
+    .textInfo {
+      opacity: 0;
+    }
+
+    @include mobile {
+      min-width: 225px;
+
+      .overview {
+        opacity: 0;
+      }
+
+      .textInfo {
+        opacity: 1;
+      }
+
+      .bookMobile {
+        opacity: 1;
+        z-index: 9;
+        font-size: 1.5rem;
+      }
     }
   }
 }

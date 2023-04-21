@@ -12,12 +12,11 @@ const CastList = ({ info, setShowShadow }) => {
     GET_CAST(info).then(({ cast } = data) => setDataCast(cast));
   }, []);
 
-  if (shortCast.length >= 9) {
-    setShowShadow(true);
-  } else {
-    setShowShadow(false);
-  }
-
+  // if (shortCast.length >= 9) {
+  //   setShowShadow(true);
+  // } else {
+  //   setShowShadow(false);
+  // }
 
   return (
     <div className={styles.CastList}>

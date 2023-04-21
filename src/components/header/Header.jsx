@@ -20,6 +20,12 @@ const Header = ({}) => {
   // were implemented to check if there is user data
   // then we'll display their data else the logged out layout is displayed
 
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+  }, []);
+
+  const handleResize = () => window.innerWidth > 768 && setBurger(false);
+
   const handleBurger = () => {
     setBurger((prev) => !prev);
     setUserSelected(false);
