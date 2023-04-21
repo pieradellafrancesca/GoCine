@@ -20,7 +20,7 @@ const UserTicket = ({ ticket, setModalTicketContext }) => {
         <h4 className={styles.ticketId}>{parsedDate}</h4>
         <h4 className={styles.ticketTime}>{time}</h4>
         <h5 className={styles.ticketFilm}>{movie_title}</h5>
-        <h4 className={styles.ticketSeat}>{seatNum}</h4>
+        <h4 className={styles.ticketSeat + 1}>{seatNum}</h4>
         <span
           onClick={showDetailsTicket}
           className={`${styles.expandIcon} ${expandTicket && styles.expanded}`}
