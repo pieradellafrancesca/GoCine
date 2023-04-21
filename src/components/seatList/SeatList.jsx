@@ -12,7 +12,7 @@ const SeatList = ({
     <div className={styles.SeatList}>
       <div className={styles.left}>
         {allSeats.map((element, i) => {
-          if (i < 20) {
+          if (i < 25) {
             return (
               <Seat
                 seatData={element}
@@ -33,7 +33,7 @@ const SeatList = ({
       </div>
       <div className={styles.right}>
         {allSeats.map((element, i) => {
-          if (i > 19) {
+          if (i > 24) {
             return (
               <Seat
                 seatData={element}

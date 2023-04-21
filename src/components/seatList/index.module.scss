@@ -9,7 +9,7 @@
 
   .left {
     width: 40%;
-    transform: skew(-12deg);
+    transform: skew(-12deg) translateX(18px);
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
@@ -17,7 +17,7 @@
 
   .right {
     width: 40%;
-    transform: skew(12deg);
+    transform: skew(12deg) translateX(34px);
     display: flex;
     flex-wrap: wrap;
     gap: 10px;

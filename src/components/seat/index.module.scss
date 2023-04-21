@@ -10,13 +10,23 @@
     #f3686a
   );
   border: 2px solid #6e0c0e;
-  width: 50px;
-  height: 35px;
+  box-shadow: 0px 18px 12px $black;
+  width: 40px;
+  height: 24px;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 8px;
   cursor: pointer;
+
+  &:hover:before {
+    content: "";
+    position: absolute;
+    width: 40px;
+    height: 24px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+  }
 }
 
 .reserved {
@@ -30,8 +40,11 @@
     #550809,
     #6e0c0e
   );
-  // box-shadow: 0 0 8px 8px $primary-500 inset;
   cursor: default;
+
+  &:hover:before {
+    display: none;
+  }
 }
 
 .selected {
@@ -44,4 +57,7 @@
     $grey-50,
     $grey-50
   );
+  &:hover:before {
+    display: none;
+  }
 }
