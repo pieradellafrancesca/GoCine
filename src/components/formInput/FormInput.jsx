@@ -21,7 +21,7 @@ export default function FormInput({
           onChange={onChange}
         />
       )}
-      <span className="inputOpt">{option && `${option} field`}</span>
+      <span className="inputOpt">{option && option}</span>
     </div>
   );
 }

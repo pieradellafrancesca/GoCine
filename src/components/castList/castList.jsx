@@ -21,7 +21,12 @@ const CastList = ({ info, setShowShadow }) => {
       }
     });
   }, []);
-  
+
+  // if (shortCast.length >= 9) {
+  //   setShowShadow(true);
+  // } else {
+  //   setShowShadow(false);
+  // }
 
   return (
     <div className={styles.CastList}>

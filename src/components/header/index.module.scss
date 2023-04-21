@@ -13,7 +13,7 @@
   text-shadow: 0 0 4px black;
   box-shadow: 0 0 4px black;
 
-  z-index: 9;
+  z-index: 19;
   padding: 0 20px;
   backdrop-filter: blur(10px);
 
@@ -110,21 +110,6 @@
     }
   }
 
-  .preorderBtn {
-    background-color: $secondary-500;
-    color: $grey-50;
-    text-align: center;
-    padding: 5px 10px;
-    margin: 20px 0px;
-    min-width: 9rem;
-    text-transform: capitalize;
-    border-radius: $borderRadius;
-    transition: $transition;
-
-    &:hover {
-      transform: scale(1.1);
-    }
-  }
   .showNav {
     right: 0;
     @include desktop {
@@ -152,7 +137,6 @@
       height: 2px;
     }
   }
-  // N
 }
 
 @include mobile {

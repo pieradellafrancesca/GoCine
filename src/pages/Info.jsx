@@ -8,7 +8,7 @@ import {
   genreShortener,
   sortDate,
 } from "../utils/funcs";
-// import BackToHomeBtn from "../components/backToHomeBtn/BackToHomeBtn";
+
 import CastList from "../components/castList";
 import VoteStars from "../components/voteStars";
 import Loader from "../components/loader";
@@ -98,12 +98,6 @@ const Info = () => {
           </div>
         </div>
       </div>
-      {/* <div className={styles.BackToHomeBtnContainer}>
-        <Link to="/">
-
-          {/* <BackToHomeBtn /> */}
-      {/* </Link> */}
-      {/* </div> */}
 
 
       <div className={styles.downSection}>

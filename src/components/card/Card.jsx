@@ -3,15 +3,15 @@ import { useNavigate } from "react-router-dom";
 import styles from "./index.module.scss";
 import VoteStars from "../voteStars";
 
-export default function Card({ data }) {
+export default function Card({ data, stylesData }) {
   const { title, overview, vote_count } = data;
   const navigate = useNavigate();
   const onHandleClick = () => {
-    navigate(`movie/${data.id}`);
+    navigate(`/movie/${data.id}`);
   };
 
   return (
-    <div onClick={onHandleClick} className={styles.Card}>
+    <div onClick={onHandleClick} className={styles.Card} style={stylesData}>
       <div className={styles.imgWrapper}>
         <div className={styles.imgOverlay}></div>
         <img
@@ -20,7 +20,9 @@ export default function Card({ data }) {
         />
       </div>
       <div className={styles.overview}>
-        {`${overview.split(" ").splice(0, 25).join(" ")}...`}
+        <h4>{title}</h4>
+        <p>{`${overview.split(" ").splice(0, 25).join(" ")}...`}</p>
+        <span className={styles.bookText}>Book your seat!</span>
       </div>
       <div className={styles.textInfo}>
         <h5 className={styles.title}>{title}</h5>
@@ -31,6 +33,7 @@ export default function Card({ data }) {
           )})`}</span>
         </div>
       </div>
+      <span className={styles.bookMobile}>Book Now!</span>
     </div>
   );
 }
