@@ -42,7 +42,20 @@
     transition: all 0.45s ease-in-out 0.35s;
 
     .bookText {
+      width: 50%;
+      margin: 0 auto;
       color: $secondary-500;
+      padding: 5px 8px;
+      border: 0;
+      border-radius: $borderRadius;
+      font-size: 1.25rem;
+      background-color: $secondary-500;
+      color: $grey-50;
+      cursor: pointer;
+      transition: $transition;
+      &:hover {
+        background-color: $secondary-600;
+      }
     }
   }
 
@@ -155,7 +168,18 @@
       .bookMobile {
         opacity: 1;
         z-index: 9;
-        font-size: 1.5rem;
+        width: 75%;
+        padding: 5px 8px;
+        border: 0;
+        border-radius: $borderRadius;
+        font-size: 1.25rem;
+        background-color: $secondary-500;
+        color: $grey-50;
+        cursor: pointer;
+        transition: $transition;
+        &:hover {
+          background-color: $secondary-600;
+        }
       }
     }
   }
