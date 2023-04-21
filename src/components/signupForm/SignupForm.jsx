@@ -57,6 +57,7 @@ export default function SignupForm() {
       dispatch({ type: "SET_FORM_SWITCH", payload: false });
     } catch (error) {
       setError(error.message);
+      console.warn(error);
     }
   };
 
@@ -77,7 +78,7 @@ export default function SignupForm() {
       </div>
       <h2 className={styles.title}>create account</h2>
       <p className="subtitle">Have your tickets in matter of seconds!</p>
-      <p className="errorMsg">{error}</p>
+      <p className="errorMsg">{error && "Error, missing e-mail / password"}</p>
       <form onSubmit={handleSubmit} className={`${styles.form} form`}>
         <FormInput
           type="text"

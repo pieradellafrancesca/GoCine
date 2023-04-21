@@ -22,7 +22,7 @@ export default function Card({ data, stylesData }) {
       <div className={styles.overview}>
         <h4>{title}</h4>
         <p>{`${overview.split(" ").splice(0, 25).join(" ")}...`}</p>
-        <span className={styles.bookText}>Book your seat!</span>
+        <button className={styles.bookText}>Book your seat!</button>
       </div>
       <div className={styles.textInfo}>
         <h5 className={styles.title}>{title}</h5>
@@ -33,7 +33,7 @@ export default function Card({ data, stylesData }) {
           )})`}</span>
         </div>
       </div>
-      <span className={styles.bookMobile}>Book Now!</span>
+      <button className={styles.bookMobile}>Book Now!</button>
     </div>
   );
 }

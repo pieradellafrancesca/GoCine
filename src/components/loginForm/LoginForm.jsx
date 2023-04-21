@@ -35,6 +35,7 @@ export default function LoginForm() {
       window.localStorage.setItem("isLogged", JSON.stringify(true));
     } catch (error) {
       setError(error.message);
+      console.warn(error);
     }
   };
 
@@ -50,7 +51,9 @@ export default function LoginForm() {
       <BacktoHomeBtn endpoint="/" className={styles.backBtn} />
       <h3 className={styles.title}>user account </h3>
       <p className="subtitle">Checkout your tickets</p>
-      <p className="errorMsg">{error}</p>
+      <p className="errorMsg">
+        {error && "Error, incorrect e-mail or password"}
+      </p>
       <form onSubmit={handleSubmit} className={`${styles.form} form`}>
         <FormInput
           type="email"
