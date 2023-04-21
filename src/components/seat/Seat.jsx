@@ -1,5 +1,3 @@
-import { todaysShows } from "../../utils/funcs";
-import { useState, useEffect } from "react";
 import styles from "./index.module.scss";
 
 const Seat = ({
@@ -8,13 +6,14 @@ const Seat = ({
   setTicketList,
   seatNumber,
   ticketInfo,
-  setTicketInfo,
   isSelected,
 }) => {
-  //FIXME:
-  const [selectedSeat, setSelectedSeat] = useState(false);
-
   const onHandleClick = (seatNumber) => {
+    if (isSelected) {
+      setCount((prev) => prev - 1);
+    } else {
+      setCount((prev) => prev + 1);
+    }
     setTicketList((prev) => {
       if (prev.filter((ticket) => ticket.seatNum === seatNumber).length > 0) {
         return prev.filter((ticket) => ticket.seatNum !== seatNumber);
@@ -51,10 +50,6 @@ const Seat = ({
     //   setSelectedSeat((prev) => !prev);
     // }
   };
-
-  useEffect(() => {
-    console.log(isSelected);
-  }, []);
 
   return (
     <div

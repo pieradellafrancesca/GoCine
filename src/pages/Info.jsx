@@ -8,7 +8,7 @@ import {
   genreShortener,
   sortDate,
 } from "../utils/funcs";
-import BackToHomeBtn from "../components/backToHomeBtn/BackToHomeBtn";
+// import BackToHomeBtn from "../components/backToHomeBtn/BackToHomeBtn";
 import CastList from "../components/castList";
 import VoteStars from "../components/voteStars";
 import Loader from "../components/loader";
@@ -98,11 +98,14 @@ const Info = () => {
           </div>
         </div>
       </div>
-      <div className={styles.BackToHomeBtnContainer}>
+      {/* <div className={styles.BackToHomeBtnContainer}>
         <Link to="/">
-          <BackToHomeBtn />
-        </Link>
-      </div>
+
+          {/* <BackToHomeBtn /> */}
+      {/* </Link> */}
+      {/* </div> */}
+
+
       <div className={styles.downSection}>
         <div
           className={`${styles.description} flex flex-column align-items-center justify-content-center`}
