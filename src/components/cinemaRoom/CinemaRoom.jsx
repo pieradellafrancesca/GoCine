@@ -6,7 +6,6 @@ import styles from "./index.module.scss";
 
 import { db } from "../../../firebaseConfig";
 import { onValue, ref } from "firebase/database";
-import { dbMaker } from "../../utils/firebase";
 
 const CinemaRoom = ({
   setTicketList,
@@ -37,6 +36,8 @@ const CinemaRoom = ({
     false,
   ]);
 
+  const [activeBtn, setActiveBtn] = useState("");
+
   useEffect(() => {
     GET(id).then((data) => {
       setMovieInfo(data);
@@ -56,6 +57,20 @@ const CinemaRoom = ({
           setAllSeats(room[id][selectedHour]);
         } else {
           console.log("Sala vuota");
+          setAllSeats([
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+          ]);
         }
       } else {
         console.log("NON trovato!");
@@ -68,22 +83,18 @@ const CinemaRoom = ({
     setCount(0);
     setTicketList([]);
     setTicketInfo((prev) => ({ ...prev, date: e.target.value }));
-    console.log(typeof e.target.value, parseInt(e.target.value));
-  };
-
-  const test = () => {
-    //FIXME: se voglio inserire più posti?
-    dbMaker(room, { seatNum: 10 }, 594767, 1682006400000);
+    setActiveBtn(+e.target.value);
   };
 
   return (
     <div className={styles.CinemaRoom}>
-      <button onClick={test}>CLICCA</button>
       <div className={styles.upperInfo}>
         <div className={styles.upperLeftInfo}>
           <section className={`${styles.hour} flex`}>
             <button
-              className={styles.btn}
+              className={`${styles.btn} ${
+                activeBtn === Date.parse(todaysShows(18, 0, 0)) && styles.active
+              }`}
               onClick={onHourClick}
               value={Date.parse(todaysShows(18, 0, 0))}
             >
@@ -95,7 +106,10 @@ const CinemaRoom = ({
               })}
             </button>
             <button
-              className={styles.btn}
+              className={`${styles.btn} ${
+                activeBtn === Date.parse(todaysShows(21, 30, 0)) &&
+                styles.active
+              }`}
               onClick={onHourClick}
               value={Date.parse(todaysShows(21, 30, 0))}
             >
@@ -108,7 +122,10 @@ const CinemaRoom = ({
               })}
             </button>
             <button
-              className={styles.btn}
+              className={`${styles.btn} ${
+                activeBtn === Date.parse(nextDaysShows(18, 0, 0, 1)) &&
+                styles.active
+              }`}
               onClick={onHourClick}
               value={Date.parse(nextDaysShows(18, 0, 0, 1))}
             >
@@ -120,7 +137,10 @@ const CinemaRoom = ({
               })}
             </button>
             <button
-              className={styles.btn}
+              className={`${styles.btn} ${
+                activeBtn === Date.parse(nextDaysShows(21, 30, 0, 1)) &&
+                styles.active
+              }`}
               onClick={onHourClick}
               value={Date.parse(nextDaysShows(21, 30, 0, 1))}
             >

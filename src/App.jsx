@@ -32,6 +32,7 @@ function App() {
         <Routes>
           <Route element={<Layouts />}>
             <Route path="/" element={<Home />} />
+            <Route path="tickets" element={<Tickets />} />
             <Route path="movie/:info" element={<Info />} />
             <Route
               path="movie/:info/preorder"
