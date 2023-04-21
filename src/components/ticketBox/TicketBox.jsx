@@ -23,9 +23,7 @@ const TicketBox = ({ ticketList, setModalVisibility }) => {
         <button className={styles.buyTicket} onClick={modalOpen}>
           Buy Tickets
         </button>
-      ) : (
-        <p className={styles.pickSeat}>Pick a seat...</p>
-      )}
+      ) : null}
     </div>
   );
 };

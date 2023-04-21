@@ -14,14 +14,41 @@ const CinemaRoom = ({
   ticketInfo,
   ticketList,
   reload,
+  count,
+  setCount,
 }) => {
   const [movieInfo, setMovieInfo] = useState({});
-  const [selectedHour, setSelectedHour] = useState(
-    Date.parse(todaysShows(18, 0, 0))
-  );
-  const [count, setCount] = useState(0);
+  const [selectedHour, setSelectedHour] = useState(null);
   const [room, setRoom] = useState({});
   const [allSeats, setAllSeats] = useState([
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
     false,
     false,
     false,
@@ -70,6 +97,34 @@ const CinemaRoom = ({
             false,
             false,
             false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
           ]);
         }
       } else {
@@ -90,6 +145,7 @@ const CinemaRoom = ({
     <div className={styles.CinemaRoom}>
       <div className={styles.upperInfo}>
         <div className={styles.upperLeftInfo}>
+          {!selectedHour && <p>Select a time</p>}
           <section className={`${styles.hour} flex`}>
             <button
               className={`${styles.btn} ${
@@ -162,35 +218,40 @@ const CinemaRoom = ({
           />
         </div>
       </div>
-      <p className={styles.text}>
-        You have selected <span className={styles.bookInfo}>{count}</span> seats
-        for <span className={styles.bookInfo}>{movieInfo.title}</span>
-      </p>
+      {selectedHour && (
+        <>
+          <p className={styles.text}>
+            You have selected <span className={styles.bookInfo}>{count}</span>{" "}
+            seats for <span className={styles.bookInfo}>{movieInfo.title}</span>
+          </p>
 
-      <SeatList
-        setCount={setCount}
-        setTicketList={setTicketList}
-        allSeats={allSeats}
-        ticketInfo={ticketInfo}
-        setTicketInfo={setTicketInfo}
-        ticketList={ticketList}
-      />
-      <div className={styles.lowerInfo}>
-        <ul className={styles.showcase}>
-          <li>
-            <div className={styles.seatAvailable}></div>
-            <small>Available</small>
-          </li>
-          <li>
-            <div className={styles.seatSelected}></div>
-            <small>Selected</small>
-          </li>
-          <li>
-            <div className={styles.seatReserved}></div>
-            <small>Reserved</small>
-          </li>
-        </ul>
-      </div>
+          <SeatList
+            setCount={setCount}
+            setTicketList={setTicketList}
+            allSeats={allSeats}
+            ticketInfo={ticketInfo}
+            setTicketInfo={setTicketInfo}
+            ticketList={ticketList}
+          />
+
+          <div className={styles.lowerInfo}>
+            <ul className={styles.showcase}>
+              <li>
+                <div className={styles.seatAvailable}></div>
+                <small>Available</small>
+              </li>
+              <li>
+                <div className={styles.seatSelected}></div>
+                <small>Selected</small>
+              </li>
+              <li>
+                <div className={styles.seatReserved}></div>
+                <small>Reserved</small>
+              </li>
+            </ul>
+          </div>
+        </>
+      )}
     </div>
   );
 };

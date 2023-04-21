@@ -1,9 +1,25 @@
 .SeatList {
   margin-top: 30px;
-  width: 400px;
+  width: 720px;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 30px;
   flex-wrap: wrap;
+
+  .left {
+    width: 40%;
+    transform: skew(-12deg);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .right {
+    width: 40%;
+    transform: skew(12deg);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
 }

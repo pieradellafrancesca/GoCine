@@ -52,7 +52,6 @@ export const sortDate = (arr) => {
   return sortedDate;
 };
 
-
 export const arrShortener = (arr, value, toValue) => {
   const arrWithValue = arr.filter((key) => key[value] != null);
   const fromItemToItem = arrWithValue.slice(0, toValue);
@@ -72,3 +71,5 @@ export const nextDaysShows = (h, min, s, additionalDays) =>
       new Date().getDate() + additionalDays
     )
   );
+
+export const commafy = (arr) => arr.join(", ");
