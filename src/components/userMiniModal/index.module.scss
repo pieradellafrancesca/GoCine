@@ -1,18 +1,24 @@
 .UserMiniModal {
-  box-sizing: border-box;
   position: absolute;
   top: 40px;
   left: 40%;
-  height: 200px;
-  width: 150px;
+
+  @include desktop {
+    left: 100px;
+  }
+  // height: 200px;
+  // width: 150px;
   border-radius: 15px;
   background-color: $primary-600;
-  text-align: end;
+  text-align: center;
   padding: 10px;
   transition: all 0.4s ease;
   transform: translateY(-120px) translateX(70px) skewY(80deg) scale(0.1);
   opacity: 0;
   z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 
   .ticketsLink {
     color: $grey-50;
@@ -26,10 +32,10 @@
   }
 
   p {
-    margin: 0;
     color: $primary-50;
     cursor: pointer;
     transition: all 0.35s ease;
+    padding: 0 20px;
 
     &:hover {
       color: $secondary-300;

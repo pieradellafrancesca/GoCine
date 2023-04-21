@@ -19,7 +19,7 @@ const TicketToPrint = ({ modalTicketContext, username }) => {
           <span>nome</span>
         </div>
         <div className={styles.seat}>
-          <h2>{seatNum}</h2>
+          <h2>{seatNum + 1}</h2>
           <span>poltrona</span>
         </div>
         <div className={styles.time}>
@@ -31,7 +31,7 @@ const TicketToPrint = ({ modalTicketContext, username }) => {
         {/* card */}
         <div className={styles.eye}></div>
         <div className={styles.number}>
-          <h3>{seatNum}</h3>
+          <h3>{seatNum + 1}</h3>
           <span>poltrona</span>
         </div>
         <div className={styles.barcode}></div>

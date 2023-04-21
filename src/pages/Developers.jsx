@@ -47,7 +47,7 @@ const Developers = () => {
         <li className={styles.devsInfo}>
           <h3>Ettore</h3>
           <img
-            src="https://media.licdn.com/dms/image/D4D35AQFtawfXySfs1Q/profile-framedphoto-shrink_200_200/0/1680278129021?e=1682604000&v=beta&t=Q4kHhkDgmt1YJiEP2TzFn1pSKR4_-ONSyf8gE-LqTAk"
+            src="https://media.licdn.com/dms/image/D4D03AQEh7flqdr36aw/profile-displayphoto-shrink_800_800/0/1668436755969?e=1687392000&v=beta&t=VjeYENfx70qiVeoImtzyEVYWgOPlsuWZhMbwhRES56c"
             alt="foto"
           />
 

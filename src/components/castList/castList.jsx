@@ -8,7 +8,7 @@ const CastList = ({ info, setShowShadow }) => {
   const [dataCast, setDataCast] = useState([]);
   const shortCast = arrShortener(dataCast, "profile_path", 20);
 
- useEffect(() => {
+  useEffect(() => {
     GET_CAST(info).then(({ cast } = data) => {
       setDataCast(cast);
       if (
@@ -21,12 +21,6 @@ const CastList = ({ info, setShowShadow }) => {
       }
     });
   }, []);
-
-  // if (shortCast.length >= 9) {
-  //   setShowShadow(true);
-  // } else {
-  //   setShowShadow(false);
-  // }
 
   return (
     <div className={styles.CastList}>
