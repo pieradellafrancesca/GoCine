@@ -16,3 +16,11 @@
     scale: 1.1;
   }
 }
+
+.disable {
+  filter: grayscale(1);
+}
+
+.enable {
+  filter: grayscale(0);
+}

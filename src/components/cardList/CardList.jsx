@@ -6,10 +6,19 @@ import ScrollButtons from "../scrollButtons";
 
 export default function CardList({ endpoint, catName }) {
   const [movieList, setMovieList] = useState([]);
+  // const [distanceFromSides, setDistanceFromSides] = useState({
+  //   fromLeft: 0,
+  //   fromRight: 10,
+  // });
 
   const refScroll = useRef(null);
   const scroll = (spaceNum) => {
     refScroll.current.scrollLeft += spaceNum;
+    // setDistanceFromSides({
+    //   fromLeft: refScroll.current.scrollLeft,
+    //   fromRight: refScroll.current.scrollRight,
+    // });
+    // console.log(refScroll.current);
   };
 
   useEffect(() => {

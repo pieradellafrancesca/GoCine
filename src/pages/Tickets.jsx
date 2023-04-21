@@ -1,15 +1,20 @@
 import styles from "../scss/pages/tickets.module.scss";
 import TicketToPrint from "../components/ticketToPrint";
 import UserTicket from "../components/userTicket/UserTicket";
-import { useState, useContext } from "react";
+import { useState, useContext, useRef } from "react";
 import { Context } from "../context";
 
 const Tickets = () => {
-  //Creare componente modale per ticket ({children})
   const [modalTicketContext, setModalTicketContext] = useState({
     payload: {},
     isVisible: false,
   });
+
+  const goToTicket = () => {
+    refTicket.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const refTicket = useRef(null);
 
   const { state, dispatch } = useContext(Context);
   const { tickets: userTickets } = state.currentUserData;
@@ -37,6 +42,7 @@ const Tickets = () => {
           <div className={styles.ticketListTable}>
             {userTickets.map((ticket, i) => (
               <UserTicket
+                goToTicket={goToTicket}
                 ticket={ticket}
                 setModalTicketContext={setModalTicketContext}
                 key={i}
@@ -49,6 +55,7 @@ const Tickets = () => {
         className={`${styles.ticketToPrintContainer} ${
           modalTicketContext.isVisible && styles.showModal
         }`}
+        ref={refTicket}
       >
         <TicketToPrint
           modalTicketContext={modalTicketContext}

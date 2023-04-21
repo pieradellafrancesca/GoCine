@@ -2,7 +2,7 @@ import styles from "./index.module.scss";
 import { useState } from "react";
 import { AiOutlineCaretDown } from "react-icons/ai";
 
-const UserTicket = ({ ticket, setModalTicketContext }) => {
+const UserTicket = ({ ticket, setModalTicketContext, goToTicket }) => {
   const { date, seatNum, movie_title } = ticket;
   const [expandTicket, setExpandTicket] = useState(false);
 
@@ -34,12 +34,13 @@ const UserTicket = ({ ticket, setModalTicketContext }) => {
         }`}
       >
         <p
-          onClick={() =>
+          onClick={() => {
             setModalTicketContext({
               payload: { ...ticket, parsedDate, time },
               isVisible: true,
-            })
-          }
+            });
+            goToTicket();
+          }}
         >
           Vedi la modale che piace tanto a Casimiro
         </p>

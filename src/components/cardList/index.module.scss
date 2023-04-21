@@ -34,8 +34,14 @@
   z-index: 0;
   display: flex;
   justify-content: space-between;
-  width: 125%;
-  transform: translate(-9vw, -300px);
+  width: 121%;
+  transform: translate(-7vw, -300px);
+
+  @include tablet {
+    width: 127%;
+
+    transform: translate(-9vw, -300px);
+  }
 
   & > * {
     &:hover {
