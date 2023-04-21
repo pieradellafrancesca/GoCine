@@ -105,6 +105,7 @@ const Info = () => {
       {/* </Link> */}
       {/* </div> */}
 
+
       <div className={styles.downSection}>
         <div
           className={`${styles.description} flex flex-column align-items-center justify-content-center`}
