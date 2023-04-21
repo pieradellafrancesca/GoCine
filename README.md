@@ -21,18 +21,32 @@
   
   ### Effettua il login o registrati
  
-  <li>user:</li>
-   <li>user:</li>
-   <li>user:</li>
-   <li>user:</li>
+  <li><strong> Email </strong>: edgemony@edgemony.it  ||  <strong>Password </strong>: edgemony </li>
+   <li><strong> Email </strong>: bootcamp@bootcamp.it ||  <strong>Password </strong>: bootcamp </li>
+   
    
 <hr></hr>
 
   ### Sviluppatori 
   Il progetto finale del coding bootcamp 6 si è svolto in team . Il progetto ha avuto la durata di due settimane seguendo la metodologia Agile, nello specifico Scrum. Grazie a questa metodologia di lavoro ognuno dei membri del team ha portato al termine le task assegnate. 
- <li>Nome : profilo github/linkedin</li>
-   <li>Nome : profilo github/linkedin</li>
-   <li>Nome : profilo github/linkedin</li>
-   <li>Nome : profilo github/linkedin</li>
-   <li>Nome : profilo github/linkedin</li>
-   <li>Nome : profilo github/linkedin</li>
+  
+ <li>Andrea :<a href = "https://github.com/Andrews46" </a>  GitHub <img src="https://th.bing.com/th/id/R.3e3e291c09c21b056629ff46f488562d?rik=dGv4bFO%2bpCQi6w&riu=http%3a%2f%2fcdn.onlinewebfonts.com%2fsvg%2fimg_529753.png&ehk=kIz1ZMtCzccmlp%2bPofpoO8qYNPHS76KGNm%2f6oCXSes4%3d&risl=&pid=ImgRaw&r=0" whidth="18" height="16"/> 
+ || <a href ="https://www.linkedin.com/in/andrea-cosentino-38aa99151/"</a> LinkedIn <img src="https://www.endupack.com/wp-content/uploads/2019/06/linkedin-icon-logo-png-transparent.png"  whidth="20" height="16"/>    </li>
+  
+  
+  
+  <li>Claudio : <a href = "https://github.com/Clod91" </a>  GitHub <img src="https://th.bing.com/th/id/R.3e3e291c09c21b056629ff46f488562d?rik=dGv4bFO%2bpCQi6w&riu=http%3a%2f%2fcdn.onlinewebfonts.com%2fsvg%2fimg_529753.png&ehk=kIz1ZMtCzccmlp%2bPofpoO8qYNPHS76KGNm%2f6oCXSes4%3d&risl=&pid=ImgRaw&r=0" whidth="18" height="16"/> 
+ || <a href ="https://www.linkedin.com/in/claudio-loreto-528193258/"</a> LinkedIn <img src="https://www.endupack.com/wp-content/uploads/2019/06/linkedin-icon-logo-png-transparent.png"  whidth="20" height="16"/> </li>
+   
+   <li>Ettore : <a href = "https://github.com/ShecktorS" </a>  GitHub <img src="https://th.bing.com/th/id/R.3e3e291c09c21b056629ff46f488562d?rik=dGv4bFO%2bpCQi6w&riu=http%3a%2f%2fcdn.onlinewebfonts.com%2fsvg%2fimg_529753.png&ehk=kIz1ZMtCzccmlp%2bPofpoO8qYNPHS76KGNm%2f6oCXSes4%3d&risl=&pid=ImgRaw&r=0" whidth="18" height="16"/> 
+ || <a href ="https://www.linkedin.com/in/ettore-sanfilippo/"</a> LinkedIn <img src="https://www.endupack.com/wp-content/uploads/2019/06/linkedin-icon-logo-png-transparent.png"  whidth="20" height="16"/></li>
+ 
+ 
+   <li>Filippo : <a href = "https://github.com/FVangelista" </a>  GitHub <img src="https://th.bing.com/th/id/R.3e3e291c09c21b056629ff46f488562d?rik=dGv4bFO%2bpCQi6w&riu=http%3a%2f%2fcdn.onlinewebfonts.com%2fsvg%2fimg_529753.png&ehk=kIz1ZMtCzccmlp%2bPofpoO8qYNPHS76KGNm%2f6oCXSes4%3d&risl=&pid=ImgRaw&r=0" whidth="18" height="16"/> 
+ || <a href ="https://www.linkedin.com/in/vangelistafilippo/"</a> LinkedIn <img src="https://www.endupack.com/wp-content/uploads/2019/06/linkedin-icon-logo-png-transparent.png"  whidth="20" height="16"/></li>
+ 
+   <li>Francesca : <a href = "https://github.com/pieradellafrancesca" </a>  GitHub <img src="https://th.bing.com/th/id/R.3e3e291c09c21b056629ff46f488562d?rik=dGv4bFO%2bpCQi6w&riu=http%3a%2f%2fcdn.onlinewebfonts.com%2fsvg%2fimg_529753.png&ehk=kIz1ZMtCzccmlp%2bPofpoO8qYNPHS76KGNm%2f6oCXSes4%3d&risl=&pid=ImgRaw&r=0" whidth="18" height="16"/> 
+ || <a href ="https://www.linkedin.com/in/francesca-pierini/"</a> LinkedIn <img src="https://www.endupack.com/wp-content/uploads/2019/06/linkedin-icon-logo-png-transparent.png"  whidth="20" height="16"/></li>
+ 
+   <li>Zakaria : <a href = "https://github.com/ziko2001" </a>  GitHub <img src="https://th.bing.com/th/id/R.3e3e291c09c21b056629ff46f488562d?rik=dGv4bFO%2bpCQi6w&riu=http%3a%2f%2fcdn.onlinewebfonts.com%2fsvg%2fimg_529753.png&ehk=kIz1ZMtCzccmlp%2bPofpoO8qYNPHS76KGNm%2f6oCXSes4%3d&risl=&pid=ImgRaw&r=0" whidth="18" height="16"/> 
+ || <a href =""</a> LinkedIn <img src="https://www.endupack.com/wp-content/uploads/2019/06/linkedin-icon-logo-png-transparent.png"  whidth="20" height="16"/></li>
