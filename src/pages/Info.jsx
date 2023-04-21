@@ -100,9 +100,12 @@ const Info = () => {
       </div>
       {/* <div className={styles.BackToHomeBtnContainer}>
         <Link to="/">
+
           {/* <BackToHomeBtn /> */}
       {/* </Link> */}
       {/* </div> */}
+
+
       <div className={styles.downSection}>
         <div
           className={`${styles.description} flex flex-column align-items-center justify-content-center`}

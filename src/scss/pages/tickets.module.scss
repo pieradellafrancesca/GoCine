@@ -46,4 +46,17 @@
     width: 50px;
     margin: 200px 50%;
   }
+
+  .ticketToPrintContainer {
+    opacity: 0;
+    z-index: -1;
+    transform: translate(500px) scale(1.2);
+    transition: all 1s ease;
+  }
+
+  .showModal {
+    opacity: 1;
+    z-index: 1;
+    transform: translate(0) scale(1);
+  }
 }

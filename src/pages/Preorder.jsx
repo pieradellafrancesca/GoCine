@@ -1,9 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { todaysShows } from "../utils/funcs";
-import NavButton from "../components/navButton";
 import CinemaRoom from "../components/cinemaRoom/CinemaRoom";
 import TicketBox from "../components/ticketBox";
+import ModalPayment from "../components/modalPayment";
 import styles from "../scss/pages/index.module.scss";
 
 const Preorder = () => {
@@ -15,6 +15,7 @@ const Preorder = () => {
     movie_title: "",
     movie_id: info,
   });
+  const [modalVisibility, setModalVisibility] = useState(false);
   const [reload, setReload] = useState(false);
 
   return (
@@ -22,7 +23,7 @@ const Preorder = () => {
       className={`${styles.Preorder} section flex flex-column justify-content-center align-items-center`}
     >
       <h2>Preorder Page</h2>
-      <NavButton />
+
       <CinemaRoom
         setTicketList={setTicketList}
         id={info}
@@ -35,7 +36,16 @@ const Preorder = () => {
         ticketList={ticketList}
         setTicketList={setTicketList}
         setReload={setReload}
+        setModalVisibility={setModalVisibility}
       />
+      {modalVisibility && (
+        <ModalPayment
+          setModalVisibility={setModalVisibility}
+          ticketList={ticketList}
+          setTicketList={setTicketList}
+          setReload={setReload}
+        />
+      )}
     </section>
   );
 };

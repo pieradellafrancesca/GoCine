@@ -55,14 +55,20 @@ const Header = ({}) => {
         </h4>
         {!user && (
           <div className={styles.logo}>
+
             <img src="/logo.svg_3.svg" alt="logo" />
+
+
+
           </div>
         )}
       </div>
 
       {user && (
         <div className={styles.logo}>
-          <img src="/logo.svg_3.svg" alt="logo" />
+<Link to="/">
+            <img src="/logo.svg_3.svg" alt="logo" />
+          </Link>
         </div>
       )}
 

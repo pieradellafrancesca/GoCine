@@ -6,7 +6,6 @@ const SeatList = ({
   setTicketList,
   allSeats,
   ticketInfo,
-  setTicketInfo,
   ticketList,
 }) => {
   return (
@@ -19,7 +18,6 @@ const SeatList = ({
           setCount={setCount}
           setTicketList={setTicketList}
           ticketInfo={ticketInfo}
-          setTicketInfo={setTicketInfo}
           isSelected={
             ticketList.filter((ticket) => ticket.seatNum === i).length > 0
               ? true
