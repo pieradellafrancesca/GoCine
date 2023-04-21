@@ -36,6 +36,7 @@ const Tickets = () => {
           <h3>Ore</h3>
           <h3>Film</h3>
           <h3>Poltrona</h3>
+          <h3> </h3>
         </div>
         <hr />
         <div className={styles.mainTable}>
