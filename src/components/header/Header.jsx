@@ -58,18 +58,17 @@ const Header = ({}) => {
 
             <img src="/logo.svg_3.svg" alt="logo" />
 
+
+
           </div>
         )}
       </div>
 
       {user && (
         <div className={styles.logo}>
-
-          <Link to="/">
+<Link to="/">
             <img src="/logo.svg_3.svg" alt="logo" />
           </Link>
-
-          
         </div>
       )}
 
