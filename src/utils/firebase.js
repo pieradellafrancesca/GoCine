@@ -58,6 +58,16 @@ export const dbMaker = (oldValue, ticketList, idMovie, orario) => {
           false,
           false,
           false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
         ];
         newData = {
           ...newData,
@@ -72,6 +82,16 @@ export const dbMaker = (oldValue, ticketList, idMovie, orario) => {
       }
     } else {
       const salaVuota = [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
         false,
         false,
         false,

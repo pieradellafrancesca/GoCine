@@ -61,6 +61,16 @@ const CinemaRoom = ({
     false,
     false,
     false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
   ]);
 
   const [activeBtn, setActiveBtn] = useState("");
@@ -78,13 +88,23 @@ const CinemaRoom = ({
       const data = snapShot.val();
       setRoom(data);
       if (room[id]) {
-        console.log("trovato!");
+        // console.log("trovato!");
         if (room[id][selectedHour]) {
-          console.log("Ci sono posti prenotati");
+          // console.log("Ci sono posti prenotati");
           setAllSeats(room[id][selectedHour]);
         } else {
-          console.log("Sala vuota");
+          // console.log("Sala vuota");
           setAllSeats([
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
             false,
             false,
             false,
@@ -128,7 +148,7 @@ const CinemaRoom = ({
           ]);
         }
       } else {
-        console.log("NON trovato!");
+        // console.log("NON trovato!");
       }
     });
   }, [selectedHour, reload]);
@@ -143,9 +163,13 @@ const CinemaRoom = ({
 
   return (
     <div className={styles.CinemaRoom}>
-      <div className={styles.upperInfo}>
-        <div className={styles.upperLeftInfo}>
-          {!selectedHour && <p>Select a time</p>}
+      <div
+        className={`${styles.upperInfo} flex flex-column justify-content-center align-items-center`}
+      >
+        <div
+          className={`${styles.upperLeftInfo} flex flex-column justify-content-center align-items-center`}
+        >
+          <p className={`${selectedHour && styles.notVisible}`}>Pick a time:</p>
           <section className={`${styles.hour} flex`}>
             <button
               className={`${styles.btn} ${
@@ -220,20 +244,6 @@ const CinemaRoom = ({
       </div>
       {selectedHour && (
         <>
-          <p className={styles.text}>
-            You have selected <span className={styles.bookInfo}>{count}</span>{" "}
-            seats for <span className={styles.bookInfo}>{movieInfo.title}</span>
-          </p>
-
-          <SeatList
-            setCount={setCount}
-            setTicketList={setTicketList}
-            allSeats={allSeats}
-            ticketInfo={ticketInfo}
-            setTicketInfo={setTicketInfo}
-            ticketList={ticketList}
-          />
-
           <div className={styles.lowerInfo}>
             <ul className={styles.showcase}>
               <li>
@@ -250,6 +260,20 @@ const CinemaRoom = ({
               </li>
             </ul>
           </div>
+
+          <SeatList
+            setCount={setCount}
+            setTicketList={setTicketList}
+            allSeats={allSeats}
+            ticketInfo={ticketInfo}
+            setTicketInfo={setTicketInfo}
+            ticketList={ticketList}
+          />
+
+          <p className={styles.text}>
+            You have selected <span className={styles.bookInfo}>{count}</span>{" "}
+            seats for <span className={styles.bookInfo}>{movieInfo.title}</span>
+          </p>
         </>
       )}
     </div>
