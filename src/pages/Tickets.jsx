@@ -22,10 +22,6 @@ const Tickets = () => {
   let ticketDate;
   userTickets.map((ticket) => {
     ticketDate = new Date(+ticket.date).toLocaleDateString();
-    /* toLocaleString("en-En", {
-      day: "2-digit",
-      month: "short",
-    }); */
   });
 
   return (

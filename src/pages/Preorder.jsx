@@ -19,6 +19,8 @@ const Preorder = () => {
   const [reload, setReload] = useState(false);
   const [count, setCount] = useState(0);
 
+  window.scrollTo(0, 0); // con questo metodo riportiamo la pagina info alla posizione iniziale (scroll) Ciao Fra :)
+
   return (
     <section
       className={`${styles.Preorder} section flex flex-column justify-content-center align-items-center`}
