@@ -2,9 +2,16 @@
   margin: 0 30px;
   display: flex;
   gap: 150px;
-
   border-bottom: 1px solid $white;
   margin-bottom: 30px;
+  @include tablet {
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  @include mobile {
+    gap: 20px;
+    flex-wrap: wrap;
+  }
 
   .wrapper {
     display: flex;
@@ -20,6 +27,12 @@
       letter-spacing: $letterSpacing;
       font-weight: 600;
       text-transform: uppercase;
+      @include tablet {
+        letter-spacing: normal;
+      }
+      @include mobile {
+        letter-spacing: normal;
+      }
     }
 
     .date {
@@ -29,32 +42,6 @@
     .infoDown {
       font-size: $small-text;
       color: $primary-100;
-    }
-  }
-}
-
-@include tablet {
-  .Ticket {
-    gap: 20px;
-    flex-wrap: wrap;
-
-    .wrapper {
-      .infoUp {
-        letter-spacing: normal;
-      }
-    }
-  }
-}
-
-@include mobile {
-  .Ticket {
-    gap: 20px;
-    flex-wrap: wrap;
-
-    .wrapper {
-      .infoUp {
-        letter-spacing: normal;
-      }
     }
   }
 }

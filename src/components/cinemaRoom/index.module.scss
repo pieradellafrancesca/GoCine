@@ -1,151 +1,149 @@
 .CinemaRoom {
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  gap: 50px;
   color: $grey-50;
   letter-spacing: $letterSpacing;
 
-  .upperInfo {
+  .upperLeftInfo {
     width: 100%;
-    gap: 50px;
-    flex-wrap: wrap;
-
-    .upperLeftInfo {
+    gap: 20px;
+    @include mobile {
       width: 100%;
-      gap: 20px;
-      @include mobile {
-        width: 100vw;
-      }
+    }
 
-      p {
-        color: $secondary-500;
-        font-weight: 600;
-      }
+    p {
+      color: $secondary-500;
+      font-weight: 600;
+    }
 
-      .notVisible {
-        visibility: hidden;
-      }
+    .notVisible {
+      visibility: hidden;
+    }
 
-      .hour {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 30px;
-        flex-wrap: wrap;
+    .hour {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      flex-wrap: wrap;
 
-        .btn {
-          width: 180px;
-          padding: 12px 18px;
-          font-size: $small-text;
-          letter-spacing: $letterSpacing;
-          border-radius: 24px;
-          background: $primary-400;
-          color: $white;
-          border: none;
-          transition: $transition;
-          cursor: pointer;
-
-          &:hover {
-            background-color: $secondary-500;
-            color: $grey-50;
-          }
+      .btn {
+        width: 180px;
+        padding: 12px 18px;
+        font-size: $small-text;
+        letter-spacing: $letterSpacing;
+        border-radius: 24px;
+        background: $primary-400;
+        color: $white;
+        border: none;
+        transition: $transition;
+        cursor: pointer;
+        @include mobile {
+          width: 100px;
+          padding: 4px 12px;
+          border-radius: 18px;
+          line-height: 1.5rem;
         }
 
-        .active {
+        &:hover {
           background-color: $secondary-500;
           color: $grey-50;
         }
       }
-    }
 
-    .upperRightInfo {
-      position: relative;
-      width: 560px;
-      height: 200px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border-radius: $borderRadius;
-
-      .todaysMovie {
-        position: absolute;
-        font-size: 2em;
-        font-weight: 600;
-        z-index: 2;
-        @include mobile {
-          font-size: 1.5em;
-        }
-      }
-
-      .imgOverlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: radial-gradient(rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.1));
-        border-radius: $borderRadius;
-        z-index: 1;
-        box-shadow: 0 0 8px 8px $primary-500 inset;
+      .active {
+        background-color: $secondary-500;
+        color: $grey-50;
       }
     }
+  }
 
-    img {
+  .upperRightInfo {
+    position: relative;
+    width: 560px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: $borderRadius;
+    @include mobile {
+      width: 100%;
+    }
+
+    .todaysMovie {
       position: absolute;
+      font-size: 2em;
+      text-align: center;
+      font-weight: 600;
+      z-index: 2;
+      @include mobile {
+        font-size: 1.4em;
+      }
+    }
+
+    .imgOverlay {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      background: radial-gradient(rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.1));
       border-radius: $borderRadius;
+      z-index: 1;
+      box-shadow: 0 0 8px 8px $primary-500 inset;
+    }
+  }
+
+  img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: $borderRadius;
+  }
+
+  .showcase {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    list-style: none;
+    @include mobile {
+      width: 100%;
+    }
+
+    li {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+
+      .seatAvailable,
+      .seatSelected,
+      .seatReserved {
+        width: 20px;
+        height: 20px;
+        border-radius: 4px;
+      }
+
+      .seatAvailable {
+        background-color: #761818;
+      }
+
+      .seatSelected {
+        background-color: $grey-300;
+      }
+
+      .seatReserved {
+        background-color: #1e0303;
+      }
     }
   }
 
   .text {
-    margin-top: 50px;
-
     .bookInfo {
       color: $light-blue;
       font-weight: 700;
-    }
-  }
-
-  .lowerInfo {
-    margin-top: 70px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 80px;
-
-    .showcase {
-      display: flex;
-      gap: 30px;
-      list-style: none;
-
-      li {
-        display: flex;
-        gap: 10px;
-
-        .seatAvailable,
-        .seatSelected,
-        .seatReserved {
-          width: 20px;
-          height: 20px;
-          border-radius: 4px;
-        }
-
-        .seatAvailable {
-          background-color: #761818;
-        }
-
-        .seatSelected {
-          background-color: $grey-300;
-        }
-
-        .seatReserved {
-          background-color: #1e0303;
-        }
-      }
     }
   }
 }

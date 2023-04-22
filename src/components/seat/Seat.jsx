@@ -29,29 +29,6 @@ const Seat = ({
         }
       });
     }
-
-    // if (!seatData) {
-    //   if (selectedSeat) {
-    //     setCount((prev) => prev - 1);
-
-    //     setTicketList((prev) =>
-    //       prev.filter((ticket) => ticket.seatNum !== seatNumber)
-    //     );
-    //   }
-    //   if (!selectedSeat) {
-    //     setCount((prev) => prev + 1);
-
-    //     setTicketInfo((prev) => ({ ...prev, seatNum: seatNumber }));
-    //     setTicketList((prev) => [
-    //       ...prev,
-    //       {
-    //         ...ticketInfo,
-    //         seatNum: seatNumber,
-    //       },
-    //     ]);
-    //   }
-    //   setSelectedSeat((prev) => !prev);
-    // }
   };
 
   return (
