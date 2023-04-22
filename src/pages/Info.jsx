@@ -22,6 +22,7 @@ const Info = () => {
   const { info } = useParams();
   const [loaders, setLoaders] = useState(false);
   const [showShadow, setShowShadow] = useState(false);
+  const [showCover, setShowCover] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0); // con questo metodo riportiamo la pagina info alla posizione iniziale (scroll)
@@ -57,7 +58,7 @@ const Info = () => {
             </div>
           )}
 
-          {linkVideo ? (
+          {!showCover ? (
             <>
               <iframe
                 className="video"
@@ -78,6 +79,12 @@ const Info = () => {
                 src={IMG_BASE_URL(dataMovie?.poster_path)}
                 alt={dataMovie.title}
               />
+              <button
+                onClick={() => setShowCover(false)}
+                className={styles.backToVideo}
+              >
+                torna al video
+              </button>
             </>
           )}
         </div>
@@ -98,9 +105,10 @@ const Info = () => {
           </div>
         </div>
       </div>
-
-
-      <div className={styles.downSection}>
+      <div
+        onMouseEnter={() => setShowCover(true)}
+        className={styles.downSection}
+      >
         <div
           className={`${styles.description} flex flex-column align-items-center justify-content-center`}
         >

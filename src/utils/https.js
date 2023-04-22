@@ -32,9 +32,8 @@ export const GET_VIDEOS = async (movieId) => {
     `${BASE_URL}movie/${movieId}/videos?api_key=${API_KEY}`
   );
   const data = await res.json();
-  const {
-    results: [{ key }],
-  } = await data;
+  const filteredMovies = data.results.filter((item) => item.type === "Trailer");
+  const { key } = await filteredMovies[0];
   const URL_YOUTUBE = YOUTUBE_BASE_URL + key;
   return URL_YOUTUBE;
 };

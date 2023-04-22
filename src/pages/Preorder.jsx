@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { todaysShows } from "../utils/funcs";
 import CinemaRoom from "../components/cinemaRoom/CinemaRoom";
@@ -19,7 +19,9 @@ const Preorder = () => {
   const [reload, setReload] = useState(false);
   const [count, setCount] = useState(0);
 
-  window.scrollTo(0, 0); // con questo metodo riportiamo la pagina info alla posizione iniziale (scroll) Ciao Fra :)
+  useEffect(() => {
+    window.scrollTo(0, 0); // con questo metodo riportiamo la pagina info alla posizione iniziale (scroll) Ciao Fra :)
+  }, []);
 
   return (
     <section
