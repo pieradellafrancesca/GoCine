@@ -59,7 +59,7 @@ export const arrShortener = (arr, value, toValue) => {
 };
 
 //---------------------------------------------------//
-// Per Preorder Page
+// Preorder Page
 //---------------------------------------------------//
 
 export const todaysShows = (h, min, s) =>
@@ -71,5 +71,9 @@ export const nextDaysShows = (h, min, s, additionalDays) =>
       new Date().getDate() + additionalDays
     )
   );
+
+//---------------------------------------------------//
+// ModalPayment
+//---------------------------------------------------//
 
 export const commafy = (arr) => arr.join(", ");

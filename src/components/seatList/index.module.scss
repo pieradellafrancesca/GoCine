@@ -6,6 +6,9 @@
   align-items: center;
   gap: 30px;
   flex-wrap: wrap;
+  @include mobile {
+    transform: scale(0.5);
+  }
 
   .left {
     width: 40%;

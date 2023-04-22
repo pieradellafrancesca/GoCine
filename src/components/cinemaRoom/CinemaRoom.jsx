@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { GET } from "../../utils/https";
-import { todaysShows, nextDaysShows } from "../../utils/funcs";
+import { timetable } from "../../utils/mock/timetable";
 import SeatList from "../seatList/SeatList";
 import styles from "./index.module.scss";
 
@@ -20,59 +20,7 @@ const CinemaRoom = ({
   const [movieInfo, setMovieInfo] = useState({});
   const [selectedHour, setSelectedHour] = useState(null);
   const [room, setRoom] = useState({});
-  const [allSeats, setAllSeats] = useState([
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-  ]);
-
+  const [allSeats, setAllSeats] = useState(Array(50).fill(false));
   const [activeBtn, setActiveBtn] = useState("");
 
   useEffect(() => {
@@ -94,58 +42,7 @@ const CinemaRoom = ({
           setAllSeats(room[id][selectedHour]);
         } else {
           // console.log("Sala vuota");
-          setAllSeats([
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-          ]);
+          setAllSeats(Array(50).fill(false));
         }
       } else {
         // console.log("NON trovato!");
@@ -162,104 +59,53 @@ const CinemaRoom = ({
   };
 
   return (
-    <div className={styles.CinemaRoom}>
+    <div
+      className={`${styles.CinemaRoom} flex flex-column justify-content-center align-items-center`}
+    >
       <div
-        className={`${styles.upperInfo} flex flex-column justify-content-center align-items-center`}
+        className={`${styles.upperLeftInfo} flex flex-column justify-content-center align-items-center`}
       >
-        <div
-          className={`${styles.upperLeftInfo} flex flex-column justify-content-center align-items-center`}
-        >
-          <p className={`${selectedHour && styles.notVisible}`}>Pick a time:</p>
-          <section className={`${styles.hour} flex`}>
+        <p className={`${selectedHour && styles.notVisible}`}>Pick a time:</p>
+        <section className={`${styles.hour} flex`}>
+          {timetable.map((hour) => (
             <button
               className={`${styles.btn} ${
-                activeBtn === Date.parse(todaysShows(18, 0, 0)) && styles.active
+                activeBtn === hour.value && styles.active
               }`}
+              value={hour.value}
               onClick={onHourClick}
-              value={Date.parse(todaysShows(18, 0, 0))}
+              key={hour.id}
             >
-              {todaysShows(18, 0, 0).toLocaleTimeString("en-EN", {
-                month: "short",
-                day: "numeric",
-                hour: "2-digit",
-                minute: "2-digit",
-              })}
+              {hour.time}
             </button>
-            <button
-              className={`${styles.btn} ${
-                activeBtn === Date.parse(todaysShows(21, 30, 0)) &&
-                styles.active
-              }`}
-              onClick={onHourClick}
-              value={Date.parse(todaysShows(21, 30, 0))}
-            >
-              {todaysShows(21, 30, 0).toLocaleTimeString("en-EN", {
-                month: "short",
-                // weekday: "short",
-                day: "numeric",
-                hour: "2-digit",
-                minute: "2-digit",
-              })}
-            </button>
-            <button
-              className={`${styles.btn} ${
-                activeBtn === Date.parse(nextDaysShows(18, 0, 0, 1)) &&
-                styles.active
-              }`}
-              onClick={onHourClick}
-              value={Date.parse(nextDaysShows(18, 0, 0, 1))}
-            >
-              {nextDaysShows(18, 0, 0, 1).toLocaleString("en-EN", {
-                month: "short",
-                day: "numeric",
-                hour: "2-digit",
-                minute: "2-digit",
-              })}
-            </button>
-            <button
-              className={`${styles.btn} ${
-                activeBtn === Date.parse(nextDaysShows(21, 30, 0, 1)) &&
-                styles.active
-              }`}
-              onClick={onHourClick}
-              value={Date.parse(nextDaysShows(21, 30, 0, 1))}
-            >
-              {nextDaysShows(21, 30, 0, 1).toLocaleString("en-EN", {
-                month: "short",
-                day: "numeric",
-                hour: "2-digit",
-                minute: "2-digit",
-              })}
-            </button>
-          </section>
-        </div>
-        <div className={styles.upperRightInfo}>
-          <p className={styles.todaysMovie}>{movieInfo.title}</p>
-          <div className={styles.imgOverlay}></div>
-          <img
-            src={`https://image.tmdb.org/t/p/w500/${movieInfo.backdrop_path}`}
-            alt={movieInfo.title}
-          />
-        </div>
+          ))}
+        </section>
       </div>
+      <div className={styles.upperRightInfo}>
+        <p className={styles.todaysMovie}>{movieInfo.title}</p>
+        <div className={styles.imgOverlay}></div>
+        <img
+          src={`https://image.tmdb.org/t/p/w500/${movieInfo.backdrop_path}`}
+          alt={movieInfo.title}
+        />
+      </div>
+
       {selectedHour && (
         <>
-          <div className={styles.lowerInfo}>
-            <ul className={styles.showcase}>
-              <li>
-                <div className={styles.seatAvailable}></div>
-                <small>Available</small>
-              </li>
-              <li>
-                <div className={styles.seatSelected}></div>
-                <small>Selected</small>
-              </li>
-              <li>
-                <div className={styles.seatReserved}></div>
-                <small>Reserved</small>
-              </li>
-            </ul>
-          </div>
+          <ul className={styles.showcase}>
+            <li>
+              <div className={styles.seatAvailable}></div>
+              <small>Available</small>
+            </li>
+            <li>
+              <div className={styles.seatSelected}></div>
+              <small>Selected</small>
+            </li>
+            <li>
+              <div className={styles.seatReserved}></div>
+              <small>Reserved</small>
+            </li>
+          </ul>
 
           <SeatList
             setCount={setCount}
