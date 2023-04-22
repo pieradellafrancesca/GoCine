@@ -1,6 +1,6 @@
 .Tickets {
   width: 100vw;
-  margin: 200px 0;
+  margin-top: 200px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -9,10 +9,15 @@
 
   .table {
     min-height: 200px;
-    width: 80vw;
+    width: 100vw;
     border-radius: 10px;
     background-color: white;
     padding-bottom: 30px;
+    padding: 10px;
+
+    @include desktop {
+      width: 80vw;
+    }
 
     .headerTable {
       width: 100%;
@@ -34,9 +39,12 @@
 
       h3:nth-child(3) {
         flex-grow: 1;
-        min-width: 190px;
-
+        min-width: 180px;
         text-align: center;
+
+        @include mobile {
+          min-width: 100px;
+        }
       }
 
       h3:nth-child(2) {
@@ -69,6 +77,12 @@
     height: 50px;
     width: 50px;
     margin: 200px 50%;
+  }
+
+  .containerForScroll {
+    box-sizing: border-box;
+    width: 95vw;
+    overflow: hidden;
   }
 
   .ticketToPrintContainer {
