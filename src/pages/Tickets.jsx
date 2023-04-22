@@ -52,16 +52,18 @@ const Tickets = () => {
           </div>
         </div>
       </div>
-      <div
-        className={`${styles.ticketToPrintContainer} ${
-          modalTicketContext.isVisible && styles.showModal
-        }`}
-        ref={refTicket}
-      >
-        <TicketToPrint
-          modalTicketContext={modalTicketContext}
-          username={username}
-        />
+
+      <div className={styles.containerForScroll} ref={refTicket}>
+        <div
+          className={`${styles.ticketToPrintContainer} ${
+            modalTicketContext.isVisible && styles.showModal
+          }`}
+        >
+          <TicketToPrint
+            modalTicketContext={modalTicketContext}
+            username={username}
+          />
+        </div>
       </div>
     </div>
   );

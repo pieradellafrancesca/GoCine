@@ -4,14 +4,8 @@
     align-items: center;
     justify-content: space-around;
     width: 95%;
-    // margin: 0 auto;
-
-    // & > * {
-    //   border: solid red 1px;
-    // }
 
     .ticketId {
-      // flex-grow: 1;
       width: 180px;
       text-align: center;
     }
@@ -67,6 +61,11 @@
       margin: 0 auto;
       color: $primary-400;
       cursor: pointer;
+      transition: all 0.4s ease;
+
+      &:hover {
+        color: $secondary-500;
+      }
     }
   }
 }
