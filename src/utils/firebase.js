@@ -17,7 +17,7 @@ export const dbMaker = (oldValue, ticketList, idMovie, orario) => {
           },
         };
       } else {
-        const salaVuota = Array(50).fill(false);
+        const salaVuota = Array(60).fill(false);
         newData = {
           ...newData,
           [idMovie]: {
@@ -30,7 +30,7 @@ export const dbMaker = (oldValue, ticketList, idMovie, orario) => {
         };
       }
     } else {
-      const salaVuota = Array(50).fill(false);
+      const salaVuota = Array(60).fill(false);
       newData = {
         ...newData,
         [idMovie]: {

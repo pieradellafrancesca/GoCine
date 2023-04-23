@@ -22,40 +22,42 @@
 
   .modal {
     position: relative;
-    border: 2px solid whitesmoke;
+    border: 2px solid $grey-50;
     width: 400px;
     height: 450px;
     border-radius: $borderRadius;
     background-color: $primary-600;
     z-index: 11;
-
     @include mobile {
-      width: 100vh;
+      width: 100vw;
     }
+
     .btnClose {
-      width: 24px;
-      height: 24px;
       position: absolute;
       top: 10px;
       right: 15px;
+      width: 30px;
+      height: 30px;
+      font-size: 1.4rem;
       border: none;
       border-radius: 100%;
       margin-top: 4px;
       background: transparent;
       color: $secondary-500;
       font-size: 1.1rem;
+      opacity: 0.5;
       transition: $transition;
       cursor: pointer;
 
       &:hover {
-        background-color: $secondary-500;
-        color: $grey-50;
+        opacity: 1;
       }
     }
 
     .container {
+      padding: 0 50px;
       height: 70%;
-      gap: 20px;
+      gap: 10px;
 
       h5 {
         margin-bottom: 30px;

@@ -3,8 +3,11 @@
   gap: 50px;
   color: $grey-50;
   letter-spacing: $letterSpacing;
+  @include mobile {
+    gap: 0;
+  }
 
-  .upperLeftInfo {
+  .upperInfo {
     width: 100%;
     gap: 20px;
     @include mobile {
@@ -58,16 +61,42 @@
     }
   }
 
-  .upperRightInfo {
+  .middleInfo {
     position: relative;
-    width: 560px;
-    height: 200px;
+    width: 720px;
+    height: 240px;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: $borderRadius;
     @include mobile {
       width: 100%;
+      height: 180px;
+      margin-top: 50px;
+    }
+
+    &:before {
+      background: $primary-500;
+      position: absolute;
+      content: "";
+      left: 0;
+      right: 0;
+      top: -25px;
+      height: 50px;
+      border-radius: 0 0 50% 50%;
+      z-index: 1;
+    }
+
+    &:after {
+      background: $primary-500;
+      position: absolute;
+      content: "";
+      left: 0;
+      right: 0;
+      bottom: -25px;
+      height: 50px;
+      border-radius: 50% 50% 0 0;
+      // z-index: 1;
     }
 
     .todaysMovie {
@@ -92,18 +121,23 @@
       z-index: 1;
       box-shadow: 0 0 8px 8px $primary-500 inset;
     }
-  }
+    .loader {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      z-index: 20;
+    }
 
-  img {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: $borderRadius;
+    img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: $borderRadius;
+    }
   }
 
   .showcase {
-    margin-top: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -115,6 +149,7 @@
 
     li {
       display: flex;
+      align-items: center;
       gap: 10px;
       flex-wrap: wrap;
 
@@ -124,10 +159,14 @@
         width: 20px;
         height: 20px;
         border-radius: 4px;
+        @include mobile {
+          width: 14px;
+          height: 14px;
+        }
       }
 
       .seatAvailable {
-        background-color: #761818;
+        background-color: $red-200;
       }
 
       .seatSelected {
@@ -135,12 +174,15 @@
       }
 
       .seatReserved {
-        background-color: #1e0303;
+        background-color: $red-500;
       }
     }
   }
 
   .text {
+    @include mobile {
+      margin-top: 50px;
+    }
     .bookInfo {
       color: $light-blue;
       font-weight: 700;

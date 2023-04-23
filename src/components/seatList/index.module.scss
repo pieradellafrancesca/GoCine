@@ -20,9 +20,15 @@
 
   .right {
     width: 40%;
-    transform: skew(12deg) translateX(34px);
+    transform: skew(12deg) translateX(32px);
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
+  }
+}
+
+@media screen and (max-width: 359px) {
+  .SeatList {
+    transform: scale(0.38);
   }
 }

@@ -21,7 +21,8 @@ const TicketBox = ({ ticketList, setModalVisibility }) => {
         ))}
       {ticketList.length ? (
         <button className={styles.buyTicket} onClick={modalOpen}>
-          Buy Tickets
+          Pay ${" "}
+          {ticketList.reduce((acc, ticket) => acc + ticket.price, 0).toFixed(2)}
         </button>
       ) : null}
     </div>

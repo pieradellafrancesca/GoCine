@@ -13,16 +13,14 @@ const ModalPayment = ({
   setReload,
   ticketInfo,
   setCount,
+  setPopupVisibility,
 }) => {
   const [room, setRoom] = useState({});
   const [users, setUsers] = useState({});
-
   const { state, dispatch } = useContext(Context);
 
   const closeModal = () => {
     setModalVisibility(false);
-
-    console.log(ticketList.map((ticket) => ticket.seatNum + 1));
   };
 
   useEffect(() => {
@@ -49,16 +47,17 @@ const ModalPayment = ({
     setReload((prev) => !prev);
     setModalVisibility(false);
     setCount(0);
+    setPopupVisibility(true);
   };
 
   return (
     <div className={styles.ModalPayment}>
-      <div className={styles.overlay} onClick={closeModal}></div>
+      <div className={styles.overlay}></div>
       <div
         className={`${styles.modal} flex flex-column justify-content-center align-items-center`}
       >
         <button className={styles.btnClose} onClick={closeModal}>
-          x
+          ✖
         </button>
         <div
           className={`${styles.container} flex flex-column justify-content-start`}
@@ -77,8 +76,12 @@ const ModalPayment = ({
               minute: "2-digit",
             })}
           </p>
-          {/* <p>N. tickets: {ticketList.length}</p> */}
-
+          <p>
+            <span>Total Price:</span> ${" "}
+            {ticketList
+              .reduce((acc, ticket) => acc + ticket.price, 0)
+              .toFixed(2)}
+          </p>
           <div className={styles.paymentTerms}>
             <p>
               <span>Terms of payment:</span>

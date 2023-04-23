@@ -1,7 +1,7 @@
 .Ticket {
   margin: 0 30px;
   display: flex;
-  gap: 150px;
+  gap: 100px;
   border-bottom: 1px solid $white;
   margin-bottom: 30px;
   @include tablet {
@@ -41,7 +41,7 @@
 
     .infoDown {
       font-size: $small-text;
-      color: $primary-100;
+      color: $grey-200;
     }
   }
 }

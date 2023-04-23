@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { GET } from "../../utils/https";
 import { timetable } from "../../utils/mock/timetable";
+import Loader from "../loader";
 import SeatList from "../seatList/SeatList";
 import styles from "./index.module.scss";
 
@@ -20,11 +21,14 @@ const CinemaRoom = ({
   const [movieInfo, setMovieInfo] = useState({});
   const [selectedHour, setSelectedHour] = useState(null);
   const [room, setRoom] = useState({});
-  const [allSeats, setAllSeats] = useState(Array(50).fill(false));
+  const [allSeats, setAllSeats] = useState(Array(60).fill(false));
   const [activeBtn, setActiveBtn] = useState("");
+  const [loaders, setLoaders] = useState(false);
 
   useEffect(() => {
+    setLoaders(true);
     GET(id).then((data) => {
+      setLoaders(false);
       setMovieInfo(data);
       setTicketInfo((prev) => ({ ...prev, movie_title: data.title }));
     });
@@ -42,7 +46,7 @@ const CinemaRoom = ({
           setAllSeats(room[id][selectedHour]);
         } else {
           // console.log("Sala vuota");
-          setAllSeats(Array(50).fill(false));
+          setAllSeats(Array(60).fill(false));
         }
       } else {
         // console.log("NON trovato!");
@@ -63,7 +67,7 @@ const CinemaRoom = ({
       className={`${styles.CinemaRoom} flex flex-column justify-content-center align-items-center`}
     >
       <div
-        className={`${styles.upperLeftInfo} flex flex-column justify-content-center align-items-center`}
+        className={`${styles.upperInfo} flex flex-column justify-content-center align-items-center`}
       >
         <p className={`${selectedHour && styles.notVisible}`}>Pick a time:</p>
         <section className={`${styles.hour} flex`}>
@@ -81,17 +85,32 @@ const CinemaRoom = ({
           ))}
         </section>
       </div>
-      <div className={styles.upperRightInfo}>
+
+      <div className={styles.middleInfo}>
         <p className={styles.todaysMovie}>{movieInfo.title}</p>
         <div className={styles.imgOverlay}></div>
-        <img
-          src={`https://image.tmdb.org/t/p/w500/${movieInfo.backdrop_path}`}
-          alt={movieInfo.title}
-        />
+        {loaders ? (
+          <div className={styles.loader}>
+            <Loader />
+          </div>
+        ) : (
+          <img
+            src={`https://image.tmdb.org/t/p/w500/${movieInfo.backdrop_path}`}
+            alt={movieInfo.title}
+          />
+        )}
       </div>
 
       {selectedHour && (
         <>
+          <SeatList
+            setCount={setCount}
+            setTicketList={setTicketList}
+            allSeats={allSeats}
+            ticketInfo={ticketInfo}
+            setTicketInfo={setTicketInfo}
+            ticketList={ticketList}
+          />
           <ul className={styles.showcase}>
             <li>
               <div className={styles.seatAvailable}></div>
@@ -106,15 +125,6 @@ const CinemaRoom = ({
               <small>Reserved</small>
             </li>
           </ul>
-
-          <SeatList
-            setCount={setCount}
-            setTicketList={setTicketList}
-            allSeats={allSeats}
-            ticketInfo={ticketInfo}
-            setTicketInfo={setTicketInfo}
-            ticketList={ticketList}
-          />
 
           <p className={styles.text}>
             You have selected <span className={styles.bookInfo}>{count}</span>{" "}
