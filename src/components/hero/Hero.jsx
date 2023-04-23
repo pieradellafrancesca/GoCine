@@ -24,7 +24,7 @@ const Hero = () => {
             return 0;
           }
         });
-      }, 2000);
+      }, 3500);
 
       return () => clearInterval(timer);
     }
