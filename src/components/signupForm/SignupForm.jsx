@@ -109,7 +109,7 @@ export default function SignupForm() {
 
         <FormInput
           type="password"
-          placeholder="password"
+          placeholder="password - SHIFT to Show"
           onChange={handlePassword}
           option="required"
         >

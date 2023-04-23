@@ -7,6 +7,7 @@ import styles from "../scss/pages/home.module.scss";
 
 import { useContext, useEffect } from "react";
 import { Context } from "../context";
+import { scrolltoTop } from "../utils/funcs";
 
 import { useUserAuth } from "../context/UserAuthContext";
 import { db } from "../../firebaseConfig";
@@ -27,6 +28,8 @@ const Home = () => {
   const { user } = useUserAuth();
 
   useEffect(() => {
+    //2a scrollToTopFunc
+    scrolltoTop();
     // #3 reffering our real time database.
     const usersRef = ref(db, "users");
     // #4 getting the data of the 'users' key.

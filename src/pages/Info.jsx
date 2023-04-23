@@ -7,6 +7,7 @@ import {
   convertMinsToHrsMins,
   genreShortener,
   sortDate,
+  scrolltoTop,
 } from "../utils/funcs";
 
 import CastList from "../components/castList";
@@ -25,7 +26,7 @@ const Info = () => {
   const [showCover, setShowCover] = useState(false);
 
   useEffect(() => {
-    window.scrollTo(0, 0); // con questo metodo riportiamo la pagina info alla posizione iniziale (scroll)
+    scrolltoTop();
     GET(info)
       .then((data) => setDataMovie(data))
       .then();

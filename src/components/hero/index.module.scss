@@ -7,15 +7,16 @@
     width: 100%;
     overflow-y: hidden;
     overflow-x: overlay;
-    scroll-snap-points-x: repeat(100vw);
+    // scroll-snap-points-x: repeat(100vw);
+    transition: all 0.35s ease;
 
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
+    // scroll-snap-type: x mandatory;
+    // scroll-behavior: smooth;
 
     .singleImage {
       position: relative;
       min-width: 100%;
-      scroll-snap-align: center;
+      // scroll-snap-align: center;
       box-shadow: $shadow-4;
       .dots {
         position: absolute;
@@ -35,6 +36,9 @@
           cursor: pointer;
           &.active {
             background-color: white;
+          }
+          @include mobile {
+            transform: scale(0.8);
           }
         }
       }

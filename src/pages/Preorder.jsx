@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
+
 import { useParams, useNavigate } from "react-router-dom";
-import { todaysShows } from "../utils/funcs";
+import { todaysShows, scrolltoTop } from "../utils/funcs";
+
 import CinemaRoom from "../components/cinemaRoom/CinemaRoom";
 import TicketBox from "../components/ticketBox";
 import ModalPayment from "../components/modalPayment";
@@ -25,7 +27,7 @@ const Preorder = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    window.scrollTo(0, 0); // con questo metodo riportiamo la pagina info alla posizione iniziale (scroll) Ciao Fra :)
+    scrolltoTop();
   }, []);
 
   const onPopupClosure = () => {
