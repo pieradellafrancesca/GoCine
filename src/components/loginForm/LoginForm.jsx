@@ -65,7 +65,7 @@ export default function LoginForm() {
 
         <FormInput
           type="password"
-          placeholder="password"
+          placeholder="password - SHIFT to Show"
           onChange={handlePasswordChange}
         >
           <AiFillLock className={styles.icons} />
