@@ -34,14 +34,22 @@ $grey-700: #5e6566;
 $grey-800: #3e4344;
 $grey-900: #1f2222;
 
+/*  red */
+$red-50: #f3686a;
+$red-100: #b54042;
+$red-200: #761818;
+$red-300: #6e0c0e;
+$red-400: #550809;
+$red-500: #1e0303;
+
 /* rest of the colors */
 $black: #000000;
 $white: #ffffff;
 
 $light-blue: #65e7d8;
-$liht-green: #b5e765;
+$light-green: #b5e765;
 $purple: #9765e7;
 
 /* alpha colors */
 
-$primary-300-alpha: #767c835b;
+$primary-300-alpha: rgba(118, 124, 131, 0.357);
