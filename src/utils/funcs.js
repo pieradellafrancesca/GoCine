@@ -77,3 +77,9 @@ export const nextDaysShows = (h, min, s, additionalDays) =>
 //---------------------------------------------------//
 
 export const commafy = (arr) => arr.join(", ");
+
+//---------------------------------------------------//
+// ScrollFunc
+//---------------------------------------------------//
+
+export const scrolltoTop = () => window.scrollTo(0, 0); // con questo metodo riportiamo la pagina info alla posizione iniziale (scroll)
