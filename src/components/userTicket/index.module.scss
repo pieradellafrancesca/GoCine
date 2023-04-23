@@ -1,4 +1,6 @@
 .UserTicket {
+  cursor: pointer;
+
   .upSection {
     display: flex;
     align-items: center;
@@ -39,7 +41,6 @@
     }
 
     .expandIcon {
-      cursor: pointer;
       transition: transform 0.35s ease;
     }
     .expanded {

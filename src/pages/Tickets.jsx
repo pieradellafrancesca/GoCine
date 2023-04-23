@@ -37,14 +37,16 @@ const Tickets = () => {
         <hr />
         <div className={styles.mainTable}>
           <div className={styles.ticketListTable}>
-            {userTickets.map((ticket, i) => (
-              <UserTicket
-                goToTicket={goToTicket}
-                ticket={ticket}
-                setModalTicketContext={setModalTicketContext}
-                key={i}
-              />
-            ))}
+            {userTickets
+              .filter((item) => item.title != "movie title")
+              .map((ticket, i) => (
+                <UserTicket
+                  goToTicket={goToTicket}
+                  ticket={ticket}
+                  setModalTicketContext={setModalTicketContext}
+                  key={i}
+                />
+              ))}
           </div>
         </div>
       </div>
