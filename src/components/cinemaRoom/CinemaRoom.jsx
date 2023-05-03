@@ -94,10 +94,12 @@ const CinemaRoom = ({
             <Loader />
           </div>
         ) : (
-          <img
-            src={`https://image.tmdb.org/t/p/w500/${movieInfo.backdrop_path}`}
-            alt={movieInfo.title}
-          />
+          movieInfo.backdrop_path && (
+            <img
+              src={`https://image.tmdb.org/t/p/w500/${movieInfo.backdrop_path}`}
+              alt={movieInfo.title}
+            />
+          )
         )}
       </div>
 

@@ -121,6 +121,7 @@
       z-index: 1;
       box-shadow: 0 0 8px 8px $primary-500 inset;
     }
+
     .loader {
       position: absolute;
       width: 100px;
@@ -166,15 +167,15 @@
       }
 
       .seatAvailable {
-        background-color: $red-200;
+        background-color: $grey-50;
       }
 
       .seatSelected {
-        background-color: $grey-300;
+        background-color: $light-blue;
       }
 
       .seatReserved {
-        background-color: $red-500;
+        background-color: $secondary-500;
       }
     }
   }

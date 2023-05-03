@@ -22,7 +22,7 @@ const SeatList = ({
                 setTicketList={setTicketList}
                 ticketInfo={ticketInfo}
                 isSelected={
-                  ticketList.filter((ticket) => ticket.seatNum === i).length > 0
+                  ticketList.filter((ticket) => ticket.seatNum === i).length
                     ? true
                     : false
                 }

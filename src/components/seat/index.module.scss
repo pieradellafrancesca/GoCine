@@ -1,15 +1,17 @@
 .Seat {
-  background: linear-gradient(
-    to top,
-    $red-200,
-    $red-200,
-    $red-200,
-    $red-200,
-    $red-200,
-    $red-100,
-    $red-50
-  );
-  border: 2px solid $red-300;
+  // background: linear-gradient(
+  //   to top,
+  //   $red-200,
+  //   $red-200,
+  //   $red-200,
+  //   $red-200,
+  //   $red-200,
+  //   $red-100,
+  //   $red-50
+  // );
+  // border: 2px solid $red-300;
+  background-color: $grey-50;
+  border: 2px solid $grey-100;
   box-shadow: 0px 18px 12px $black;
   width: 40px;
   height: 24px;
@@ -24,22 +26,23 @@
     position: absolute;
     width: 40px;
     height: 24px;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.4);
     border-radius: 8px;
   }
 }
 
 .reserved {
-  background: linear-gradient(
-    to top,
-    $red-500,
-    $red-500,
-    $red-500,
-    $red-500,
-    $red-500,
-    $red-400,
-    $red-300
-  );
+  // background: linear-gradient(
+  //   to top,
+  //   $red-500,
+  //   $red-500,
+  //   $red-500,
+  //   $red-500,
+  //   $red-500,
+  //   $red-400,
+  //   $red-300
+  // );
+  background-color: $secondary-500;
   cursor: default;
 
   &:hover:before {
@@ -48,15 +51,16 @@
 }
 
 .selected {
-  background: linear-gradient(
-    to top,
-    $grey-300,
-    $grey-300,
-    $grey-300,
-    $grey-300,
-    $grey-50,
-    $grey-50
-  );
+  // background: linear-gradient(
+  //   to top,
+  //   $grey-300,
+  //   $grey-300,
+  //   $grey-300,
+  //   $grey-300,
+  //   $grey-50,
+  //   $grey-50
+  // );
+  background-color: $light-blue;
   &:hover:before {
     display: none;
   }
