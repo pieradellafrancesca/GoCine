@@ -2,23 +2,14 @@ import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../../context";
 import { useUserAuth } from "../../context/UserAuthContext";
-import UserMiniModal from "../userMiniModal";
 
 import styles from "./index.module.scss";
 
 const Header = ({}) => {
+  const { state, dispatch } = useContext(Context);
   const [userSelected, setUserSelected] = useState(false);
   const [burger, setBurger] = useState(false);
-
-  // ===== // ===== //
-  // Display header user data - Filippo
-
-  const { state, dispatch } = useContext(Context);
   const { user } = useUserAuth();
-
-  // Both context and user (last one coming from UserAuthContext.jsx),
-  // were implemented to check if there is user data
-  // then we'll display their data else the logged out layout is displayed
 
   useEffect(() => {
     window.addEventListener("resize", handleResize);
@@ -29,108 +20,50 @@ const Header = ({}) => {
   const handleBurger = () => {
     setBurger((prev) => !prev);
     setUserSelected(false);
-    console.log(burger);
-  };
-
-  // ===== // ===== //
-
-  const onHandleUserCLick = () => {
-    setUserSelected((prev) => !prev);
   };
 
   return (
     <div className={styles.Header}>
-      <div className={styles.userInfo}>
-        {state.currentUserData != null && <p className="upperName">Welcome</p>}
+      <div className={styles.navBar}>
+        <div className={styles.wrapper}>
+          <h4 className={styles.movieTitle}>Movie Title</h4>
+          <ul className={styles.navList}>
+            <Link className={styles.link} to="/">
+              about
+            </Link>
 
-        <h4
-          onClick={onHandleUserCLick}
-          className={`${styles.username} ${
-            userSelected && styles.userSelected
-          }`}
-        >
-          {state.currentUserData != null && (
-            <>
-              <span>
-                {state.currentUserData.username}
-                {userSelected ? "▴" : "▾"}
-              </span>
-              <UserMiniModal userSelected={userSelected} />
-            </>
-          )}
-        </h4>
-        {!user && (
-          <div className={styles.logo}>
+            <Link className={styles.link} to="/search">
+              actors
+            </Link>
+            <Link className={styles.link} to="/search">
+              review
+            </Link>
+            <Link className={styles.link} to="/search">
+              login
+            </Link>
 
-            <img src="/logo.svg_3.svg" alt="logo" />
+            {/* {!user && (
+              <Link className={styles.link} to="/login">
+                Login
+              </Link>
+            )}
 
-
-
-          </div>
-        )}
-      </div>
-
-      {user && (
-        <div className={styles.logo}>
-<Link to="/">
-            <img src="/logo.svg_3.svg" alt="logo" />
-          </Link>
+            {user && (
+              <Link className={styles.link} to="/tickets">
+                Tickets
+              </Link>
+            )} */}
+          </ul>
         </div>
-      )}
-
-      <ul className={styles.navHeader}>
-        <Link className={styles.navLink} to="/">
-          Home
-        </Link>
-        <Link className={styles.navLink} to="/search">
-          Search
-        </Link>
-
-        {!user && (
-          <Link className={styles.navLink} to="/login">
-            Login
-          </Link>
-        )}
-
-        {user && (
-          <Link className={styles.navLink} to="/tickets">
-            Tickets
-          </Link>
-        )}
-      </ul>
-
-      <div onClick={handleBurger} className={styles.burger}>
-        <div className={styles.line}></div>
-        <div className={styles.line}></div>
-        <div className={styles.line}></div>
+        <div className={styles.wrapperEnd}>
+          <span className={styles.yearProd}>2011</span>
+          <div className={styles.burger}>
+            <div className={styles.line1}></div>
+            <div className={styles.line2}></div>
+            <div className={styles.line3}></div>
+          </div>
+        </div>
       </div>
-
-      <ul
-        className={
-          burger
-            ? ` ${styles.mobileNav} ${styles.showNav}`
-            : `${styles.mobileNav}`
-        }
-      >
-        <Link onClick={handleBurger} className={styles.navLink} to="/">
-          Home
-        </Link>
-        <Link onClick={handleBurger} className={styles.navLink} to="/search">
-          Search
-        </Link>
-
-        {!user && (
-          <Link onClick={handleBurger} className={styles.navLink} to="/login">
-            Login
-          </Link>
-        )}
-
-        {user && (
-          <Link onClick={handleBurger} className={styles.navLink} to="/tickets">
-            Tickets
-          </Link>
-        )}
-      </ul>
     </div>
   );
 };

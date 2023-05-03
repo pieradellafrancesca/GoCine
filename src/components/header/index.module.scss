@@ -1,146 +1,95 @@
-@import "../../scss/helpers/resolutions";
 .Header {
   box-sizing: border-box;
-  position: fixed;
+  position: absolute;
   top: 0;
-  height: 80px;
-  width: 100vw;
-  // background-color: $primary-800;
-  color: $primary-100;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  text-shadow: 0 0 4px black;
-  box-shadow: 0 0 4px black;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 5rem;
+  width: 100%;
+  padding: 15px;
+  z-index: 9;
 
-  z-index: 19;
-  padding: 0 20px;
-  backdrop-filter: blur(10px);
+  .navBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1980px;
+    margin: 0 auto;
+    padding: 10px 30px;
+    border-radius: 40px;
+    background-color: $grey-600;
 
-  .logo {
-    // color: $secondary-500;
-    // width: 30%;
-    // text-align: center;
-    img {
-      width: 200px;
-      height: 150px;
-    }
-    @include tablet {
-      display: none;
-    }
+    .wrapper {
+      display: flex;
+      gap: 5rem;
 
-    @include mobile {
-      display: none;
-    }
-  }
+      .movieTitle {
+        font-family: "Anton", sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
 
-  .userInfo {
-    width: 30%;
-    text-align: center;
-    p {
-      margin: 0;
-    }
+      .navList {
+        display: none;
+      }
 
-    h4 {
-      font-weight: 600;
-      margin: 0;
-      color: $primary-50;
-      position: relative;
-      cursor: pointer;
-    }
-  }
+      .navList {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
 
-  .icons {
-    font-size: 2em;
+        @include tablet {
+          display: none;
+        }
+        @include mobile {
+          display: none;
+        }
 
-    & > * {
-      margin: 0 10px;
-      cursor: pointer;
-      transition: color 0.4s ease;
-
-      &:hover {
-        color: $secondary-300;
+        .link {
+          text-transform: uppercase;
+          letter-spacing: 0.8px;
+          font-size: 0.8rem;
+          font-weight: 200;
+          color: #ffffff;
+        }
       }
     }
-  }
 
-  .clicked {
-    color: white;
-  }
-
-  .userSelected {
-    span {
-      color: $secondary-400;
-    }
-  }
-
-  // Nav - Mobile nav -- Filippo
-  .navHeader {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    width: 30%;
-    @include mobile {
-      display: none;
-    }
-  }
-
-  .navLink {
-    color: $grey-50;
-    letter-spacing: $letterSpacing;
-    font-weight: bold;
-  }
-
-  .mobileNav {
-    position: fixed;
-    top: 80px;
-    right: -300px;
-    background-color: $primary-800;
-    height: calc(100vh - 80px);
-    width: 300px;
-    display: flex;
-    flex-direction: column;
-    padding: 5rem;
-    transition: $transition;
-
-    .navLink {
-      font-size: 1.45rem;
-      font-weight: normal;
-    }
-  }
-
-  .showNav {
-    right: 0;
-    @include desktop {
-      display: none;
-    }
-  }
-
-  .burger {
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 7px;
-    width: 30%;
-    height: 50px;
-    cursor: pointer;
-
-    @include mobile {
+    .wrapperEnd {
       display: flex;
-    }
+      align-items: center;
+      gap: 40px;
+      .yearProd {
+        font-size: 0.8rem;
+        font-weight: 200;
+        text-align: end;
+      }
 
-    .line {
-      background-color: $grey-50;
-      width: 35px;
-      height: 2px;
-    }
-  }
-}
+      .burger {
+        width: 30px;
+        height: 30px;
 
-@include mobile {
-  .Header {
-    padding: 0;
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+
+        @include tablet {
+          display: flex;
+        }
+        @include mobile {
+          display: flex;
+        }
+
+        .line1,
+        .line2,
+        .line3 {
+          height: 2px;
+          width: 100%;
+          border-radius: 10px;
+          background-color: #ffffff;
+        }
+      }
+    }
   }
 }
