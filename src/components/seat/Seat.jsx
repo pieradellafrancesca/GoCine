@@ -16,7 +16,7 @@ const Seat = ({
         setCount((prev) => prev + 1);
       }
       setTicketList((prev) => {
-        if (prev.filter((ticket) => ticket.seatNum === seatNumber).length > 0) {
+        if (prev.filter((ticket) => ticket.seatNum === seatNumber).length) {
           return prev.filter((ticket) => ticket.seatNum !== seatNumber);
         } else {
           return [
