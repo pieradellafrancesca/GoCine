@@ -17,17 +17,19 @@
     padding-left: 4px;
   }
   button {
-    border-radius: $borderRadius;
-    width: 100px;
+    border-radius: 1rem;
+    margin-top: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: $blue;
+    background-color: #19dbe4;
     border: none;
+    padding: 4px;
   }
   input {
     border-radius: $borderRadius;
-    padding-left: 10px;
+    border: none;
+    padding: 5px;
   }
 }
 @include mobile {
@@ -41,33 +43,30 @@
     flex-direction: column;
     align-items: center;
     gap: 10px;
+    margin-bottom: 16px;
   }
   button {
-    margin-left: 0;
+    width: 250px;
   }
   .icons {
     margin-right: 4px;
   }
   input {
-    max-width: 150px;
+    width: 330px;
   }
   .movies {
-    border-bottom: 1px solid;
-    max-width: 150px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 24px;
   }
   .location {
-    border-bottom: 1px solid;
-    max-width: 150px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 24px;
   }
   .company {
-    border-bottom: 1px solid;
-    max-width: 150px;
     display: flex;
     flex-direction: column;
     align-items: center;
