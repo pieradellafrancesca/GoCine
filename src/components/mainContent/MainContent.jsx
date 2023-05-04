@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 
+import { useNavigate } from "react-router-dom";
+
 import { movieData } from "../../utils/mock/mock";
 import { movieCrew } from "../../utils/mock/mock";
 import { movieCast } from "../../utils/mock/mock";
@@ -12,10 +14,15 @@ import styles from "./index.module.scss";
 export default function MainContent() {
   const { release_date, production_countries, genres, title } = movieData;
   const [video, setVideo] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     GET_VIDEOS("640146").then((data) => setVideo(data));
   }, []);
+
+  const onHandleClick = () => {
+    navigate("/preorder/640146");
+  };
 
   return (
     <>
@@ -23,7 +30,7 @@ export default function MainContent() {
         <div className={styles.videoWrapper}>
           <h4 className={styles.title}>about the movie</h4>
           <iframe src={video}></iframe>
-          <div className={styles.btn}>
+          <div className={styles.btn} onClick={onHandleClick}>
             <p className={styles.btnText}>
               go watch{" "}
               <span className={styles.btnTitle}>

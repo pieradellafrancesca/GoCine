@@ -1,0 +1,274 @@
+.CinemaRoom {
+  width: 100%;
+  gap: 50px;
+  color: $grey-50;
+  letter-spacing: $letterSpacing;
+  @include mobile {
+    gap: 0;
+  }
+
+  .upperInfo {
+    width: 100%;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-bottom: 70px;
+
+    @include mobile {
+      width: 100%;
+    }
+
+    .imgWrapper {
+      margin: 0;
+      width: 12%;
+
+      .posterImg {
+        width: 100%;
+        min-width: 140px;
+        max-width: 160px;
+      }
+    }
+
+    .movieDesc {
+      width: 50%;
+      gap: 10px;
+
+      h4 {
+        text-decoration: underline;
+        text-decoration-color: $blue;
+      }
+
+      .genre {
+        font-weight: 600;
+      }
+
+      .overview {
+        width: 100%;
+        font-size: $small-text;
+        color: $primary-200;
+      }
+
+      .showInfo {
+        gap: 20px;
+
+        .firstSpan {
+          font-weight: 600;
+        }
+
+        .secondSpan {
+          font-size: $small-text;
+          color: $primary-200;
+        }
+      }
+    }
+
+    .credits {
+      width: 25%;
+      gap: 20px;
+
+      .upperSpan {
+        font-weight: 600;
+      }
+
+      .lowerSpan {
+        font-size: $small-text;
+        color: $primary-200;
+      }
+    }
+  }
+
+  .middleInfo {
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 60px;
+    flex-wrap: wrap;
+
+    .leftMiddleInfo {
+      height: 600px;
+      width: 40%;
+
+      .cinemaScreen {
+        position: relative;
+        width: 100%;
+        height: 240px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: $borderRadius;
+        @include mobile {
+          width: 100%;
+          height: 180px;
+          margin-top: 50px;
+        }
+
+        &:before {
+          background: $primary-500;
+          position: absolute;
+          content: "";
+          left: 0;
+          right: 0;
+          top: -25px;
+          height: 50px;
+          border-radius: 0 0 50% 50%;
+          z-index: 1;
+        }
+
+        &:after {
+          background: $primary-500;
+          position: absolute;
+          content: "";
+          left: 0;
+          right: 0;
+          bottom: -25px;
+          height: 50px;
+          border-radius: 50% 50% 0 0;
+          // z-index: 1;
+        }
+
+        .todaysMovie {
+          position: absolute;
+          font-size: 2em;
+          text-align: center;
+          font-weight: 600;
+          z-index: 2;
+          @include mobile {
+            font-size: 1.4em;
+          }
+        }
+
+        .imgOverlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: radial-gradient(rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.1));
+          border-radius: $borderRadius;
+          z-index: 1;
+          box-shadow: 0 0 8px 8px $primary-500 inset;
+        }
+
+        .loader {
+          position: absolute;
+          width: 100px;
+          height: 100px;
+          z-index: 20;
+        }
+
+        img {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: $borderRadius;
+        }
+      }
+
+      .showcase {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        list-style: none;
+        @include mobile {
+          width: 100%;
+        }
+
+        li {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          flex-wrap: wrap;
+
+          .seatAvailable,
+          .seatSelected,
+          .seatReserved {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            @include mobile {
+              width: 14px;
+              height: 14px;
+            }
+          }
+
+          .seatAvailable {
+            background-color: $grey-50;
+          }
+
+          .seatSelected {
+            background-color: $blue;
+          }
+
+          .seatReserved {
+            background-color: $secondary-500;
+          }
+        }
+      }
+
+      .text {
+        @include mobile {
+          margin-top: 50px;
+        }
+        .bookInfo {
+          color: $blue;
+          font-weight: 700;
+        }
+      }
+    }
+
+    .rightMiddleInfo {
+      width: 40%;
+
+      .notVisible {
+        visibility: hidden;
+      }
+
+      .hour {
+        max-width: 700px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        flex-wrap: wrap;
+
+        .btn {
+          width: 180px;
+          padding: 12px 18px;
+          font-size: $small-text;
+          letter-spacing: $letterSpacing;
+          border-radius: 24px;
+          background: linear-gradient(
+            to left,
+            rgba(0, 0, 0, 0.95),
+            rgba(191, 255, 255, 0.5) 120%
+          );
+          color: $blue;
+          border: none;
+          transition: $transition;
+          cursor: pointer;
+          @include mobile {
+            width: 100px;
+            padding: 4px 12px;
+            border-radius: 18px;
+            line-height: 1.5rem;
+          }
+
+          &:hover {
+            background-color: $secondary-500;
+            color: $grey-50;
+          }
+        }
+
+        .active {
+          background: linear-gradient(
+            to left,
+            rgba(0, 0, 0, 0.95),
+            $secondary-500 120%
+          );
+          color: $grey-50;
+        }
+      }
+    }
+  }
+}

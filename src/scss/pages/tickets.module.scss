@@ -1,100 +1,51 @@
+*::selection {
+  background-color: $light-blue;
+  color: $black;
+} /* FIXME: Inserire nello stile generale! */
+
+* {
+  -webkit-user-select: auto;
+  user-select: none;
+  -webkit-user-drag: none;
+} /* FIXME: Inserire nello stile generale! */
+
 .Tickets {
-  width: 100vw;
-  margin-top: 200px;
+  padding-top: 100px;
+  padding-bottom: 100px;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
+  font-weight: bold;
+  background: #1f1f1f;
 
-  .table {
-    min-height: 200px;
-    width: 100vw;
-    border-radius: 10px;
-    background-color: white;
-    padding-bottom: 30px;
-    padding: 10px;
+  .ticketContainer {
+    width: 90vw;
 
-    @include desktop {
-      width: 80vw;
+    .title {
+      margin-bottom: 30px;
+      font-weight: bold;
     }
 
-    .headerTable {
-      width: 100%;
-      height: 70px;
-      padding-right: 10%;
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-
-      h3:nth-child(1) {
-        width: 180px;
-        text-align: center;
-      }
-
-      h3:nth-child(2) {
-        width: 140px;
-        text-align: center;
-      }
-
-      h3:nth-child(3) {
-        flex-grow: 1;
-        min-width: 180px;
-        text-align: center;
-
-        @include mobile {
-          min-width: 100px;
-        }
-      }
-
-      h3:nth-child(2) {
-        width: 180px;
-        text-align: center;
-      }
-
-      @include mobile {
-        h3 {
-          font-size: 1.3em;
-        }
-      }
-    }
-
-    .mainTable {
-      .ticketListTable {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-      }
+    .day {
+      margin: 50px 0 13px;
+      text-align: center;
+      font-weight: bold;
     }
 
     hr {
+      margin: 0 auto 13px;
       width: 80%;
-      margin: 5px auto 20px auto;
+    }
+
+    .dayTickets {
+      min-height: 200px;
     }
   }
-
-  button {
-    height: 50px;
-    width: 50px;
-    margin: 200px 50%;
-  }
-
-  .containerForScroll {
-    box-sizing: border-box;
-    width: 95vw;
-    overflow: hidden;
-  }
-
-  .ticketToPrintContainer {
-    opacity: 0;
-    z-index: -1;
-    transform: translate(500px) scale(1.2);
-    transition: all 1s ease;
-  }
-
-  .showModal {
-    opacity: 1;
-    z-index: 1;
-    transform: translate(0) scale(1);
-  }
 }
+
+/* 
+  $light-blue: #bfffff;
+  $blue: #19dbe4;
+  $green: #00fe86;
+  $orange: #fe8f2a;
+   */
