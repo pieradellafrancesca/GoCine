@@ -94,19 +94,26 @@ const Tickets = () => {
           </>
         )}
       </div>
-      {ticketContext.isVisible && (
+
+      <div
+        onClick={() =>
+          setTicketContext((prev) => ({
+            ...prev,
+            isVisible: !prev.isVisible,
+          }))
+        }
+        className={`${styles.ticketToPrintContainer} ${
+          ticketContext.isVisible && styles.showContainer
+        }`}
+      >
         <div
-          onClick={(e) =>
-            setTicketContext((prev) => ({
-              ...prev,
-              isVisible: !prev.isVisible,
-            }))
-          }
-          className={styles.ticketToPrintContainer}
+          className={`${styles.ticketToPrint} ${
+            ticketContext.isVisible && styles.moveToMid
+          }`}
         >
           <TicketToPrint ticketContext={ticketContext} username={username} />
         </div>
-      )}
+      </div>
     </div>
   );
 };
