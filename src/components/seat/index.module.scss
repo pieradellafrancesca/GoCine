@@ -43,7 +43,7 @@
     $secondary-200
   );
   // background-color: $secondary-500;
-  cursor: default;
+  cursor: not-allowed;
 
   &:hover:before {
     display: none;
