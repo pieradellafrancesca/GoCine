@@ -1,3 +1,14 @@
+*::selection {
+  background-color: $light-blue;
+  color: $black;
+} /* FIXME: Inserire nello stile generale! */
+
+* {
+  -webkit-user-select: auto;
+  user-select: none;
+  -webkit-user-drag: none;
+} /* FIXME: Inserire nello stile generale! */
+
 .Tickets {
   padding-top: 100px;
   padding-bottom: 100px;
@@ -6,10 +17,6 @@
   align-items: center;
   font-weight: bold;
   background: #1f1f1f;
-
-  h4 {
-    color: white;
-  }
 
   .ticketContainer {
     width: 90vw;
@@ -32,23 +39,6 @@
 
     .dayTickets {
       min-height: 200px;
-
-      div {
-        height: 60px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin-top: 10px;
-        border-radius: 31px 0;
-        background: #1f1f1f;
-        box-shadow: 14px 14px 22px #181818, -14px -14px 22px #262626;
-        cursor: pointer;
-
-        &:hover {
-          background: #2f2f2f;
-        }
-      }
     }
   }
 }

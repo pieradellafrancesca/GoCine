@@ -1,16 +1,15 @@
 import styles from "../scss/pages/tickets.module.scss";
 // import TicketToPrint from "../components/ticketToPrint";
 // import UserTicket from "../components/userTicket/UserTicket";
-import { useState, useContext, useRef } from "react";
+import { useState, useContext, useRef, Fragment } from "react";
 import { Context } from "../context";
+import TicketItem from "../components/ticketItem";
 
 const Tickets = () => {
   const { state, dispatch } = useContext(Context);
   const { username } = state.currentUserData;
   const { tickets } = state.currentUserData;
   const userTickets = tickets.filter((ticket) => ticket.title != "movie title"); //Prevent undefined Test-Tickets
-
-  const [ticketLineIsActive, setTicketLineIsActive] = useState(false);
 
   const getDate = () => {
     const dateList = userTickets
@@ -42,11 +41,6 @@ const Tickets = () => {
     return month;
   };
 
-  const onHandleClickTicket = () => {
-    setTicketLineIsActive((prev) => !prev);
-    console.log(ticketLineIsActive);
-  };
-
   return (
     <div className={styles.Tickets}>
       <div className={styles.ticketContainer}>
@@ -58,8 +52,8 @@ const Tickets = () => {
           </>
         ) : (
           <>
-            {getDate().map((dateOfTicket) => (
-              <>
+            {getDate().map((dateOfTicket, i) => (
+              <Fragment key={i}>
                 <h4 className={styles.day}>
                   {dateOfTicket[1] == "/"
                     ? dateOfTicket.slice(0, 1) +
@@ -80,17 +74,10 @@ const Tickets = () => {
                         dateOfTicket
                     )
                     .map((ticket, i) => (
-                      <div onClick={onHandleClickTicket} key={i}>
-                        <h4>
-                          {new Date(+ticket.date)
-                            .toLocaleTimeString()
-                            .slice(0, 5)}{" "}
-                          / {"Poltrona n." + ticket.seatNum + 1}
-                        </h4>
-                      </div>
+                      <TicketItem ticket={ticket} key={ticket.date + i} />
                     ))}
                 </div>
-              </>
+              </Fragment>
             ))}
           </>
         )}
