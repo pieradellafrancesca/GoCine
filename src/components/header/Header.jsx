@@ -26,9 +26,12 @@ const Header = ({}) => {
     <div className={styles.Header}>
       <div className={styles.navBar}>
         <div className={styles.wrapper}>
-          <h4 className={styles.movieTitle}>Movie Title</h4>
+          <Link to="/">
+            <h4 className={styles.movieTitle}>Movie Go</h4>
+          </Link>
+
           <ul className={styles.navList}>
-            <Link className={styles.link} to="/">
+            <Link className={styles.link} to="/developers">
               about
             </Link>
 
@@ -40,6 +43,9 @@ const Header = ({}) => {
             </Link>
             <Link className={styles.link} to="/search">
               login
+            </Link>
+            <Link className={styles.link} to="tickets">
+              my Tickets
             </Link>
 
             {/* {!user && (

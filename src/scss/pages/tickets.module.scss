@@ -1,8 +1,3 @@
-*::selection {
-  background-color: $light-blue;
-  color: $black;
-} /* FIXME: Inserire nello stile generale! */
-
 * {
   -webkit-user-select: auto;
   user-select: none;
@@ -19,6 +14,7 @@
   background: #1f1f1f;
 
   .ticketContainer {
+    background-size: cover;
     width: 90vw;
 
     .title {
@@ -40,6 +36,35 @@
     .dayTickets {
       min-height: 200px;
     }
+  }
+
+  .ticketToPrintContainer {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    z-index: -5;
+    backdrop-filter: blur(10px) grayscale(0.5);
+    transition: all 0.35s ease;
+    cursor: pointer;
+
+    .ticketToPrint {
+      transition: all 0.35s ease;
+      transform: translate(300px);
+      opacity: 0;
+    }
+
+    .moveToMid {
+      transform: translate(0);
+      opacity: 1;
+    }
+  }
+
+  .showContainer {
+    opacity: 1;
+    z-index: 10;
   }
 }
 

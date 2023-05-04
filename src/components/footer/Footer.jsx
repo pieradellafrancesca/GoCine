@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <div className={styles.Footer}>
       <div>
-        <h3>MovieGo</h3>
+        <h3>Movie Go</h3>
       </div>
       <div className={styles.subscribe}>
         <p>connect</p>

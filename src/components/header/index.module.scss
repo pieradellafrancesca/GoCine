@@ -23,6 +23,12 @@
       display: flex;
       gap: 5rem;
 
+      // Modificata
+      // ---------------------------------//
+      & > a > h4 {
+        color: #ffffff;
+      }
+
       .movieTitle {
         font-family: "Anton", sans-serif;
         text-transform: uppercase;
