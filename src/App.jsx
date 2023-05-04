@@ -9,6 +9,7 @@ import ProtectedRoute from "./pages/ProtectedRoute";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Layouts from "./layouts";
+import Tickets from "./pages/Tickets";
 
 const currentValue = JSON.parse(localStorage.getItem("isLogged"));
 
@@ -21,6 +22,7 @@ function App() {
         <Routes>
           <Route element={<Layouts />}>
             <Route path="/" element={<Home />} />
+            <Route path="tickets" element={<Tickets />} />
           </Route>
 
           <Route path="login" element={<Login />} />
