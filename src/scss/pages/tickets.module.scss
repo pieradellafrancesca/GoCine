@@ -5,6 +5,7 @@
   justify-content: center;
   align-items: center;
   font-weight: bold;
+  background: #1f1f1f;
 
   h4 {
     color: white;
@@ -15,11 +16,13 @@
 
     .title {
       margin-bottom: 30px;
+      font-weight: bold;
     }
 
     .day {
       margin: 50px 0 13px;
       text-align: center;
+      font-weight: bold;
     }
 
     hr {
@@ -32,13 +35,19 @@
 
       div {
         height: 60px;
-        border: solid green 1px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        background-color: #d3d3d3;
         margin-top: 10px;
+        border-radius: 31px 0;
+        background: #1f1f1f;
+        box-shadow: 14px 14px 22px #181818, -14px -14px 22px #262626;
+        cursor: pointer;
+
+        &:hover {
+          background: #2f2f2f;
+        }
       }
     }
   }
