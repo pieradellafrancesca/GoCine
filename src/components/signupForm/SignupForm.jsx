@@ -8,7 +8,6 @@ import { db, auth } from "../../../firebaseConfig";
 
 // Components
 import FormInput from "../formInput";
-import BacktoHomeBtn from "../backToHomeBtn";
 import styles from "./index.module.scss";
 
 import {
@@ -73,9 +72,6 @@ export default function SignupForm() {
 
   return (
     <div className={styles.SignupForm}>
-      <div onClick={handleClick} className={styles.btnWrapper}>
-        <BacktoHomeBtn endpoint="/" className={styles.backBtn} />
-      </div>
       <h2 className={styles.title}>create account</h2>
       <p className="subtitle">Have your tickets in matter of seconds!</p>
       <p className="errorMsg">{error && "Error, missing e-mail / password"}</p>
@@ -87,15 +83,6 @@ export default function SignupForm() {
           option="optional"
         >
           <AiOutlineUser className={styles.icons} />
-        </FormInput>
-
-        <FormInput
-          type="text"
-          placeholder="image URL"
-          onChange={handleImg}
-          option="optional"
-        >
-          <AiOutlineFileImage className={styles.icons} />
         </FormInput>
 
         <FormInput

@@ -7,7 +7,7 @@ import { useUserAuth } from "../../context/UserAuthContext";
 
 // Components
 import FormInput from "../formInput";
-import BacktoHomeBtn from "../backToHomeBtn";
+
 import styles from "./index.module.scss";
 
 import { AiOutlineMail, AiFillLock } from "react-icons/ai";
@@ -48,7 +48,6 @@ export default function LoginForm() {
 
   return (
     <div className={styles.LoginForm}>
-      <BacktoHomeBtn endpoint="/" className={styles.backBtn} />
       <h3 className={styles.title}>user account </h3>
       <p className="subtitle">Checkout your tickets</p>
       <p className="errorMsg">

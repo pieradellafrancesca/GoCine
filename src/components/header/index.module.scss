@@ -98,4 +98,34 @@
       }
     }
   }
+
+  .filterList {
+    max-width: 1420px;
+    margin: 0 auto;
+    margin-top: 10px;
+    display: flex;
+    gap: 20px;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    overflow-y: hidden;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    button {
+      min-width: 200px;
+      height: 2rem;
+      border: none;
+      border-radius: 20px;
+      background-color: $grey-800;
+      color: white;
+      letter-spacing: 0.9px;
+      cursor: pointer;
+    }
+    .active {
+      background-color: $light-blue;
+      color: black;
+    }
+  }
 }

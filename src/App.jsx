@@ -26,14 +26,13 @@ function App() {
         <Routes>
           <Route element={<Layouts />}>
             <Route path="/" element={<Home />} />
-
             <Route path="developers" element={<Developers />} />
-
             <Route path="tickets" element={<Tickets />} />
-
           </Route>
+          
           <Route path="preorder/:info" element={<Preorder />} />
           <Route path="login" element={<Login />} />
+          
           <Route path="*" element={<Error />} />
         </Routes>
       </Context.Provider>
