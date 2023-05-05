@@ -64,15 +64,19 @@ const Header = ({}) => {
     <div className={styles.Header}>
       <div className={styles.navBar}>
         <div className={styles.wrapper}>
-          <h4 className={styles.movieTitle}>
+
+          <Link to="/">
+               <h4 className={styles.movieTitle}>
             {title ? title : movieList[0]?.title}
           </h4>
+          </Link>
+
           <ul className={styles.navList}>
             <Link className={styles.link} to="/">
               home
             </Link>
 
-            <Link className={styles.link} to="/about">
+            <Link className={styles.link} to="/developers">
               about
             </Link>
 

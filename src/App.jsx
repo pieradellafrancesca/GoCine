@@ -10,6 +10,11 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Layouts from "./layouts";
 
+import Developers from "./pages/Developers";
+import Tickets from "./pages/Tickets";
+import Preorder from "./pages/Preorder";
+
+
 const currentValue = JSON.parse(localStorage.getItem("isLogged"));
 
 function App() {
@@ -21,9 +26,13 @@ function App() {
         <Routes>
           <Route element={<Layouts />}>
             <Route path="/" element={<Home />} />
-            <Route path="login" element={<Login />} />
+            <Route path="developers" element={<Developers />} />
+            <Route path="tickets" element={<Tickets />} />
           </Route>
-
+          
+          <Route path="preorder/:info" element={<Preorder />} />
+          <Route path="login" element={<Login />} />
+          
           <Route path="*" element={<Error />} />
         </Routes>
       </Context.Provider>

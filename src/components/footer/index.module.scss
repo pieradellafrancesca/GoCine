@@ -1,13 +1,74 @@
 .Footer {
+  padding: 20px;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 3rem;
+  justify-content: space-between;
   font-weight: 200;
   font-size: 0.8rem;
   text-transform: uppercase;
+  background: #1a1a1a;
 
   p {
     cursor: pointer;
+  }
+  .icons {
+    display: flex;
+    gap: 20px;
+    padding-top: 10px;
+    padding-left: 4px;
+  }
+  button {
+    border-radius: 1rem;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #19dbe4;
+    border: none;
+    padding: 4px;
+  }
+  input {
+    border-radius: $borderRadius;
+    border: none;
+    padding: 5px;
+  }
+}
+@include mobile {
+  .Footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .subscribe {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  button {
+    width: 250px;
+  }
+  .icons {
+    margin-right: 4px;
+  }
+  input {
+    width: 330px;
+  }
+  .movies {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+  .location {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+  .company {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 }

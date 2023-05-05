@@ -1,14 +1,14 @@
 import { useEffect, useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { Context } from "../../context";
-
-import { GET_VIDEOS, GET, GET_CAST, GET_IMAGES } from "../../utils/https";
-
-import videoMp4 from "../../../public/video.mp4";
-
-import styles from "./index.module.scss";
 import { set } from "firebase/database";
 
+import { GET_VIDEOS, GET, GET_CAST, GET_IMAGES } from "../../utils/https";
+import videoMp4 from "../../../public/video.mp4";
+import styles from "./index.module.scss";
+
 export default function MainContent() {
+
   const { state, dispatch } = useContext(Context);
   const [movieData, setMovieData] = useState({});
   const [movieCast, setMovieCast] = useState([]);
@@ -16,6 +16,10 @@ export default function MainContent() {
   const [movieBackDrop, setMovieBackDrop] = useState([]);
 
   const [video, setVideo] = useState(null);
+
+
+  const navigate = useNavigate();
+
 
   useEffect(() => {
     GET(state.movieID ? state.movieID : state.nowPlaying[0]?.id).then((data) =>
@@ -45,6 +49,10 @@ export default function MainContent() {
     setVideo(null);
   }, [state.movieID, state.nowPlaying]);
 
+  const onHandleClick = () => {
+    navigate("/preorder/640146");
+  };
+
   return (
     <>
       <section className={styles.MainContent}>
@@ -56,8 +64,8 @@ export default function MainContent() {
           ) : (
             <video src={videoMp4} muted autoPlay={"autoplay"} loop></video>
           )}
-
-          <div className={styles.btn}>
+      
+          <div className={styles.btn} onClick={onHandleClick}>
             <p className={styles.btnText}>
               go watch{" "}
               <span className={styles.btnTitle}>
