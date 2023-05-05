@@ -2,9 +2,8 @@
   position: relative;
   width: 35rem;
   height: 50rem;
-  background-color: $primary-900;
-  border-radius: $borderRadius;
-  box-shadow: $shadow-4;
+  background-color: transparent;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -18,7 +17,8 @@
   }
 
   .title {
-    color: $secondary-500;
+    font-family: "Anton", sans-serif;
+    color: $blue;
   }
 
   .text {
@@ -26,7 +26,8 @@
     letter-spacing: $letterSpacing;
     font-weight: 100;
     span {
-      color: $secondary-500;
+      font-family: "Anton", sans-serif;
+      color: white;
       cursor: pointer;
     }
 
@@ -66,7 +67,7 @@
       transform: translateY(-50%);
       font-size: 1.25rem;
       font-weight: 100;
-      color: $grey-50;
+      color: $grey-800;
     }
   }
 }

@@ -2,9 +2,7 @@
   position: relative;
   width: 35rem;
   height: 50rem;
-  background-color: $primary-900;
-  border-radius: $borderRadius;
-  box-shadow: $shadow-4;
+  background-color: transparent;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -19,7 +17,8 @@
   }
 
   .title {
-    color: $secondary-500;
+    font-family: "Anton", sans-serif;
+    color: $blue;
   }
 
   .text {
@@ -27,27 +26,9 @@
     letter-spacing: $letterSpacing;
     font-weight: 100;
     span {
-      color: $secondary-500;
+      font-family: "Anton", sans-serif;
+      color: $white;
       cursor: pointer;
-    }
-  }
-
-  .backBtn {
-    position: absolute;
-    display: flex;
-    top: 1.25rem;
-    left: 1.25rem;
-    padding: 0.45rem;
-    padding-right: 0.6rem;
-    border-radius: 50%;
-    background-color: transparent;
-    border: 0;
-    font-size: 1.75rem;
-    color: $secondary-500;
-
-    @include mobile {
-      position: static;
-      margin: 20px;
     }
   }
 
@@ -62,7 +43,7 @@
       transform: translateY(-50%);
       font-size: 1.25rem;
       font-weight: 100;
-      color: $grey-50;
+      color: $grey-800;
     }
   }
 }
