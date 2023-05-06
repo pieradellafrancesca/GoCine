@@ -24,6 +24,7 @@ const Hero = () => {
     ).then((data) => setVideo(data));
 
     setVideo(null);
+
   }, [state.movieID, state.nowPlaying]);
 
   useEffect(() => {

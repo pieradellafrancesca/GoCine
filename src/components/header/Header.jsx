@@ -75,7 +75,7 @@ const Header = ({}) => {
           </ul>
         </div>
         <div className={styles.wrapperEnd}>
-          {user && (
+          {state.currentUserData && (
             <span className={styles.yearProd}>
               Welcome {state.currentUserData?.username}
             </span>

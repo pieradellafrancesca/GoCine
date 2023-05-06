@@ -31,6 +31,7 @@ const Footer = () => {
         </ul>
       </div>
 
+
       <div className={styles.subs}>
         <label htmlFor="email" className={styles.label}>
           newsletter :

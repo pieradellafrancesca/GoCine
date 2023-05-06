@@ -14,7 +14,9 @@ import Developers from "./pages/Developers";
 import Tickets from "./pages/Tickets";
 import Preorder from "./pages/Preorder";
 
+
 const isLogged = JSON.parse(localStorage.getItem("isLogged"));
+
 
 function App() {
   const [state, dispatch] = useReducer(mainReducer, initialState);

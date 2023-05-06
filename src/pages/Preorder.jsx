@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { todaysShows, scrolltoTop } from "../utils/funcs";
 import CinemaRoom from "../components/cinemaRoom/CinemaRoom";
-import TicketBox from "../components/ticketBox";
 import ModalPayment from "../components/modalPayment";
 import Popup from "../components/popup/Popup";
 import { FaCheck } from "react-icons/fa";
@@ -52,12 +51,7 @@ const Preorder = () => {
         setModalVisibility={setModalVisibility}
         setReload={setReload}
       />
-      {/* <TicketBox
-        ticketList={ticketList}
-        setTicketList={setTicketList}
-        setReload={setReload}
-        setModalVisibility={setModalVisibility}
-      /> */}
+
       {modalVisibility && (
         <ModalPayment
           setModalVisibility={setModalVisibility}

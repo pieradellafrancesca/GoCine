@@ -48,7 +48,7 @@ export default function MainContent() {
   }, [state.movieID, state.nowPlaying]);
 
   const onHandleClick = () => {
-    navigate("/preorder/640146");
+    navigate(`/preorder/${movieData.id}`);
   };
 
   let step = window.innerWidth * (75 / 100);
