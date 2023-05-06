@@ -1,10 +1,11 @@
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState, useContext, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { Context } from "../../context";
+import { RxDoubleArrowLeft, RxDoubleArrowRight } from "react-icons/rx";
 import { set } from "firebase/database";
 
 import { GET_VIDEOS, GET, GET_CAST, GET_IMAGES } from "../../utils/https";
-import videoMp4 from "../../../public/video.mp4";
+import videoMp4 from "/video.mp4";
 import styles from "./index.module.scss";
 
 export default function MainContent() {
@@ -48,6 +49,12 @@ export default function MainContent() {
 
   const onHandleClick = () => {
     navigate(`/preorder/${movieData.id}`);
+  };
+
+  let step = window.innerWidth * (75 / 100);
+  const refScroll = useRef();
+  const handleScroll = (px) => {
+    refScroll.current.scrollLeft += px;
   };
 
   return (
@@ -221,14 +228,20 @@ export default function MainContent() {
         <h4 className={styles.navListTitle}>
           Actors <span>{movieCast?.length} characters</span>
         </h4>
-        <div className={styles.navControls}>
-          <p className={styles.control}></p>
-          <p className={styles.control}></p>
-          <p className={styles.control}></p>
+        <div className={styles.navigation}>
+          <button
+            className={styles.control}
+            onClick={() => handleScroll(-step)}
+          >
+            <RxDoubleArrowLeft />
+          </button>
+          <button className={styles.control} onClick={() => handleScroll(step)}>
+            <RxDoubleArrowRight />
+          </button>
         </div>
       </div>
 
-      <div className={styles.CardListCast}>
+      <div ref={refScroll} className={styles.CardListCast}>
         {movieCast?.map((item, i) => {
           if (item.profile_path) {
             return (

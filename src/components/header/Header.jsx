@@ -9,30 +9,13 @@ import styles from "./index.module.scss";
 const Header = ({}) => {
   const { state, dispatch } = useContext(Context);
   const [movieList, setMovieList] = useState([]);
-  const [title, setTitle] = useState("");
-  const [userSelected, setUserSelected] = useState(false);
   const [burger, setBurger] = useState(false);
-  const [active, setActive] = useState("");
 
   const { user, logout } = useUserAuth();
 
   useEffect(() => {
     window.addEventListener("resize", handleResize);
-    GET("popular")
-      .then(({ results }) => {
-        setMovieList(results);
-        dispatch({ type: "SET_NOW_PLAYING", payload: results });
-      })
-      .then(() => {
-        if (state.movieID) {
-          GET(state.movieID).then(({ title }) => setTitle(title));
-        }
-      });
-  }, [state.movieID]);
-
-  useEffect(() => {
-    setActive(movieList[0]?.id);
-  }, [movieList[0]?.id]);
+  }, []);
 
   const handleResize = () => window.innerWidth > 768 && setBurger(false);
 
@@ -55,19 +38,12 @@ const Header = ({}) => {
     }
   };
 
-  const handleClick = (movieID) => {
-    setActive(movieID);
-    dispatch({ type: "SET_MOVIE_ID", payload: movieID });
-  };
-
   return (
     <div className={styles.Header}>
       <div className={styles.navBar}>
         <div className={styles.wrapper}>
           <Link to="/">
-            <h4 className={styles.movieTitle}>
-              {title ? title : movieList[0]?.title}
-            </h4>
+            <h5 className={styles.movieTitle}>gocine</h5>
           </Link>
 
           <ul className={styles.navList}>
@@ -101,7 +77,7 @@ const Header = ({}) => {
         <div className={styles.wrapperEnd}>
           {state.currentUserData && (
             <span className={styles.yearProd}>
-              Welcome {state.currentUserData.username}
+              Welcome {state.currentUserData?.username}
             </span>
           )}
 
@@ -112,22 +88,6 @@ const Header = ({}) => {
           </div>
         </div>
       </div>
-      <ul className={styles.filterList}>
-        {movieList.map((item, i) => {
-          return (
-            <button
-              className={active === item.id ? styles.active : null}
-              onClick={() => handleClick(item.id)}
-              key={i}
-              title={item.title}
-            >
-              {item.title.split(" ").length > 3
-                ? `${item.title.split(" ").splice(0, 2).join(" ")} ...`
-                : item.title}
-            </button>
-          );
-        })}
-      </ul>
     </div>
   );
 };

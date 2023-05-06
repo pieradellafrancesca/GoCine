@@ -1,5 +1,10 @@
 .Preorder {
-  margin-top: 100px;
+  margin: 0 auto;
+  margin-top: 8rem;
+
+  min-height: calc(100vh - 8rem);
+  max-width: 1920px;
+
   @include tablet {
     min-height: 100vh;
   }

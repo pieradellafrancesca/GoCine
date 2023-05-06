@@ -267,23 +267,24 @@
     }
   }
 
-  .navControls {
-    height: 100%;
+  .navigation {
     display: flex;
-    gap: 2px;
-    justify-content: center;
     align-items: center;
+    gap: 20px;
 
     .control {
-      padding: 3.2px;
-      background-color: rgba(191, 255, 255, 0.5);
-      border-radius: 3px;
+      border: none;
+      background-color: transparent;
+      color: $light-blue;
+      font-size: 1.5rem;
       cursor: pointer;
-      transition: $transition;
 
-      &:hover {
-        background-color: $light-blue;
-        width: 15px;
+      @include tablet {
+        display: none;
+      }
+
+      @include mobile {
+        display: none;
       }
     }
   }
@@ -295,6 +296,7 @@
   padding: 60px 40px;
   display: flex;
   gap: 30px;
+  scroll-behavior: smooth;
   overflow-x: overlay;
 
   &::-webkit-scrollbar {
