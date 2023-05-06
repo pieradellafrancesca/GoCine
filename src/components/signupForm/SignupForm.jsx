@@ -1,4 +1,5 @@
 import { useContext, useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { Context } from "../../context";
 
 // Firebase
@@ -72,33 +73,28 @@ export default function SignupForm() {
 
   return (
     <div className={styles.SignupForm}>
-      <h2 className={styles.title}>create account</h2>
+      <div className={styles.logoWrapper}>
+        <h1 className={styles.logo}>
+          <span className={styles.flip}>Go</span>
+          <span className={styles.text}>Cine</span>
+        </h1>
+      </div>
+
       <p className="subtitle">Have your tickets in matter of seconds!</p>
       <p className="errorMsg">{error && "Error, missing e-mail / password"}</p>
       <form onSubmit={handleSubmit} className={`${styles.form} form`}>
-        <FormInput
-          type="text"
-          placeholder="username"
-          onChange={handleUser}
-          option="optional"
-        >
+        <FormInput type="text" placeholder="username" onChange={handleUser}>
           <AiOutlineUser className={styles.icons} />
         </FormInput>
 
-        <FormInput
-          type="email"
-          placeholder="e-mail"
-          onChange={handleEmail}
-          option="required"
-        >
+        <FormInput type="email" placeholder="e-mail" onChange={handleEmail}>
           <AiOutlineMail className={styles.icons} />
         </FormInput>
 
         <FormInput
           type="password"
-          placeholder="password - SHIFT to Show"
+          placeholder="password"
           onChange={handlePassword}
-          option="required"
         >
           <AiFillLock className={styles.icons} />
         </FormInput>
@@ -106,9 +102,10 @@ export default function SignupForm() {
         <FormInput type="submit" value="Sign Up" />
       </form>
 
-      <p className={styles.text}>
-        Already have an account ? <span onClick={handleClick}>Login</span>
-      </p>
+      <div className={styles.text}>
+        <p>Already have an account ?</p>
+        <span onClick={handleClick}>Login</span> | <Link to="/">Home</Link>
+      </div>
     </div>
   );
 }

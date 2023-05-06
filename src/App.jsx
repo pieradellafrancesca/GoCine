@@ -14,8 +14,7 @@ import Developers from "./pages/Developers";
 import Tickets from "./pages/Tickets";
 import Preorder from "./pages/Preorder";
 
-
-const currentValue = JSON.parse(localStorage.getItem("isLogged"));
+const isLogged = JSON.parse(localStorage.getItem("isLogged"));
 
 function App() {
   const [state, dispatch] = useReducer(mainReducer, initialState);
@@ -28,11 +27,21 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="developers" element={<Developers />} />
             <Route path="tickets" element={<Tickets />} />
+            <Route
+              path="preorder/:info"
+              element={
+                isLogged ? (
+                  <Preorder />
+                ) : (
+                  <ProtectedRoute>
+                    <Preorder />
+                  </ProtectedRoute>
+                )
+              }
+            />
           </Route>
-          
-          <Route path="preorder/:info" element={<Preorder />} />
+
           <Route path="login" element={<Login />} />
-          
           <Route path="*" element={<Error />} />
         </Routes>
       </Context.Provider>

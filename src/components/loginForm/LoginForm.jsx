@@ -7,10 +7,9 @@ import { useUserAuth } from "../../context/UserAuthContext";
 
 // Components
 import FormInput from "../formInput";
-
 import styles from "./index.module.scss";
 
-import { AiOutlineMail, AiFillLock } from "react-icons/ai";
+import { AiOutlineMail, AiFillLock, AiOutlineArrowLeft } from "react-icons/ai";
 
 export default function LoginForm() {
   //  Context was used to set the forms swith value
@@ -48,8 +47,13 @@ export default function LoginForm() {
 
   return (
     <div className={styles.LoginForm}>
-      <h3 className={styles.title}>user account </h3>
-      <p className="subtitle">Checkout your tickets</p>
+      <div className={styles.logoWrapper}>
+        <h1 className={styles.logo}>
+          <span className={styles.flip}>Go</span>
+          <span className={styles.text}>Cine</span>
+        </h1>
+      </div>
+      <p className="subtitle">Unleashes the full experience</p>
       <p className="errorMsg">
         {error && "Error, incorrect e-mail or password"}
       </p>
@@ -64,7 +68,7 @@ export default function LoginForm() {
 
         <FormInput
           type="password"
-          placeholder="password - SHIFT to Show"
+          placeholder="password"
           onChange={handlePasswordChange}
         >
           <AiFillLock className={styles.icons} />
@@ -72,10 +76,10 @@ export default function LoginForm() {
 
         <FormInput type="submit" value="Login" />
       </form>
-
-      <p className={styles.text}>
-        Don't have an account ? <span onClick={handleClick}>Sign up</span>
-      </p>
+      <div className={styles.text}>
+        <p>Don't have an account ?</p>
+        <span onClick={handleClick}>Sign up</span> | <Link to="/">Home</Link>
+      </div>
     </div>
   );
 }

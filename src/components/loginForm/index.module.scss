@@ -1,40 +1,69 @@
 .LoginForm {
   position: relative;
-  width: 35rem;
-  height: 50rem;
-  background-color: transparent;
+  width: 25rem;
+  height: fit-content;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+
+  border-radius: 20px;
 
   @include mobile {
     width: 80%;
     height: fit-content;
     box-shadow: none;
-    background-color: transparent;
-  }
-
-  .title {
-    font-family: "Anton", sans-serif;
-    color: $blue;
   }
 
   .text {
+    margin-top: 20px;
     color: $grey-50;
     letter-spacing: $letterSpacing;
     font-weight: 100;
+    text-align: center;
+
     span {
-      font-family: "Anton", sans-serif;
-      color: $white;
+      font-weight: 400;
+      color: $grey-50;
       cursor: pointer;
+    }
+
+    a {
+      font-weight: 400;
+      color: $grey-50;
+    }
+  }
+
+  .logoWrapper {
+    margin-bottom: 50px;
+
+    .logo {
+      text-transform: none;
+
+      .flip {
+        margin-right: 5px;
+        border-bottom: 0.75px solid $grey-50;
+        color: $blue;
+        display: inline-block;
+        transform: rotate(-90deg);
+      }
+
+      .text {
+        position: relative;
+        bottom: -10px;
+      }
     }
   }
 
   .form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
     width: 100%;
-    margin-top: 2.5rem;
+    margin-top: 20px;
 
     .icons {
       position: absolute;
