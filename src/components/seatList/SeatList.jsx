@@ -7,6 +7,7 @@ const SeatList = ({
   allSeats,
   ticketInfo,
   ticketList,
+  selectedHour,
 }) => {
   return (
     <div className={styles.SeatList}>
@@ -26,6 +27,7 @@ const SeatList = ({
                     ? true
                     : false
                 }
+                selectedHour={selectedHour}
               />
             );
           }
@@ -47,6 +49,7 @@ const SeatList = ({
                     ? true
                     : false
                 }
+                selectedHour={selectedHour}
               />
             );
           }

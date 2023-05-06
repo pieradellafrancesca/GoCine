@@ -117,95 +117,113 @@ const CinemaRoom = ({
           </div>
         </div>
         <div className={`${styles.credits} flex flex-column`}>
-          <p>
-            <span className={styles.upperSpan}>Directed by:</span>
-            <br />
-            <span className={styles.lowerSpan}>
+          <div className={styles.creditsWrapper}>
+            <p className={styles.upperSpan}>Directed by:</p>
+            <p className={styles.lowerSpan}>
               {credits.crew.map((item) => item.job === "Director" && item.name)}
-            </span>
-          </p>
-          <p>
-            <span className={styles.upperSpan}>Starring:</span>
-            <br />
-            <span className={styles.lowerSpan}>
+            </p>
+          </div>
+          <div className={styles.creditsWrapper}>
+            <p className={styles.upperSpan}>Starring:</p>
+            <p className={styles.lowerSpan}>
               {credits.cast
                 .map((item, i) => i < 5 && item.name)
                 .slice(0, 5)
                 .join(", ")}
-            </span>
-          </p>
+            </p>
+          </div>
         </div>
       </div>
-      <div className={`${styles.middleInfo} flex`}>
-        <div
-          className={`${styles.leftMiddleInfo} flex flex-column justify-content-center align-items-center`}
-        >
-          <div className={styles.cinemaScreen}>
-            <p className={styles.todaysMovie}>{movieInfo.title}</p>
-            <div className={styles.imgOverlay}></div>
-            {movieInfo.backdrop_path && (
-              <img
-                src={`https://image.tmdb.org/t/p/w500/${movieInfo.backdrop_path}`}
-                alt={movieInfo.title}
-              />
-            )}
-          </div>
-          {selectedHour && (
-            <>
-              <SeatList
-                setCount={setCount}
-                setTicketList={setTicketList}
-                allSeats={allSeats}
-                ticketInfo={ticketInfo}
-                setTicketInfo={setTicketInfo}
-                ticketList={ticketList}
-              />
-              <ul className={styles.showcase}>
-                <li>
-                  <div className={styles.seatAvailable}></div>
-                  <small>Available</small>
-                </li>
-                <li>
-                  <div className={styles.seatSelected}></div>
-                  <small>Selected</small>
-                </li>
-                <li>
-                  <div className={styles.seatReserved}></div>
-                  <small>Reserved</small>
-                </li>
-              </ul>
 
-              <p className={styles.text}>
-                You have selected{" "}
-                <span className={styles.bookInfo}>{count}</span> seats for{" "}
-                <span className={styles.bookInfo}>{movieInfo.title}</span>
-              </p>
-            </>
-          )}
-        </div>
+      <div
+        className={`${styles.middleInfo} section flex justify-content-center align-items-center`}
+      >
         <div
-          className={`${styles.rightMiddleInfo} flex flex-column justify-content-center align-items-center`}
+          className={`${styles.pickTime} ${selectedHour && styles.notVisible}`}
         >
-          <section className={`${styles.hour} flex`}>
-            {timetable.map((hour) => (
-              <button
-                className={`${styles.btn} ${
-                  activeBtn === hour.value && styles.active
-                }`}
-                value={hour.value}
-                onClick={onHourClick}
-                key={hour.id}
-              >
-                {hour.time}
-              </button>
-            ))}
-          </section>
-          <TicketBox
-            ticketList={ticketList}
-            setTicketList={setTicketList}
-            setReload={setReload}
-            setModalVisibility={setModalVisibility}
-          />
+          CHOOSE THE TIME...
+        </div>
+
+        <section className={`${styles.hour} flex`}>
+          {timetable.map((hour) => (
+            <button
+              className={`${styles.btn} ${
+                activeBtn === hour.value && styles.active
+              }`}
+              value={hour.value}
+              onClick={onHourClick}
+              key={hour.id}
+            >
+              {hour.time}
+            </button>
+          ))}
+        </section>
+
+        <div
+          className={`${styles.pickTime} ${!selectedHour && styles.notVisible}`}
+        >
+          ...CHOOSE YOUR SEATS
+        </div>
+
+        <div
+          className={`${styles.middleInfoWrapper} flex justify-content-center align-items-center`}
+        >
+          <div
+            className={`${styles.leftMiddleInfo} flex flex-column justify-content-center align-items-center`}
+          >
+            <div className={styles.cinemaScreen}>
+              <p className={styles.todaysMovie}>{movieInfo.title}</p>
+              <div className={styles.imgOverlay}></div>
+              {movieInfo.backdrop_path && (
+                <img
+                  src={`https://image.tmdb.org/t/p/w500/${movieInfo.backdrop_path}`}
+                  alt={movieInfo.title}
+                />
+              )}
+            </div>
+            {
+              <>
+                <SeatList
+                  setCount={setCount}
+                  setTicketList={setTicketList}
+                  allSeats={allSeats}
+                  ticketInfo={ticketInfo}
+                  setTicketInfo={setTicketInfo}
+                  ticketList={ticketList}
+                  selectedHour={selectedHour}
+                />
+                <ul className={styles.showcase}>
+                  <li>
+                    <div className={styles.seatAvailable}></div>
+                    <small>Available</small>
+                  </li>
+                  <li>
+                    <div className={styles.seatSelected}></div>
+                    <small>Selected</small>
+                  </li>
+                  <li>
+                    <div className={styles.seatReserved}></div>
+                    <small>Reserved</small>
+                  </li>
+                </ul>
+
+                <p className={styles.text}>
+                  You have selected{" "}
+                  <span className={styles.bookInfo}>{count}</span> seats for{" "}
+                  <span className={styles.bookInfo}>{movieInfo.title}</span>
+                </p>
+              </>
+            }
+          </div>
+          <div
+            className={`${styles.rightMiddleInfo} flex flex-column justify-content-between align-items-center`}
+          >
+            <TicketBox
+              ticketList={ticketList}
+              setModalVisibility={setModalVisibility}
+              selectedHour={selectedHour}
+            />
+          </div>
         </div>
       </div>
     </div>
