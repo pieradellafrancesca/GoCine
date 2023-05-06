@@ -7,9 +7,9 @@
   align-items: center;
   gap: 30px;
   flex-wrap: wrap;
-  @include mobile {
-    transform: scale(0.5);
-  }
+  // @include mobile {
+  //   transform: scale(0.75);
+  // }
 
   .left {
     width: 40%;
@@ -28,8 +28,8 @@
   }
 }
 
-@media screen and (max-width: 359px) {
-  .SeatList {
-    transform: scale(0.38);
-  }
-}
+// @media screen and (max-width: 359px) {
+//   .SeatList {
+//     transform: scale(0.38);
+//   }
+// }

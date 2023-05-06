@@ -7,27 +7,30 @@ const Seat = ({
   seatNumber,
   ticketInfo,
   isSelected,
+  selectedHour,
 }) => {
   const onHandleClick = (seatNumber) => {
-    if (!seatData) {
-      if (isSelected) {
-        setCount((prev) => prev - 1);
-      } else {
-        setCount((prev) => prev + 1);
-      }
-      setTicketList((prev) => {
-        if (prev.filter((ticket) => ticket.seatNum === seatNumber).length) {
-          return prev.filter((ticket) => ticket.seatNum !== seatNumber);
+    if (selectedHour) {
+      if (!seatData) {
+        if (isSelected) {
+          setCount((prev) => prev - 1);
         } else {
-          return [
-            ...prev,
-            {
-              ...ticketInfo,
-              seatNum: seatNumber,
-            },
-          ];
+          setCount((prev) => prev + 1);
         }
-      });
+        setTicketList((prev) => {
+          if (prev.filter((ticket) => ticket.seatNum === seatNumber).length) {
+            return prev.filter((ticket) => ticket.seatNum !== seatNumber);
+          } else {
+            return [
+              ...prev,
+              {
+                ...ticketInfo,
+                seatNum: seatNumber,
+              },
+            ];
+          }
+        });
+      }
     }
   };
 
