@@ -4,12 +4,18 @@ import styles from "../scss/pages/tickets.module.scss";
 import { useState, useContext, useRef, Fragment } from "react";
 import { Context } from "../context";
 import TicketItem from "../components/ticketItem";
+import TicketToPrint from "../components/ticketToPrint";
 
 const Tickets = () => {
   const { state, dispatch } = useContext(Context);
   const { username } = state.currentUserData;
   const { tickets } = state.currentUserData;
+
   const userTickets = tickets.filter((ticket) => ticket.title != "movie title"); //Prevent undefined Test-Tickets
+  const [ticketContext, setTicketContext] = useState({
+    isVisible: false,
+    payload: {},
+  });
 
   const getDate = () => {
     const dateList = userTickets
@@ -44,7 +50,9 @@ const Tickets = () => {
   return (
     <div className={styles.Tickets}>
       <div className={styles.ticketContainer}>
-        <h2 className={styles.title}>I ticket di {username}</h2>
+        <h2 onClick={() => console.log(ticketContext)} className={styles.title}>
+          I ticket di {username}
+        </h2>
         {getDate().length < 1 ? (
           <>
             <hr />
@@ -74,13 +82,37 @@ const Tickets = () => {
                         dateOfTicket
                     )
                     .map((ticket, i) => (
-                      <TicketItem ticket={ticket} key={ticket.date + i} />
+                      <TicketItem
+                        ticket={ticket}
+                        key={ticket.date + i}
+                        setTicketContext={setTicketContext}
+                      />
                     ))}
                 </div>
               </Fragment>
             ))}
           </>
         )}
+      </div>
+
+      <div
+        onClick={() =>
+          setTicketContext((prev) => ({
+            ...prev,
+            isVisible: !prev.isVisible,
+          }))
+        }
+        className={`${styles.ticketToPrintContainer} ${
+          ticketContext.isVisible && styles.showContainer
+        }`}
+      >
+        <div
+          className={`${styles.ticketToPrint} ${
+            ticketContext.isVisible && styles.moveToMid
+          }`}
+        >
+          <TicketToPrint ticketContext={ticketContext} username={username} />
+        </div>
       </div>
     </div>
   );

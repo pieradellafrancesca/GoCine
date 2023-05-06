@@ -10,11 +10,11 @@
     width: 100%;
     height: 100%;
     padding: 0 20px;
-    border: 0.9px solid $grey-500;
+    border: 0.9px solid $grey-50;
     border-radius: $borderRadius;
     letter-spacing: $letterSpacing;
-    background-color: transparent;
-    color: $grey-50;
+    background-color: $grey-50;
+    color: $grey-800;
 
     &:focus {
       outline: none;
@@ -22,7 +22,7 @@
 
     &::placeholder {
       font-size: 0.75rem;
-      color: $grey-500;
+      color: $grey-800;
       text-transform: capitalize;
     }
 
@@ -39,7 +39,7 @@
     border-radius: $borderRadius;
     letter-spacing: $letterSpacing;
     font-weight: bold;
-    background-color: $secondary-500;
+    background-color: $blue;
     color: $grey-50;
     cursor: pointer;
   }
