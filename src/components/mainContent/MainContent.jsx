@@ -8,7 +8,6 @@ import videoMp4 from "../../../public/video.mp4";
 import styles from "./index.module.scss";
 
 export default function MainContent() {
-
   const { state, dispatch } = useContext(Context);
   const [movieData, setMovieData] = useState({});
   const [movieCast, setMovieCast] = useState([]);
@@ -17,9 +16,7 @@ export default function MainContent() {
 
   const [video, setVideo] = useState(null);
 
-
   const navigate = useNavigate();
-
 
   useEffect(() => {
     GET(state.movieID ? state.movieID : state.nowPlaying[0]?.id).then((data) =>
@@ -50,7 +47,7 @@ export default function MainContent() {
   }, [state.movieID, state.nowPlaying]);
 
   const onHandleClick = () => {
-    navigate("/preorder/640146");
+    navigate(`/preorder/${movieData.id}`);
   };
 
   return (
@@ -64,7 +61,7 @@ export default function MainContent() {
           ) : (
             <video src={videoMp4} muted autoPlay={"autoplay"} loop></video>
           )}
-      
+
           <div className={styles.btn} onClick={onHandleClick}>
             <p className={styles.btnText}>
               go watch{" "}

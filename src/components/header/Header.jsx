@@ -64,11 +64,10 @@ const Header = ({}) => {
     <div className={styles.Header}>
       <div className={styles.navBar}>
         <div className={styles.wrapper}>
-
           <Link to="/">
-               <h4 className={styles.movieTitle}>
-            {title ? title : movieList[0]?.title}
-          </h4>
+            <h4 className={styles.movieTitle}>
+              {title ? title : movieList[0]?.title}
+            </h4>
           </Link>
 
           <ul className={styles.navList}>
@@ -100,7 +99,7 @@ const Header = ({}) => {
           </ul>
         </div>
         <div className={styles.wrapperEnd}>
-          {user && (
+          {state.currentUserData && (
             <span className={styles.yearProd}>
               Welcome {state.currentUserData.username}
             </span>
