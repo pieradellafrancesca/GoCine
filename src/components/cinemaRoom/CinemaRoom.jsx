@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { GET, GET_CAST } from "../../utils/https";
 import { timetable } from "../../utils/mock/timetable";
-// import Loader from "../loader";
 import SeatList from "../seatList/SeatList";
 import styles from "./index.module.scss";
 

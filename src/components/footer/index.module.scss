@@ -22,14 +22,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #19dbe4;
+    background-color: $blue;
+    text-transform: capitalize;
     border: none;
-    padding: 4px;
+    padding: 4px 12px;
   }
   input {
     border-radius: $borderRadius;
     border: none;
-    padding: 5px;
+    outline: none;
+    padding: 6px 12px;
   }
 }
 @include mobile {
@@ -52,7 +54,7 @@
     margin-right: 4px;
   }
   input {
-    width: 330px;
+    width: 280px;
   }
   .movies {
     display: flex;

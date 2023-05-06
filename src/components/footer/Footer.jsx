@@ -35,7 +35,7 @@ const Footer = () => {
         <p>about</p>
         <p>contact</p>
         <p>menu</p>
-        <p>term e condition</p>
+        <p>term & condition</p>
       </div>
     </div>
   );

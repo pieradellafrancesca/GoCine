@@ -22,7 +22,7 @@ const Hero = () => {
     ).then((data) => setVideo(data));
 
     setVideo(null);
-    console.log(movieData);
+    // console.log(movieData);
   }, [state.movieID, state.nowPlaying]);
 
   return (

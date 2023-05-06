@@ -36,9 +36,9 @@ const Seat = ({
 
   return (
     <div
-      className={`${styles.Seat} ${seatData && styles.reserved} ${
-        isSelected && styles.selected
-      }`}
+      className={`${styles.Seat} ${!selectedHour && styles.notAllowed} ${
+        seatData && styles.reserved
+      } ${isSelected && styles.selected} `}
       onClick={() => onHandleClick(seatNumber)}
     ></div>
   );

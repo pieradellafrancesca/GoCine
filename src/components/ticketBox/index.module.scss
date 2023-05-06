@@ -1,8 +1,7 @@
 .TicketBox {
   padding: 30px 0;
-  width: 70%;
-  min-width: 570px;
-  max-height: 700px;
+  width: 100%;
+  min-width: 380px;
   height: 600px;
   @include background-gradient(90deg, $black, rgba(25, 219, 230, 0.2), 1);
   backdrop-filter: blur(20px);
@@ -10,6 +9,9 @@
   border-radius: 18px;
   color: $white;
   overflow-y: scroll;
+  @include mobile {
+    min-width: 100vw;
+  }
 
   &::-webkit-scrollbar {
     display: none;
@@ -19,7 +21,7 @@
     margin-top: 30px;
     width: 50%;
     max-width: 200px;
-    padding: 12px 0;
+    height: 2rem;
     border-radius: 24px;
     border: none;
     background: $grey-400;

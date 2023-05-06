@@ -171,7 +171,7 @@
 
       .btn {
         width: 180px;
-        padding: 12px 18px;
+        height: 2.5rem;
         font-size: $small-text;
         letter-spacing: $letterSpacing;
         border-radius: 24px;
@@ -201,11 +201,13 @@
     .middleInfoWrapper {
       gap: 50px;
       flex-wrap: wrap;
+      @include mobile {
+        width: 100%;
+      }
 
       .leftMiddleInfo {
         width: 45%;
         height: 680px;
-
         gap: 20px;
         padding: 40px;
         border-top: 2px solid $white;
@@ -214,6 +216,7 @@
         }
         @include mobile {
           width: 100%;
+          padding: 40px 0;
         }
 
         .cinemaScreen {
