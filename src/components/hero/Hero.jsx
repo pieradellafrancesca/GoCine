@@ -3,6 +3,8 @@ import { RxDoubleArrowLeft, RxDoubleArrowRight } from "react-icons/rx";
 import { Context } from "../../context";
 
 import { GET, GET_VIDEOS } from "../../utils/https";
+import { searchVideo } from "../../utils/funcs";
+
 import videoMp4 from "/video.mp4";
 import styles from "./index.module.scss";
 
@@ -14,21 +16,27 @@ const Hero = () => {
   const [active, setActive] = useState("");
 
   useEffect(() => {
-    GET(state.movieID ? state.movieID : state.nowPlaying[0]?.id).then((data) =>
-      setMovieData(data)
-    );
+    if (state.movieID || state.nowPlaying[0]?.id) {
+      GET(state.movieID ? state.movieID : state.nowPlaying[0]?.id).then(
+        (data) => {
+          if (data) {
+            setMovieData(data);
+          }
+        }
+      );
 
-    GET_VIDEOS(
-      state.movieID ? state.movieID : state.nowPlaying[0]?.id,
-      "Trailer"
-    ).then((data) => setVideo(data));
+      GET_VIDEOS(state.movieID ? state.movieID : state.nowPlaying[0]?.id).then(
+        ({ results }) => results && searchVideo(results, "Trailer", setVideo)
+      );
+    }
 
     setVideo(null);
-
   }, [state.movieID, state.nowPlaying]);
 
   useEffect(() => {
-    setActive(movieList[0]?.id);
+    if (movieList[0]?.id) {
+      setActive(movieList[0]?.id);
+    }
   }, [movieList[0]?.id]);
 
   useEffect(() => {
@@ -36,11 +44,10 @@ const Hero = () => {
       setMovieList(results);
       dispatch({ type: "SET_NOW_PLAYING", payload: results });
     });
-  }, [state.movieID]);
+  }, []);
 
-  let step =
-    (window.innerWidth || docElem.clientWidth || body.clientWidth) * (25 / 100);
   const refScroll = useRef();
+  let step = window.innerWidth * (25 / 100);
   const handleScroll = (px) => {
     refScroll.current.scrollLeft += px;
   };
@@ -53,10 +60,12 @@ const Hero = () => {
   return (
     <div className={styles.Hero}>
       <div className={styles.imageContainer}>
-        <img
-          src={`https://image.tmdb.org/t/p/original/${movieData.backdrop_path}`}
-          alt=""
-        />
+        {movieData.backdrop_path && (
+          <img
+            src={`https://image.tmdb.org/t/p/original/${movieData?.backdrop_path}`}
+            alt=""
+          />
+        )}
       </div>
       <div className={styles.wrapper}>
         <h1 className={styles.title}>{movieData.title}</h1>

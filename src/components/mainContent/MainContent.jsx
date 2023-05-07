@@ -5,6 +5,8 @@ import { RxDoubleArrowLeft, RxDoubleArrowRight } from "react-icons/rx";
 import { set } from "firebase/database";
 
 import { GET_VIDEOS, GET, GET_CAST, GET_IMAGES } from "../../utils/https";
+import { searchVideo } from "../../utils/funcs";
+
 import videoMp4 from "/video.mp4";
 import styles from "./index.module.scss";
 
@@ -20,29 +22,32 @@ export default function MainContent() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    GET(state.movieID ? state.movieID : state.nowPlaying[0]?.id).then((data) =>
-      setMovieData(data)
-    );
+    if (state.movieID || state.nowPlaying[0]?.id) {
+      GET(state.movieID ? state.movieID : state.nowPlaying[0]?.id).then(
+        (data) => setMovieData(data)
+      );
 
-    GET_CAST(state.movieID ? state.movieID : state.nowPlaying[0]?.id).then(
-      ({ cast, crew }) => {
-        setMovieCast(cast);
-        setMovieCrew(crew);
-      }
-    );
+      GET_CAST(state.movieID ? state.movieID : state.nowPlaying[0]?.id).then(
+        ({ cast, crew }) => {
+          setMovieCast(cast);
+          setMovieCrew(crew);
+        }
+      );
 
-    GET_IMAGES(state.movieID ? state.movieID : state.nowPlaying[0]?.id).then(
-      ({ backdrops }) =>
-        setMovieBackDrop(
-          backdrops &&
-            backdrops[Math.ceil(Math.random() * backdrops.length - 1)]
-        )
-    );
+      GET_IMAGES(state.movieID ? state.movieID : state.nowPlaying[0]?.id).then(
+        ({ backdrops }) => {
+          if (backdrops) {
+            setMovieBackDrop(
+              backdrops[Math.ceil(Math.random() * backdrops.length - 1)]
+            );
+          }
+        }
+      );
 
-    GET_VIDEOS(
-      state.movieID ? state.movieID : state.nowPlaying[0]?.id,
-      "Featurette"
-    ).then((data) => setVideo(data));
+      GET_VIDEOS(state.movieID ? state.movieID : state.nowPlaying[0]?.id).then(
+        ({ results }) => results && searchVideo(results, "Featurette", setVideo)
+      );
+    }
 
     setVideo(null);
   }, [state.movieID, state.nowPlaying]);
@@ -86,10 +91,12 @@ export default function MainContent() {
         <div className={styles.infoMovie}>
           <div className={styles.imgWrapper}>
             <div className={styles.overlay}></div>
-            <img
-              src={`https://image.tmdb.org/t/p/original/${movieBackDrop?.file_path}`}
-              alt=""
-            />
+            {movieBackDrop.file_path && (
+              <img
+                src={`https://image.tmdb.org/t/p/original/${movieBackDrop.file_path}`}
+                alt=""
+              />
+            )}
           </div>
           <div className={styles.infoWrapper}>
             <div className={styles.listWrapper}>
