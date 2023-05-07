@@ -69,7 +69,7 @@ export default function MainContent() {
           <h4 className={styles.title}>about the movie</h4>
 
           {video ? (
-            <iframe src={video}></iframe>
+            <iframe src={video} loading="lazy"></iframe>
           ) : (
             <video src={videoMp4} muted autoPlay={"autoplay"} loop></video>
           )}
@@ -94,7 +94,8 @@ export default function MainContent() {
             {movieBackDrop.file_path && (
               <img
                 src={`https://image.tmdb.org/t/p/original/${movieBackDrop.file_path}`}
-                alt=""
+                alt="backdrop"
+                loading="lazy"
               />
             )}
           </div>
@@ -256,7 +257,8 @@ export default function MainContent() {
                 <div className={styles.imgWrapper}>
                   <img
                     src={`https://image.tmdb.org/t/p/original/${item.profile_path}`}
-                    alt=""
+                    alt={item.title}
+                    loading="lazy"
                   />
                 </div>
                 <div className={styles.infoWrapper}>

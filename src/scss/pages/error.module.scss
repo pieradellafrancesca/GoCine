@@ -1,0 +1,55 @@
+.Error {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+
+    .logoWrapper {
+      margin-bottom: 50px;
+
+      .logo {
+        text-transform: none;
+
+        .flip {
+          margin-right: 5px;
+          border-bottom: 0.75px solid $grey-50;
+          color: $blue;
+          display: inline-block;
+          transform: rotate(-90deg);
+        }
+
+        .text {
+          position: relative;
+          bottom: -10px;
+        }
+      }
+    }
+
+    .errorMsg {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+
+      h5 {
+        text-transform: none;
+      }
+    }
+
+    a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.35rem;
+      color: $blue;
+    }
+  }
+}

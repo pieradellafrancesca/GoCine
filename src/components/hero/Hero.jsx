@@ -63,7 +63,8 @@ const Hero = () => {
         {movieData.backdrop_path && (
           <img
             src={`https://image.tmdb.org/t/p/original/${movieData?.backdrop_path}`}
-            alt=""
+            alt={movieData?.title}
+            loading="lazy"
           />
         )}
       </div>
@@ -73,7 +74,11 @@ const Hero = () => {
           <h4>trailer title</h4>
 
           {video ? (
-            <iframe src={video}></iframe>
+            <iframe
+              src={video}
+              allow="accelerometer;  clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              loading="lazy"
+            ></iframe>
           ) : (
             <video src={videoMp4} muted autoPlay={"autoplay"} loop></video>
           )}
