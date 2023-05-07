@@ -6,7 +6,7 @@ export const numFormat = (num) => {
 
 export const searchVideo = (arr, type, func) => {
   const { key } = arr.find((item) => item.type === type);
-  return func("https://youtube.com/embed/" + key);
+  return func("https://www.youtube-nocookie.com/embed/" + key);
 };
 
 //---------------------------------------------------//
