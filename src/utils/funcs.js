@@ -4,6 +4,11 @@ export const numFormat = (num) => {
     : Math.sign(num) * Math.abs(num);
 };
 
+export const searchVideo = (arr, type, func) => {
+  const { key } = arr.find((item) => item.type === type);
+  return func("https://youtube.com/embed/" + key);
+};
+
 //---------------------------------------------------//
 // Per la Info Page
 //---------------------------------------------------//

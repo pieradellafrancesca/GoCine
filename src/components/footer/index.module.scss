@@ -40,7 +40,6 @@
     }
   }
 
-
   .navFooter {
     width: 250px;
     padding: 10px;
@@ -123,8 +122,13 @@
           color: $grey-800;
           text-transform: capitalize;
         }
+
         &:focus {
           outline: none;
+        }
+
+        &:focus::placeholder {
+          color: transparent;
         }
       }
     }
