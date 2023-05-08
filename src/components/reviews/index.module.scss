@@ -1,0 +1,252 @@
+.Reviews {
+  position: relative;
+  margin: 100px 0px;
+  min-height: 100vh;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  @include mobile {
+    width: 100%;
+    height: 980px;
+  }
+  @include tablet {
+    width: 100%;
+    height: 750px;
+  }
+
+  .imgWrapper {
+    position: relative;
+    width: 80%;
+    aspect-ratio: 16 / 9;
+    z-index: -9;
+
+    @media screen and (max-width: 1280px) {
+      width: 110vw;
+    }
+
+    @include mobile {
+      width: 100%;
+      height: 100%;
+    }
+    @include tablet {
+      width: 100%;
+      height: 100%;
+    }
+
+    .overlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(15, 15, 15, 0.8);
+      z-index: 2;
+    }
+
+    img {
+      position: absolute;
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  .review {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 1980px;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    @include tablet {
+      overflow: scroll;
+    }
+
+    .cardListNav {
+      height: 80px;
+      width: 100%;
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+
+      @include mobile {
+        padding: 20px;
+      }
+
+      .navListTitle {
+        font-weight: 300;
+
+        span {
+          font-size: 0.9rem;
+          font-weight: 100;
+          margin-left: 15px;
+        }
+      }
+    }
+
+    .reviewList {
+      width: 100%;
+      max-width: 1750px;
+      height: calc(100% - 80px);
+      padding: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      overflow-x: hidden;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      @media screen and (max-width: 1420px) {
+        overflow-x: overlay;
+      }
+
+      .reviewCard {
+        min-width: 475px;
+        max-width: 475px;
+        height: 550px;
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        border-radius: 20px;
+        background: #1a1a1ac1;
+        -webkit-backdrop-filter: blur(4px);
+        backdrop-filter: blur(4px);
+
+        @include mobile {
+          min-width: 300px;
+        }
+
+        .authorInfo {
+          display: flex;
+          justify-content: space-between;
+
+          span {
+            font-size: 0.9rem;
+            font-weight: 100;
+          }
+
+          p {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: $green;
+          }
+        }
+
+        hr {
+          border: 0;
+          height: 1px;
+          background: linear-gradient(
+            to left,
+            rgba(0, 0, 0, 0.1),
+            rgba(25, 219, 228, 0.5) 120%
+          );
+        }
+
+        .fade {
+          max-height: 320px;
+          overflow: hidden;
+          background: linear-gradient(
+            to top,
+            rgba(255, 255, 255, 0),
+            rgba(255, 255, 255, 1)
+          );
+          background-clip: text;
+          -webkit-background-clip: text;
+          background-attachment: fixed;
+
+          p {
+            color: transparent;
+          }
+        }
+
+        a {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          text-transform: capitalize;
+          color: $blue;
+        }
+      }
+
+      .seeMore {
+        height: 550px;
+        min-width: 675px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+
+        @include tablet {
+          min-width: 475px;
+        }
+        @include mobile {
+          min-width: 300px;
+        }
+
+        .text {
+          h3 {
+            font-family: "Anton", sans-serif;
+            text-transform: none;
+            margin-bottom: 20px;
+          }
+
+          .ratings {
+            display: flex;
+            gap: 20px;
+
+            @include mobile {
+              flex-direction: column;
+              gap: 0;
+            }
+            span {
+              display: flex;
+              align-items: center;
+              gap: 5px;
+              font-weight: 600;
+              letter-spacing: 1px;
+            }
+
+            span:nth-child(1) {
+              color: $green;
+            }
+            span:nth-child(2) {
+              color: $orange;
+            }
+          }
+        }
+
+        .btn {
+          width: 300px;
+          height: 3rem;
+          padding: 0px 40px;
+          display: flex;
+          align-items: center;
+          border-radius: 40px;
+          background: linear-gradient(
+            to left,
+            rgba(0, 0, 0, 0.05) 5%,
+            rgba(100, 150, 150, 0.75) 100%
+          );
+
+          text-transform: uppercase;
+          text-align: start;
+          font-weight: 500;
+          color: $blue;
+          cursor: pointer;
+
+          @include mobile {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}

@@ -5,9 +5,11 @@ import { useUserAuth } from "../context/UserAuthContext";
 import { db } from "../../firebaseConfig";
 import { onValue, ref } from "firebase/database";
 
-import styles from "../scss/pages/home.module.scss";
-import MainContent from "../components/mainContent";
 import Hero from "../components/hero";
+import MainContent from "../components/mainContent";
+import Reviews from "../components/reviews";
+
+import styles from "../scss/pages/home.module.scss";
 
 const Home = () => {
   // #1 A context was setted to store the data that is in the real time database of the current logged user.
@@ -43,6 +45,7 @@ const Home = () => {
     <section className={styles.Home}>
       <Hero />
       <MainContent />
+      <Reviews />
     </section>
   );
 };

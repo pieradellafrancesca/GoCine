@@ -4,11 +4,14 @@ import { Context } from "../../context";
 import { useUserAuth } from "../../context/UserAuthContext";
 
 import { GET } from "../../utils/https";
+
+import MobileMenu from "../mobileMenu";
 import styles from "./index.module.scss";
 
 const Header = ({}) => {
   const { state, dispatch } = useContext(Context);
   const [movieList, setMovieList] = useState([]);
+  const [active, setActive] = useState(false);
   const [burger, setBurger] = useState(false);
 
   const { user, logout } = useUserAuth();
@@ -17,11 +20,18 @@ const Header = ({}) => {
     window.addEventListener("resize", handleResize);
   }, []);
 
-  const handleResize = () => window.innerWidth > 768 && setBurger(false);
+  useEffect(() => {
+    if (active) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "scroll";
+    }
+  }, [active]);
+
+  const handleResize = () => window.innerWidth > 768 && setActive(false);
 
   const handleBurger = () => {
-    setBurger((prev) => !prev);
-    setUserSelected(false);
+    setActive(true);
   };
 
   const handleLogout = async () => {
@@ -40,54 +50,62 @@ const Header = ({}) => {
 
   return (
     <div className={styles.Header}>
-      <div className={styles.navBar}>
-        <div className={styles.wrapper}>
-          <Link to="/">
-            <h5 className={styles.movieTitle}>gocine</h5>
-          </Link>
-
-          <ul className={styles.navList}>
-            <Link className={styles.link} to="/">
-              home
+      {!active ? (
+        <div className={styles.navBar}>
+          <div className={styles.wrapper}>
+            <Link to="/">
+              <h5 className={styles.movieTitle}>gocine</h5>
             </Link>
 
-            <Link className={styles.link} to="/developers">
-              about
-            </Link>
-
-            {!user && (
-              <Link className={styles.link} to="/login">
-                Login
+            <ul className={styles.navList}>
+              <Link className={styles.link} to="/">
+                home
               </Link>
+
+              <Link className={styles.link} to="/developers">
+                about
+              </Link>
+
+              {!user && (
+                <Link className={styles.link} to="/login">
+                  Login
+                </Link>
+              )}
+
+              {user && (
+                <Link className={styles.link} to="/tickets">
+                  Tickets
+                </Link>
+              )}
+
+              {user && (
+                <Link
+                  className={styles.link}
+                  to="/login"
+                  onClick={handleLogout}
+                >
+                  logout
+                </Link>
+              )}
+            </ul>
+          </div>
+          <div className={styles.wrapperEnd}>
+            {state.currentUserData && (
+              <p className={styles.yearProd}>
+                Welcome <span>| {state.currentUserData?.username}</span>
+              </p>
             )}
 
-            {user && (
-              <Link className={styles.link} to="/tickets">
-                Tickets
-              </Link>
-            )}
-
-            {user && (
-              <Link className={styles.link} to="/login" onClick={handleLogout}>
-                logout
-              </Link>
-            )}
-          </ul>
-        </div>
-        <div className={styles.wrapperEnd}>
-          {state.currentUserData && (
-            <span className={styles.yearProd}>
-              Welcome {state.currentUserData?.username}
-            </span>
-          )}
-
-          <div className={styles.burger}>
-            <div className={styles.line1}></div>
-            <div className={styles.line2}></div>
-            <div className={styles.line3}></div>
+            <div onClick={handleBurger} className={styles.burger}>
+              <div className={styles.line1}></div>
+              <div className={styles.line2}></div>
+              <div className={styles.line3}></div>
+            </div>
           </div>
         </div>
-      </div>
+      ) : (
+        <MobileMenu setActive={setActive} />
+      )}
     </div>
   );
 };

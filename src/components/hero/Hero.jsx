@@ -34,10 +34,14 @@ const Hero = () => {
   }, [state.movieID, state.nowPlaying]);
 
   useEffect(() => {
-    if (movieList[0]?.id) {
+    if (state.movieID) {
+      setActive(state.movieID);
+      return;
+    } else {
       setActive(movieList[0]?.id);
+      return;
     }
-  }, [movieList[0]?.id]);
+  }, [state.movieID, movieList[0]?.id]);
 
   useEffect(() => {
     GET("popular").then(({ results }) => {
@@ -53,7 +57,6 @@ const Hero = () => {
   };
 
   const handleClick = (movieID) => {
-    setActive(movieID);
     dispatch({ type: "SET_MOVIE_ID", payload: movieID });
   };
 

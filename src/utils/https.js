@@ -19,6 +19,12 @@ export const GET_IMAGES = async (id) => {
   return data;
 };
 
+export const GET_REVIEWS = async (id) => {
+  const res = await fetch(`${BASE_URL}movie/${id}/reviews?api_key=${API_KEY}`);
+  const data = await res.json();
+  return data;
+};
+
 export const GET_SEARCH = async (string) => {
   const res = await fetch(
     `${BASE_URL}search/movie?api_key=${API_KEY}&query=${string}`
