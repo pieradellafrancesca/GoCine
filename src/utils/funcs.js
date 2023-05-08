@@ -5,8 +5,13 @@ export const numFormat = (num) => {
 };
 
 export const searchVideo = (arr, type, func) => {
-  const { key } = arr.find((item) => item.type === type);
-  return func("https://www.youtube-nocookie.com/embed/" + key);
+  const data = arr.find((item) => item.type === type);
+
+  if (data) {
+    return func("https://www.youtube-nocookie.com/embed/" + data?.key);
+  } else {
+    return;
+  }
 };
 
 //---------------------------------------------------//

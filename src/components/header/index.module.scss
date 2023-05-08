@@ -91,19 +91,25 @@
       align-items: center;
       gap: 40px;
       .yearProd {
-        font-size: 0.8rem;
+        font-size: 0.9rem;
         font-weight: 200;
-        text-align: end;
+        text-align: center;
+
+        span {
+          letter-spacing: 1px;
+          color: $blue;
+        }
       }
 
       .burger {
         width: 30px;
         height: 30px;
-
         display: none;
         flex-direction: column;
         justify-content: center;
         gap: 5px;
+
+        cursor: pointer;
 
         @include tablet {
           display: flex;

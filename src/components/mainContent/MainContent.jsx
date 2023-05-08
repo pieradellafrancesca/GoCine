@@ -2,7 +2,6 @@ import { useEffect, useState, useContext, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { Context } from "../../context";
 import { RxDoubleArrowLeft, RxDoubleArrowRight } from "react-icons/rx";
-import { set } from "firebase/database";
 
 import { GET_VIDEOS, GET, GET_CAST, GET_IMAGES } from "../../utils/https";
 import { searchVideo } from "../../utils/funcs";
@@ -37,9 +36,7 @@ export default function MainContent() {
       GET_IMAGES(state.movieID ? state.movieID : state.nowPlaying[0]?.id).then(
         ({ backdrops }) => {
           if (backdrops) {
-            setMovieBackDrop(
-              backdrops[Math.ceil(Math.random() * backdrops.length - 1)]
-            );
+            setMovieBackDrop(backdrops[8] ? backdrops[8] : backdrops[0]);
           }
         }
       );
@@ -88,6 +85,7 @@ export default function MainContent() {
             </p>
           </div>
         </div>
+
         <div className={styles.infoMovie}>
           <div className={styles.imgWrapper}>
             <div className={styles.overlay}></div>

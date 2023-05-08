@@ -51,7 +51,7 @@ const Tickets = () => {
     <div className={styles.Tickets}>
       <div className={styles.ticketContainer}>
         <h2 onClick={() => console.log(ticketContext)} className={styles.title}>
-          I ticket di {username}
+          {username}'s tickets
         </h2>
         {getDate().length < 1 ? (
           <>
@@ -118,43 +118,4 @@ const Tickets = () => {
   );
 };
 
-{
-  /* <div className={styles.table}>
-        <div className={styles.headerTable}>
-          <h3>Data</h3>
-          <h3>Ore</h3>
-          <h3>Film</h3>
-          <h3>Poltrona</h3>
-          <h3> </h3>
-        </div>
-        <hr />
-        <div className={styles.mainTable}>
-          <div className={styles.ticketListTable}>
-            {userTickets
-              .filter((item) => item.title != "movie title")
-              .map((ticket, i) => (
-                <UserTicket
-                  goToTicket={goToTicket}
-                  ticket={ticket}
-                  setModalTicketContext={setModalTicketContext}
-                  key={i}
-                />
-              ))}
-          </div>
-        </div>
-      </div>
-
-      <div className={styles.containerForScroll} ref={refTicket}>
-        <div
-          className={`${styles.ticketToPrintContainer} ${
-            modalTicketContext.isVisible && styles.showModal
-          }`}
-        >
-          <TicketToPrint
-            modalTicketContext={modalTicketContext}
-            username={username}
-          />
-        </div>
-      </div> */
-}
 export default Tickets;
