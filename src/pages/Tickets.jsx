@@ -69,8 +69,7 @@ const Tickets = () => {
                       monthName[getMonth(dateOfTicket) - 1]
                     : dateOfTicket.slice(0, 2) +
                       " " +
-                      monthName[getMonth(dateOfTicket)] -
-                      1}
+                      monthName[getMonth(dateOfTicket) - 1]}
                 </h4>
                 <hr />
                 <div className={styles.dayTickets}>
