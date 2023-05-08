@@ -3,190 +3,365 @@
   gap: 50px;
   color: $grey-50;
   letter-spacing: $letterSpacing;
+  flex-wrap: wrap;
   @include mobile {
-    gap: 0;
+    width: 100%;
   }
 
   .upperInfo {
     width: 100%;
-    gap: 20px;
+    gap: 40px;
+    flex-wrap: wrap;
     @include mobile {
       width: 100%;
     }
 
-    p {
-      color: $secondary-500;
-      font-weight: 600;
-    }
-
-    .notVisible {
-      visibility: hidden;
-    }
-
-    .hour {
+    .imgWrapper {
       display: flex;
       justify-content: center;
-      align-items: center;
-      gap: 30px;
-      flex-wrap: wrap;
-
-      .btn {
-        width: 180px;
-        padding: 12px 18px;
-        font-size: $small-text;
-        letter-spacing: $letterSpacing;
-        border-radius: 24px;
-        background: $primary-400;
-        color: $white;
-        border: none;
-        transition: $transition;
-        cursor: pointer;
-        @include mobile {
-          width: 100px;
-          padding: 4px 12px;
-          border-radius: 18px;
-          line-height: 1.5rem;
-        }
-
-        &:hover {
-          background-color: $secondary-500;
-          color: $grey-50;
-        }
+      margin: 0;
+      width: 12%;
+      min-width: 140px;
+      @include tablet {
+        width: 100%;
+      }
+      @include mobile {
+        width: 100%;
       }
 
-      .active {
-        background-color: $secondary-500;
-        color: $grey-50;
+      .posterImg {
+        width: 100%;
+        min-width: 140px;
+        max-width: 160px;
+      }
+    }
+
+    .movieDesc {
+      width: 50%;
+      min-width: 280px;
+      gap: 10px;
+      @include tablet {
+        width: 100%;
+      }
+      @include mobile {
+        width: 100%;
+      }
+
+      h4 {
+        text-decoration: underline;
+        text-decoration-color: $blue;
+      }
+
+      .genre {
+        font-weight: 600;
+      }
+
+      .overview {
+        width: 100%;
+        font-size: $small-text;
+        color: $primary-200;
+      }
+
+      .showInfo {
+        gap: 20px;
+
+        .firstSpan {
+          font-weight: 600;
+        }
+
+        .secondSpan {
+          font-size: $small-text;
+          color: $primary-200;
+        }
+      }
+    }
+
+    .credits {
+      width: 25%;
+      min-width: 260px;
+      gap: 20px;
+      @include tablet {
+        width: 100%;
+      }
+      @include mobile {
+        width: 100%;
+      }
+
+      .creditsWrapper {
+        @include tablet {
+          width: 100%;
+        }
+        @include mobile {
+          width: 100%;
+        }
+        .upperSpan {
+          font-weight: 600;
+          @include tablet {
+            display: inline;
+          }
+          @include mobile {
+            display: inline;
+          }
+        }
+
+        .lowerSpan {
+          font-size: $small-text;
+          color: $primary-200;
+          @include tablet {
+            display: inline;
+          }
+          @include mobile {
+            display: inline;
+          }
+        }
       }
     }
   }
 
   .middleInfo {
-    position: relative;
-    width: 720px;
-    height: 240px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: $borderRadius;
+    margin-bottom: 80px;
+    width: 100%;
+    // height: 720px;
+    gap: 40px;
+    flex-wrap: wrap;
+    @include tablet {
+      width: 100%;
+      margin: 0;
+    }
     @include mobile {
       width: 100%;
-      height: 180px;
-      margin-top: 50px;
+      margin: 0;
     }
 
-    &:before {
-      background: $primary-500;
-      position: absolute;
-      content: "";
-      left: 0;
-      right: 0;
-      top: -25px;
+    .pickTime {
+      width: 92%;
       height: 50px;
-      border-radius: 0 0 50% 50%;
-      z-index: 1;
-    }
-
-    &:after {
-      background: $primary-500;
-      position: absolute;
-      content: "";
-      left: 0;
-      right: 0;
-      bottom: -25px;
-      height: 50px;
-      border-radius: 50% 50% 0 0;
-      // z-index: 1;
-    }
-
-    .todaysMovie {
-      position: absolute;
-      font-size: 2em;
+      padding: 10px 0;
+      @include background-gradient(90deg, $black, rgba(25, 219, 230, 0.2), 1);
+      background-color: $black;
       text-align: center;
+      font-size: 1.1rem;
       font-weight: 600;
-      z-index: 2;
+      color: $white;
+      @include tablet {
+        width: 100%;
+      }
       @include mobile {
-        font-size: 1.4em;
+        width: 100%;
       }
     }
+    .notVisible {
+      visibility: hidden;
+    }
 
-    .imgOverlay {
-      position: absolute;
-      top: 0;
-      left: 0;
+    .hour {
       width: 100%;
-      height: 100%;
-      background: radial-gradient(rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.1));
-      border-radius: $borderRadius;
-      z-index: 1;
-      box-shadow: 0 0 8px 8px $primary-500 inset;
-    }
-
-    .loader {
-      position: absolute;
-      width: 100px;
-      height: 100px;
-      z-index: 20;
-    }
-
-    img {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: $borderRadius;
-    }
-  }
-
-  .showcase {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
-    list-style: none;
-    @include mobile {
-      width: 100%;
-    }
-
-    li {
+      padding-bottom: 20px;
       display: flex;
+      justify-content: center;
       align-items: center;
-      gap: 10px;
+      gap: 30px;
       flex-wrap: wrap;
+      @include tablet {
+        width: 100%;
+      }
+      @include mobile {
+        width: 100%;
+      }
 
-      .seatAvailable,
-      .seatSelected,
-      .seatReserved {
-        width: 20px;
-        height: 20px;
-        border-radius: 4px;
-        @include mobile {
-          width: 14px;
-          height: 14px;
+      .btn {
+        width: 180px;
+        height: 2.5rem;
+        font-size: $small-text;
+        letter-spacing: $letterSpacing;
+        border-radius: 24px;
+        background: $grey-400;
+        color: $white;
+        border: none;
+        transition: $transition;
+        cursor: pointer;
+
+        &:hover {
+          background-color: rgba(191, 255, 255, 0.5);
+          color: $grey-50;
         }
       }
 
-      .seatAvailable {
-        background-color: $grey-50;
-      }
-
-      .seatSelected {
-        background-color: $light-blue;
-      }
-
-      .seatReserved {
-        background-color: $secondary-500;
+      .active {
+        background: linear-gradient(
+          to left,
+          rgba(191, 255, 255, 0.5),
+          $blue 120%
+        );
+        color: $white;
+        font-weight: 600;
       }
     }
-  }
 
-  .text {
-    @include mobile {
-      margin-top: 50px;
-    }
-    .bookInfo {
-      color: $light-blue;
-      font-weight: 700;
+    .middleInfoWrapper {
+      gap: 50px;
+      flex-wrap: wrap;
+      @include mobile {
+        width: 100%;
+      }
+
+
+      .leftMiddleInfo {
+        width: 45%;
+        height: 680px;
+        gap: 20px;
+        padding: 40px;
+        border-top: 2px solid $white;
+        @include tablet {
+          width: 100%;
+        }
+        @include mobile {
+          width: 100%;
+          padding: 40px 0;
+        }
+
+
+        .cinemaScreen {
+          position: relative;
+          width: 100%;
+          max-width: 800px;
+          height: 240px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: $borderRadius;
+
+          &:before {
+            background: $black;
+            position: absolute;
+            content: "";
+            left: 0;
+            right: 0;
+            top: 0px;
+            height: 20px;
+            border-radius: 0 0 50% 50%;
+            border-top-left-radius: $borderRadius;
+            border-top-right-radius: $borderRadius;
+            z-index: 1;
+          }
+
+          &:after {
+            background: $black;
+            position: absolute;
+            content: "";
+            left: 0;
+            right: 0;
+            bottom: 0px;
+            height: 20px;
+            border-radius: 50% 50% 0 0;
+            border-bottom-left-radius: $borderRadius;
+            border-bottom-right-radius: $borderRadius;
+            // z-index: 1;
+          }
+
+          .todaysMovie {
+            position: absolute;
+            font-size: 2em;
+            text-align: center;
+            font-weight: 600;
+            z-index: 2;
+            @include mobile {
+              font-size: 1.4em;
+            }
+          }
+
+          .imgOverlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(
+              rgba(0, 0, 0, 0.95),
+              rgba(0, 0, 0, 0.1)
+            );
+            border-radius: $borderRadius;
+            z-index: 1;
+            box-shadow: 0 0 8px 8px $primary-500 inset;
+          }
+
+          img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: $borderRadius;
+          }
+        }
+
+
+        .showcase {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 30px;
+          list-style: none;
+          @include mobile {
+            width: 100%;
+          }
+
+          li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+
+            .seatAvailable,
+            .seatSelected,
+            .seatReserved {
+              width: 20px;
+              height: 20px;
+              border-radius: 4px;
+              @include mobile {
+                width: 14px;
+                height: 14px;
+              }
+            }
+
+            .seatAvailable {
+              background-color: $grey-300;
+            }
+
+            .seatSelected {
+              background-color: $blue;
+            }
+
+            .seatReserved {
+              background-color: $secondary-500;
+            }
+          }
+        }
+
+        .text {
+          @include mobile {
+            margin-top: 50px;
+          }
+          .bookInfo {
+            color: $blue;
+            font-weight: 700;
+          }
+        }
+
+      }
+
+      .rightMiddleInfo {
+        width: 45%;
+        height: 680px;
+        padding: 40px;
+        gap: 20px;
+        border-top: 2px solid $white;
+        @include tablet {
+          width: 100%;
+        }
+        @include mobile {
+          width: 100%;
+        }
+      }
     }
   }
 }

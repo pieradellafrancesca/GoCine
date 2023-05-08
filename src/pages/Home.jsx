@@ -1,35 +1,23 @@
-import { useState } from "react";
-import styles from "../scss/pages/home.module.scss";
-// import Navbar from "../components/navbar/Navbar";
-// import Footer from "../components/footer";
-// import Header from "../components/header";
-// import UserMiniModal from "../components/userMiniModal";
-
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Context } from "../context";
-import { scrolltoTop } from "../utils/funcs";
 
 import { useUserAuth } from "../context/UserAuthContext";
 import { db } from "../../firebaseConfig";
 import { onValue, ref } from "firebase/database";
 
-import MainContent from "../components/mainContent";
 import Hero from "../components/hero";
+import MainContent from "../components/mainContent";
+import Reviews from "../components/reviews";
+
+import styles from "../scss/pages/home.module.scss";
 
 const Home = () => {
-  // const [userSelected, setUserSelected] = useState(false);
-
-  // =============== // ============== //
-  // Current User Data - Filippo
-
   // #1 A context was setted to store the data that is in the real time database of the current logged user.
   const { state, dispatch } = useContext(Context);
   // #2 Gettin the data from the authentication (uid) so later we can filter it with the data coming from the real time database.
   const { user } = useUserAuth();
 
   useEffect(() => {
-    //2a scrollToTopFunc
-    scrolltoTop();
     // #3 reffering our real time database.
     const usersRef = ref(db, "users");
     // #4 getting the data of the 'users' key.
@@ -51,17 +39,14 @@ const Home = () => {
         }
       }
     });
-  }, []);
+  }, [state.movieID]);
 
   return (
-    <>
+    <section className={styles.Home}>
       <Hero />
-      <section
-        className={`${styles.Home} section flex flex-column justify-content-center align-items-center`}
-      >
-        <MainContent />
-      </section>
-    </>
+      <MainContent />
+      <Reviews />
+    </section>
   );
 };
 

@@ -23,7 +23,7 @@ const Ticket = ({ ticketData }) => {
         <p className={styles.infoDown}>Seat</p>
       </div>
       <div className={styles.wrapper}>
-        <p className={styles.infoUp}>$ {ticketData.price.toFixed(2)}</p>
+        <p className={styles.infoUp}>${ticketData.price.toFixed(2)}</p>
         <p className={styles.infoDown}>Price</p>
       </div>
     </div>

@@ -1,10 +1,7 @@
 import { useState, useEffect } from "react";
-
 import { useParams, useNavigate } from "react-router-dom";
 import { todaysShows, scrolltoTop } from "../utils/funcs";
-
 import CinemaRoom from "../components/cinemaRoom/CinemaRoom";
-import TicketBox from "../components/ticketBox";
 import ModalPayment from "../components/modalPayment";
 import Popup from "../components/popup/Popup";
 import { FaCheck } from "react-icons/fa";
@@ -40,7 +37,7 @@ const Preorder = () => {
 
   return (
     <section
-      className={`${styles.Preorder} section flex flex-column justify-content-center align-items-center`}
+      className={`${styles.Preorder} container flex flex-column justify-content-center align-items-center`}
     >
       <CinemaRoom
         setTicketList={setTicketList}
@@ -51,13 +48,10 @@ const Preorder = () => {
         reload={reload}
         count={count}
         setCount={setCount}
-      />
-      <TicketBox
-        ticketList={ticketList}
-        setTicketList={setTicketList}
-        setReload={setReload}
         setModalVisibility={setModalVisibility}
+        setReload={setReload}
       />
+
       {modalVisibility && (
         <ModalPayment
           setModalVisibility={setModalVisibility}

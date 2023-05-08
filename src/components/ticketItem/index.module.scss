@@ -1,0 +1,36 @@
+.TicketItem {
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  border-radius: 31px 0;
+  background: #1f1f1f;
+  box-shadow: 14px 14px 22px #181818, -14px -14px 22px #262626;
+  cursor: pointer;
+  transition: all 0.35s ease;
+
+  &:hover {
+    background: $light-blue;
+
+    & > h4 {
+      color: $black;
+
+      span {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.seeTicket {
+  color: red;
+  height: 0px;
+  transition: all 0.4s ease-out;
+  overflow: hidden;
+}
+
+.show {
+  height: 50px;
+}

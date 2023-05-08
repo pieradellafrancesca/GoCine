@@ -1,59 +1,69 @@
 .LoginForm {
   position: relative;
-  width: 35rem;
-  height: 50rem;
-  background-color: $primary-900;
-  border-radius: $borderRadius;
-  box-shadow: $shadow-4;
+  width: 25rem;
+  height: fit-content;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+
+  border-radius: 20px;
 
   @include mobile {
     width: 80%;
     height: fit-content;
     box-shadow: none;
-    background-color: transparent;
-  }
-
-  .title {
-    color: $secondary-500;
   }
 
   .text {
+    margin-top: 20px;
     color: $grey-50;
     letter-spacing: $letterSpacing;
     font-weight: 100;
+    text-align: center;
+
     span {
-      color: $secondary-500;
+      font-weight: 400;
+      color: $grey-50;
       cursor: pointer;
+    }
+
+    a {
+      font-weight: 400;
+      color: $grey-50;
     }
   }
 
-  .backBtn {
-    position: absolute;
-    display: flex;
-    top: 1.25rem;
-    left: 1.25rem;
-    padding: 0.45rem;
-    padding-right: 0.6rem;
-    border-radius: 50%;
-    background-color: transparent;
-    border: 0;
-    font-size: 1.75rem;
-    color: $secondary-500;
+  .logoWrapper {
+    margin-bottom: 50px;
 
-    @include mobile {
-      position: static;
-      margin: 20px;
+    .logo {
+      text-transform: none;
+
+      .flip {
+        margin-right: 5px;
+        border-bottom: 0.75px solid $grey-50;
+        color: $blue;
+        display: inline-block;
+        transform: rotate(-90deg);
+      }
+
+      .text {
+        position: relative;
+        bottom: -10px;
+      }
     }
   }
 
   .form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
     width: 100%;
-    margin-top: 2.5rem;
+    margin-top: 20px;
 
     .icons {
       position: absolute;
@@ -62,7 +72,7 @@
       transform: translateY(-50%);
       font-size: 1.25rem;
       font-weight: 100;
-      color: $grey-50;
+      color: $grey-800;
     }
   }
 }

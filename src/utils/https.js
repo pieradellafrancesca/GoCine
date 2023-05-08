@@ -1,5 +1,5 @@
 const BASE_URL = "https://api.themoviedb.org/3/";
-const YOUTUBE_BASE_URL = "https://youtube.com/embed/";
+
 export const IMG_BASE_URL = (path) => {
   const imgUrl = "https://image.tmdb.org/t/p/original" + path;
   return imgUrl;
@@ -9,6 +9,18 @@ const API_KEY = import.meta.env.VITE_MOVIE_API_KEY;
 
 export const GET = async (resource) => {
   const res = await fetch(`${BASE_URL}movie/${resource}?api_key=${API_KEY}`);
+  const data = await res.json();
+  return data;
+};
+
+export const GET_IMAGES = async (id) => {
+  const res = await fetch(`${BASE_URL}movie/${id}/images?api_key=${API_KEY}`);
+  const data = await res.json();
+  return data;
+};
+
+export const GET_REVIEWS = async (id) => {
+  const res = await fetch(`${BASE_URL}movie/${id}/reviews?api_key=${API_KEY}`);
   const data = await res.json();
   return data;
 };
@@ -27,15 +39,13 @@ export const GET_GENRES = async () => {
   return data;
 };
 
-export const GET_VIDEOS = async (movieId) => {
+export const GET_VIDEOS = async (movieId, type) => {
   const res = await fetch(
     `${BASE_URL}movie/${movieId}/videos?api_key=${API_KEY}`
   );
   const data = await res.json();
-  const filteredMovies = data.results.filter((item) => item.type === "Trailer");
-  const { key } = await filteredMovies[0];
-  const URL_YOUTUBE = YOUTUBE_BASE_URL + key;
-  return URL_YOUTUBE;
+
+  return data;
 };
 
 export const GET_CAST = async (movieId) => {

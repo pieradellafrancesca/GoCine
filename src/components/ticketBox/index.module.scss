@@ -1,17 +1,30 @@
 .TicketBox {
-  margin-top: 40px !important;
-  border: 0.9px solid $white;
+  padding: 30px 0;
+  width: 100%;
+  min-width: 380px;
+  height: 600px;
+  @include background-gradient(90deg, $black, rgba(25, 219, 230, 0.2), 1);
+  backdrop-filter: blur(20px);
+  // border: 0.9px solid $white;
   border-radius: 18px;
   color: $white;
+  overflow-y: scroll;
+  @include mobile {
+    min-width: 100vw;
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
   .buyTicket {
     margin-top: 30px;
     width: 50%;
     max-width: 200px;
-    padding: 12px 0;
+    height: 2rem;
     border-radius: 24px;
     border: none;
-    background-color: $primary-400;
+    background: $grey-400;
     color: $white;
     font-weight: 600;
     letter-spacing: $letterSpacing;
@@ -19,9 +32,21 @@
     transition: $transition;
 
     &:hover {
-      background-color: $secondary-500;
-      color: $primary-500;
+      background-color: $blue;
+      color: $black;
     }
+
+
+    &:disabled {
+      cursor: default;
+      background: linear-gradient(
+        to left,
+        rgba(0, 0, 0, 0.95),
+        rgba(255, 255, 255, 0.5) 120%
+      );
+      color: black;
+    }
+
   }
 }
 

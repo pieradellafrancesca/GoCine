@@ -1,16 +1,14 @@
 import Ticket from "../ticket/Ticket";
 import styles from "./index.module.scss";
 
-const TicketBox = ({ ticketList, setModalVisibility }) => {
+const TicketBox = ({ ticketList, setModalVisibility, selectedHour }) => {
   const modalOpen = () => {
     setModalVisibility(true);
   };
 
   return (
     <div
-      className={`${styles.TicketBox} ${
-        ticketList.length ? "section" : styles.void
-      } flex flex-column justify-content-center align-items-center`}
+      className={`${styles.TicketBox} flex flex-column justify-content-start align-items-center`}
     >
       {ticketList
         .sort((ticket1, ticket2) =>
@@ -19,12 +17,15 @@ const TicketBox = ({ ticketList, setModalVisibility }) => {
         .map((ticket, i) => (
           <Ticket key={i} ticketData={ticket} />
         ))}
-      {ticketList.length ? (
-        <button className={styles.buyTicket} onClick={modalOpen}>
-          Pay ${" "}
-          {ticketList.reduce((acc, ticket) => acc + ticket.price, 0).toFixed(2)}
-        </button>
-      ) : null}
+      {!ticketList.length ? <p>Here your selection...</p> : null}
+      <button
+        className={styles.buyTicket}
+        onClick={modalOpen}
+        disabled={!selectedHour || !ticketList.length}
+      >
+        Pay ${" "}
+        {ticketList.reduce((acc, ticket) => acc + ticket.price, 0).toFixed(2)}
+      </button>
     </div>
   );
 };

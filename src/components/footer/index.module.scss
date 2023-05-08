@@ -1,82 +1,135 @@
 .Footer {
+  width: 100%;
+  height: 200px;
+  padding: 20px;
+  margin: 100px 0px;
   display: flex;
-  justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
-  border-top: 0.9px solid $grey-50;
-  padding: 40px;
+  justify-content: space-evenly;
 
-  .infoFooter {
-    width: 333px;
-    height: 200px;
-    margin: 0 10px;
-    cursor: pointer;
+  @include tablet {
+    height: 100%;
+    margin: 100px 0px;
+    flex-direction: column-reverse;
+    gap: 40px;
   }
-  .infoCenter {
-    // border-right: 2px solid $purple;
-    width: 333px;
-    height: 200px;
-    margin: 0 10px;
-    cursor: pointer;
+
+  @include mobile {
+    height: 100%;
+    flex-direction: column-reverse;
+    gap: 40px;
+  }
+
+  .logoWrapper {
+    width: 250px;
     .logo {
-      display: none;
+      position: relative;
+      text-transform: none;
+      .flip {
+        margin-right: 5px;
+        border-bottom: 0.75px solid $grey-50;
+        color: $blue;
+        display: inline-block;
+        transform: rotate(-90deg);
+      }
+
+      .text {
+        position: absolute;
+        bottom: -10px;
+      }
     }
   }
 
-  .infoSocial {
-    width: 333px;
-    height: 200px;
-    margin: 0 10px;
-    gap: 15px;
+  .navFooter {
+    width: 250px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
 
-    cursor: pointer;
-    .socialList {
-      padding: 10px;
-      font-size: 1.2rem;
-
-      :hover {
-        color: $purple;
-        transition: all 0.5s;
+    .navList {
+      letter-spacing: $letterSpacing;
+      font-size: 0.9rem;
+      font-weight: 200;
+      text-transform: capitalize;
+      li {
+        cursor: pointer;
       }
-      .social {
-        span {
-          padding: 10px;
+    }
+
+    .icons {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 1.35rem;
+      cursor: pointer;
+
+      li {
+        display: flex;
+      }
+    }
+  }
+
+  .subs {
+    .label {
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      font-weight: 300;
+    }
+
+    .newsLetter {
+      height: 1.85rem;
+      width: 275px;
+      display: flex;
+
+      button {
+        height: 100%;
+        width: 30%;
+        border: none;
+        text-transform: capitalize;
+        letter-spacing: $letterSpacing;
+        border-left: 1px solid $grey-600;
+        background-color: $light-blue;
+        color: $grey-800;
+        cursor: pointer;
+
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+        transition: $transition;
+
+        &:hover {
+          background-color: $blue;
+          color: $grey-50;
+        }
+
+        &:focus ::placeholder {
+          color: transparent;
         }
       }
-    }
-  }
-  .nameSviluppatori {
-    padding: 0;
-    margin: 0;
-    flex-basis: 100%;
-    text-align: center;
-    display: flex;
-    justify-content: space-around;
-    cursor: pointer;
-    img {
-      width: 50px;
-      height: 50px;
-      border-radius: 100%;
-    }
-    :hover {
-      color: $purple;
-      transition: all 0.5s;
-    }
-  }
 
-  // :hover {
-  //   color: $purple;
-  //   transition: all 0.5s;
-  // }
-}
+      input {
+        padding: 2.5px 10px;
+        border: none;
+        height: 100%;
+        width: 70%;
+        letter-spacing: $letterSpacing;
+        background-color: $grey-50;
+        color: $grey-800;
 
-@include mobile {
-  .Footer {
-    .infoCenter {
-      .logo {
-        display: block;
-        width: 110px;
-        height: 80px;
+        &::placeholder {
+          font-size: 0.75rem;
+          color: $grey-800;
+          text-transform: capitalize;
+        }
+
+        &:focus {
+          outline: none;
+        }
+
+        &:focus::placeholder {
+          color: transparent;
+        }
       }
     }
   }

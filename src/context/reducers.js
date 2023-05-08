@@ -10,5 +10,15 @@ export const mainReducer = (state, action) => {
         ...state,
         currentUserData: action.payload,
       };
+    case "SET_MOVIE_ID":
+      return {
+        ...state,
+        movieID: action.payload,
+      };
+    case "SET_NOW_PLAYING":
+      return {
+        ...state,
+        nowPlaying: action.payload,
+      };
   }
 };

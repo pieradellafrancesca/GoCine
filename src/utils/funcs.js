@@ -4,6 +4,16 @@ export const numFormat = (num) => {
     : Math.sign(num) * Math.abs(num);
 };
 
+export const searchVideo = (arr, type, func) => {
+  const data = arr.find((item) => item.type === type);
+
+  if (data) {
+    return func("https://www.youtube-nocookie.com/embed/" + data?.key);
+  } else {
+    return;
+  }
+};
+
 //---------------------------------------------------//
 // Per la Info Page
 //---------------------------------------------------//

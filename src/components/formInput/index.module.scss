@@ -1,20 +1,19 @@
 .FormInput {
   position: relative;
   width: 100%;
-  max-width: 300px;
-  height: 2.75rem;
+  max-width: 275px;
+  height: 2.5rem;
   margin: 0 auto;
-  margin-bottom: 2.5rem;
 
   .input {
     width: 100%;
     height: 100%;
-    padding: 0 20px;
-    border: 0.9px solid $grey-500;
-    border-radius: $borderRadius;
+    padding: 10px 20px;
+    border: 0;
+    border-radius: 20px;
     letter-spacing: $letterSpacing;
-    background-color: transparent;
-    color: $grey-50;
+    background-color: $grey-50;
+    color: $grey-800;
 
     &:focus {
       outline: none;
@@ -22,7 +21,7 @@
 
     &::placeholder {
       font-size: 0.75rem;
-      color: $grey-500;
+      color: $grey-800;
       text-transform: capitalize;
     }
 
@@ -33,14 +32,20 @@
 
   .subInput {
     width: 100%;
-    height: 100%;
-    margin-top: 0.25rem;
+    height: 2.5rem;
     border: 0;
-    border-radius: $borderRadius;
+    border-radius: 20px;
     letter-spacing: $letterSpacing;
     font-weight: bold;
-    background-color: $secondary-500;
-    color: $grey-50;
+    background-color: $light-blue;
+    color: $grey-800;
     cursor: pointer;
+
+    transition: $transition;
+
+    &:hover {
+      background-color: $blue;
+      color: $grey-50;
+    }
   }
 }

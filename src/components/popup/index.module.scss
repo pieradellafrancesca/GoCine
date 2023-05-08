@@ -10,11 +10,9 @@
   height: 240px;
   padding: 20px;
   border-radius: $borderRadius;
-  // box-shadow: inset 0px 0px 20px 10px $secondary-500;
   border: 2px solid $secondary-50;
   text-align: center;
-  background-color: $primary-800;
-
+  background-color: $grey-600;
   z-index: 2;
   @include mobile {
     width: 90%;
@@ -28,7 +26,7 @@
     font-size: 1.4rem;
     width: 30px;
     height: 30px;
-    color: $secondary-500;
+    color: $white;
     background-color: transparent;
     border: none;
     opacity: 0.5;
@@ -47,18 +45,19 @@
 
   & > :nth-child(4) {
     width: 150px;
-    height: 36px;
+    height: 2rem;
     letter-spacing: $letterSpacing;
     background-color: transparent;
-    color: $secondary-500;
-    border-radius: 18px;
-    border: 0.9px solid $secondary-500;
+    color: $white;
+    border-radius: 20px;
+    border: 0.9px solid $white;
     transition: $transition;
     cursor: pointer;
 
     &:hover {
       background-color: $secondary-500;
       color: $grey-50;
+      border: none;
     }
   }
 }

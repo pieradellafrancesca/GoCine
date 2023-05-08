@@ -2,135 +2,110 @@ import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../../context";
 import { useUserAuth } from "../../context/UserAuthContext";
-import UserMiniModal from "../userMiniModal";
 
+import { GET } from "../../utils/https";
+
+import MobileMenu from "../mobileMenu";
 import styles from "./index.module.scss";
 
 const Header = ({}) => {
-  const [userSelected, setUserSelected] = useState(false);
+  const { state, dispatch } = useContext(Context);
+  const [movieList, setMovieList] = useState([]);
+  const [active, setActive] = useState(false);
   const [burger, setBurger] = useState(false);
 
-  // ===== // ===== //
-  // Display header user data - Filippo
-
-  const { state, dispatch } = useContext(Context);
-  const { user } = useUserAuth();
-
-  // Both context and user (last one coming from UserAuthContext.jsx),
-  // were implemented to check if there is user data
-  // then we'll display their data else the logged out layout is displayed
+  const { user, logout } = useUserAuth();
 
   useEffect(() => {
     window.addEventListener("resize", handleResize);
   }, []);
 
-  const handleResize = () => window.innerWidth > 768 && setBurger(false);
+  useEffect(() => {
+    if (active) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "scroll";
+    }
+  }, [active]);
+
+  const handleResize = () => window.innerWidth > 768 && setActive(false);
 
   const handleBurger = () => {
-    setBurger((prev) => !prev);
-    setUserSelected(false);
-    console.log(burger);
+    setActive(true);
   };
 
-  // ===== // ===== //
-
-  const onHandleUserCLick = () => {
-    setUserSelected((prev) => !prev);
+  const handleLogout = async () => {
+    try {
+      // #1 logout function setted in the UserAuthContext.jsx file
+      await logout();
+      // #2 Set the user logout state in the localStorage
+      window.localStorage.setItem("isLogged", JSON.stringify(false));
+      // #3 Once the user has logged out the data must be cleaned
+      window.localStorage.setItem("currentUser", JSON.stringify(null));
+      dispatch({ type: "SET_CURRENT_USER_DATA", payload: null });
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 
   return (
     <div className={styles.Header}>
-      <div className={styles.userInfo}>
-        {state.currentUserData != null && <p className="upperName">Welcome</p>}
+      {!active ? (
+        <div className={styles.navBar}>
+          <div className={styles.wrapper}>
+            <Link to="/">
+              <h5 className={styles.movieTitle}>gocine</h5>
+            </Link>
 
-        <h4
-          onClick={onHandleUserCLick}
-          className={`${styles.username} ${
-            userSelected && styles.userSelected
-          }`}
-        >
-          {state.currentUserData != null && (
-            <>
-              <span>
-                {state.currentUserData.username}
-                {userSelected ? "▴" : "▾"}
-              </span>
-              <UserMiniModal userSelected={userSelected} />
-            </>
-          )}
-        </h4>
-        {!user && (
-          <div className={styles.logo}>
+            <ul className={styles.navList}>
+              <Link className={styles.link} to="/">
+                home
+              </Link>
 
-            <img src="/logo.svg_3.svg" alt="logo" />
+              <Link className={styles.link} to="/developers">
+                about
+              </Link>
 
+              {!user && (
+                <Link className={styles.link} to="/login">
+                  Login
+                </Link>
+              )}
 
+              {user && (
+                <Link className={styles.link} to="/tickets">
+                  Tickets
+                </Link>
+              )}
 
+              {user && (
+                <Link
+                  className={styles.link}
+                  to="/login"
+                  onClick={handleLogout}
+                >
+                  logout
+                </Link>
+              )}
+            </ul>
           </div>
-        )}
-      </div>
+          <div className={styles.wrapperEnd}>
+            {state.currentUserData && (
+              <p className={styles.yearProd}>
+                Welcome <span>| {state.currentUserData?.username}</span>
+              </p>
+            )}
 
-      {user && (
-        <div className={styles.logo}>
-<Link to="/">
-            <img src="/logo.svg_3.svg" alt="logo" />
-          </Link>
+            <div onClick={handleBurger} className={styles.burger}>
+              <div className={styles.line1}></div>
+              <div className={styles.line2}></div>
+              <div className={styles.line3}></div>
+            </div>
+          </div>
         </div>
+      ) : (
+        <MobileMenu setActive={setActive} />
       )}
-
-      <ul className={styles.navHeader}>
-        <Link className={styles.navLink} to="/">
-          Home
-        </Link>
-        <Link className={styles.navLink} to="/search">
-          Search
-        </Link>
-
-        {!user && (
-          <Link className={styles.navLink} to="/login">
-            Login
-          </Link>
-        )}
-
-        {user && (
-          <Link className={styles.navLink} to="/tickets">
-            Tickets
-          </Link>
-        )}
-      </ul>
-
-      <div onClick={handleBurger} className={styles.burger}>
-        <div className={styles.line}></div>
-        <div className={styles.line}></div>
-        <div className={styles.line}></div>
-      </div>
-
-      <ul
-        className={
-          burger
-            ? ` ${styles.mobileNav} ${styles.showNav}`
-            : `${styles.mobileNav}`
-        }
-      >
-        <Link onClick={handleBurger} className={styles.navLink} to="/">
-          Home
-        </Link>
-        <Link onClick={handleBurger} className={styles.navLink} to="/search">
-          Search
-        </Link>
-
-        {!user && (
-          <Link onClick={handleBurger} className={styles.navLink} to="/login">
-            Login
-          </Link>
-        )}
-
-        {user && (
-          <Link onClick={handleBurger} className={styles.navLink} to="/tickets">
-            Tickets
-          </Link>
-        )}
-      </ul>
     </div>
   );
 };

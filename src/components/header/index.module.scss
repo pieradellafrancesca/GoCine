@@ -1,146 +1,132 @@
-@import "../../scss/helpers/resolutions";
 .Header {
   box-sizing: border-box;
-  position: fixed;
+  position: absolute;
   top: 0;
-  height: 80px;
-  width: 100vw;
-  // background-color: $primary-800;
-  color: $primary-100;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 8rem;
+  width: 100%;
+  padding: 15px;
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
   align-items: center;
-  text-shadow: 0 0 4px black;
-  box-shadow: 0 0 4px black;
+  z-index: 9;
 
-  z-index: 19;
-  padding: 0 20px;
-  backdrop-filter: blur(10px);
-
-  .logo {
-    // color: $secondary-500;
-    // width: 30%;
-    // text-align: center;
-    img {
-      width: 200px;
-      height: 150px;
-    }
-    @include tablet {
-      display: none;
-    }
-
-    @include mobile {
-      display: none;
-    }
-  }
-
-  .userInfo {
-    width: 30%;
-    text-align: center;
-    p {
-      margin: 0;
-    }
-
-    h4 {
-      font-weight: 600;
-      margin: 0;
-      color: $primary-50;
+  .logoWrapper {
+    .logo {
       position: relative;
-      cursor: pointer;
-    }
-  }
+      text-transform: none;
+      .flip {
+        margin-right: 5px;
+        border-bottom: 0.75px solid $grey-50;
+        color: $blue;
+        display: inline-block;
+        transform: rotate(-90deg);
+      }
 
-  .icons {
-    font-size: 2em;
-
-    & > * {
-      margin: 0 10px;
-      cursor: pointer;
-      transition: color 0.4s ease;
-
-      &:hover {
-        color: $secondary-300;
+      .text {
+        position: absolute;
+        bottom: -5px;
+        color: $grey-50;
       }
     }
   }
 
-  .clicked {
-    color: white;
-  }
-
-  .userSelected {
-    span {
-      color: $secondary-400;
-    }
-  }
-
-  // Nav - Mobile nav -- Filippo
-  .navHeader {
+  .navBar {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    gap: 20px;
-    width: 30%;
-    @include mobile {
-      display: none;
-    }
-  }
+    width: 100%;
+    max-width: 1980px;
+    height: 2.5rem;
+    margin: 0 auto;
+    padding: 10px 30px;
+    border-radius: 40px;
+    background-color: $grey-600;
 
-  .navLink {
-    color: $grey-50;
-    letter-spacing: $letterSpacing;
-    font-weight: bold;
-  }
-
-  .mobileNav {
-    position: fixed;
-    top: 80px;
-    right: -300px;
-    background-color: $primary-800;
-    height: calc(100vh - 80px);
-    width: 300px;
-    display: flex;
-    flex-direction: column;
-    padding: 5rem;
-    transition: $transition;
-
-    .navLink {
-      font-size: 1.45rem;
-      font-weight: normal;
-    }
-  }
-
-  .showNav {
-    right: 0;
-    @include desktop {
-      display: none;
-    }
-  }
-
-  .burger {
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 7px;
-    width: 30%;
-    height: 50px;
-    cursor: pointer;
-
-    @include mobile {
+    .wrapper {
       display: flex;
+      gap: 5rem;
+
+      // Modificata
+      // ---------------------------------//
+      & > a > h5 {
+        color: #ffffff;
+      }
+
+      .movieTitle {
+        font-family: "Anton", sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .navList {
+        display: none;
+      }
+
+      .navList {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+
+        @include tablet {
+          display: none;
+        }
+        @include mobile {
+          display: none;
+        }
+
+        .link {
+          text-transform: uppercase;
+          letter-spacing: 0.8px;
+          font-size: 0.8rem;
+          font-weight: 200;
+          color: #ffffff;
+        }
+      }
     }
 
-    .line {
-      background-color: $grey-50;
-      width: 35px;
-      height: 2px;
-    }
-  }
-}
+    .wrapperEnd {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      .yearProd {
+        font-size: 0.9rem;
+        font-weight: 200;
+        text-align: center;
 
-@include mobile {
-  .Header {
-    padding: 0;
+        span {
+          letter-spacing: 1px;
+          color: $blue;
+        }
+      }
+
+      .burger {
+        width: 30px;
+        height: 30px;
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+
+        cursor: pointer;
+
+        @include tablet {
+          display: flex;
+        }
+        @include mobile {
+          display: flex;
+        }
+
+        .line1,
+        .line2,
+        .line3 {
+          height: 2px;
+          width: 100%;
+          border-radius: 10px;
+          background-color: #ffffff;
+        }
+      }
+    }
   }
 }

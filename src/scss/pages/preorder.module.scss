@@ -1,2 +1,14 @@
 .Preorder {
+  margin: 0 auto;
+  margin-top: 8rem;
+
+  min-height: calc(100vh - 8rem);
+  max-width: 1920px;
+
+  @include tablet {
+    min-height: 100vh;
+  }
+  @include mobile {
+    min-height: 100vh;
+  }
 }
