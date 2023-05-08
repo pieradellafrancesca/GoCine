@@ -41,9 +41,6 @@ const CinemaRoom = ({
       setMovieInfo(data);
       setTicketInfo((prev) => ({ ...prev, movie_title: data.title }));
     });
-  }, []);
-
-  useEffect(() => {
     GET_CAST(id).then((data) => setCredits(data));
   }, []);
 
@@ -119,7 +116,10 @@ const CinemaRoom = ({
           <div className={styles.creditsWrapper}>
             <p className={styles.upperSpan}>Directed by:</p>
             <p className={styles.lowerSpan}>
-              {credits.crew.map((item) => item.job === "Director" && item.name)}
+              {credits.crew
+                .filter((item) => item.job === "Director")
+                .map((item) => item.name)
+                .join(", ")}
             </p>
           </div>
           <div className={styles.creditsWrapper}>
