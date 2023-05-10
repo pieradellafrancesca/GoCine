@@ -2,7 +2,7 @@ import styles from "./index.module.scss";
 import { AiFillLinkedin, AiFillGithub, AiFillFacebook } from "react-icons/ai";
 
 const Footer = () => {
-  const menuItems = [, "about", "contact", "terms & conditions"];
+  const menuItems = ["login", "about", "contact", "terms & conditions"];
   const icons = [AiFillLinkedin, AiFillFacebook, AiFillGithub];
 
   return (
