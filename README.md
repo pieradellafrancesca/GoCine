@@ -1,10 +1,13 @@
  <img src="https://media.discordapp.net/attachments/1096026441637957692/1098919431364690030/favicon.png?width=581&height=427" whidth="150" height="150"/>
-
+<h1 >
+   <span>Go</span>
+   <span>Cine</span>
+ </h1>
 
 <hr></hr>
 
 
-<p>MovieGo è un app di visualizzazione Film e trailer grazie all'API di Themoviedb, l'utente potrà accedere a diverse funzionalita :</p>
+<p>GoCine è un app di visualizzazione Film e trailer grazie all'API di Themoviedb, l'utente potrà accedere a diverse funzionalita :</p>
 <li> Home page visualizzazione card </li>
 <li>Pagina Info visualizzazione trailer al click della card con relative informazioni sul film e cast </li>
 <li>Pagina Login / Signup </li>
