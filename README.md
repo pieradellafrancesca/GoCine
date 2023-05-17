@@ -1,4 +1,4 @@
- <img src="https://media.discordapp.net/attachments/1096026441637957692/1098919431364690030/favicon.png?width=581&height=427" whidth="150" height="150"/>
+<!--  <img src="https://media.discordapp.net/attachments/1096026441637957692/1098919431364690030/favicon.png?width=581&height=427" whidth="150" height="150"/> -->
 <h1 >
    <span>Go |</span>
    <span>Cine</span>
